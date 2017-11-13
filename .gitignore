@@ -1,0 +1,32 @@
+#   ┌─┐┬┌┬┐┬┌─┐┌┐┌┌─┐┬─┐┌─┐
+#   │ ┬│ │ ││ ┬││││ │├┬┘├┤
+#  o└─┘┴ ┴ ┴└─┘┘└┘└─┘┴└─└─┘
+
+# dependencies
+node_modules/**
+bower_components/**
+
+# ignore built files
+build/**
+dist/**
+
+# mac system files
+Icon?
+.DS_Store
+
+# private files
+.env
+.variables
+ignore/**
+.ignore
+
+# editor settings
+.vscode
+.idea
+
+# other
+!.gitkeep
+**/*.map
+npm-debug.log
+npm-debug.log.*
+**/__pycache__
