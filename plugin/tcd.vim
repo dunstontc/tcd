@@ -1,9 +1,13 @@
 function! Demo()
-  let curline = getline('.')
+  " let l:curline = getline('.')
   call inputsave()
-  let name = input('Enter name: ')
+  let l:name = input('Enter name: ')
   call inputrestore()
-  call setline('.', curline . ' ' . name)
+  " call setline('.', l:curline . ' ' . l:name)
+  echo ' '
+  echohl String
+  echo 'Hello '.l:name.'!'
+  echohl None
 endfunction
 
 " via http://vim.wikia.com/wiki/Capture_ex_command_output
