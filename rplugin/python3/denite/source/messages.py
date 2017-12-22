@@ -1,95 +1,54 @@
-"""A Denite source for :messages."""
+"""A Denite source for `:messages`."""
 # ==============================================================================
 #  FILE: messages.py
 #  AUTHOR: Clay Dunston <dunstontc at gmail.com>
-#  License: MIT
+#  Last Modified: 2017-12-21
 # ==============================================================================
 
-import os
-from os.path import join
-import glob
-import importlib.machinery
-
-
 from .base import Base
-from denite import util
 
 
 class Source(Base):
     """Make it easier to see our messages."""
 
     def __init__(self, vim):
+        """Character creation."""
         super().__init__(vim)
 
         self.name = 'messages'
         self.kind = 'word'
-        self.vars = {
-            'data_dir': vim.vars.get('projectile#data_dir', '~/.cache/projectile'),
-            'snippets_dir': vim.vars.get('UltiSnipsSnippetDirectories'),
-            'rtp': vim.vars.get('&rtp'),
-            'date_format': '%d %b %Y %H:%M:%S',
-            'exclude_filetypes': ['denite'],
-            'has_devicons': vim.vars.get('loaded_devicons'),
-        }
+        self.vars = {}
 
     def on_init(self, context):
-        context['__messages'] = self.vim.call('messages').split('\n')
-
+        """Capture `:messages`."""
+        context['__messages'] = self.vim.call('execute', 'messages').split('\n')
 
     def gather_candidates(self, context):
-        # the_rtp = self.vim.options['runtimepath'].split(',')
-        # cmd = f"find {' '.join({the_rtp})} -type f | egrep \"(?:.*/rplugin/python3/denite/source/*)(\w*\.py)\""
-
-
+        """And send the messages onward."""
         candidates = []
-        # for item in context.get('source', ''):
-        with open('/Users/clay/test/runtimepath.txt', 'w') as the_file:
-            for item in self.vim.options['runtimepath'].split(','):
-                the_file.write(item + '\n')
-                candidates.append({
-                    'word': 'test',
-                    'abbr': ' '.join(item.values()[1])
-                    # 'abbr': str(item.values())
-                })
+        for item in context['__messages']:
+            candidates.append({
+                # 'word': 'test',
+                'word': item
+                # 'abbr': str(item.values())
+                # join(item.values()[1])
+            })
         return candidates
 
-    def find_rplugins(context, source, loaded_paths):
-        """Search for *.py (From util.py)
+    def define_syntax(self):
+        """Make the messages pretty."""
+        self.vim.command(r'syntax match deniteSource_Messages /^.*$/ containedin=' + self.syntax_name + ' '
+                         r'contains=deniteSource_Messages_Origin,deniteSource_Messages_String,deniteSource_Messages_Command')
+        self.vim.command(r'syntax match deniteSource_Messages_Origin   /^\s(.*)\s/   contained ')
+        self.vim.command(r'syntax match deniteSource_Messages_Origin   /^\s\[.*\]\s/ contained ')
+        self.vim.command(r'syntax match deniteSource_Messages_String   /\s".*"/      contained ')
+        self.vim.command(r"syntax match deniteSource_Messages_String   /\s'.*'/      contained ")
+        self.vim.command(r'syntax match deniteSource_Messages_Command  /\s:\w*\s\ze/ contained ')
+        self.vim.command(r'syntax match deniteSource_Messages_Command  /\s:\w*$/     contained ')
 
-        Searches $VIMRUNTIME/*/rplugin/python3/denite/$source/
-
-        """
-        # TODO: jackpot
-
-        src = join('rplugin/python3/denite', source, '*.py')
-        for runtime in context.get('runtimepath', '').split(','):
-            for path in glob.iglob(os.path.join(runtime, src)):
-                name = os.path.splitext(os.path.basename(path))[0]
-                if ((source != 'kind' and name == 'base') or
-                        name == '__init__' or path in loaded_paths):
-                    continue
-                yield path, name
-
-    def load_sources(self, context):
-        """Load sources from runtimepath.
-            (From denite.py)
-        """
-
-        loaded_paths = [x.path for x in self._sources.values()]
-        for path, name in self.find_rplugins(context, 'source', loaded_paths):
-            module = importlib.machinery.SourceFileLoader(
-                'denite.source.' + name, path).load_module()
-            source = module.Source(self._vim)
-            self._sources[source.name] = source
-            source.path = path
-            syntax_name = 'deniteSource_' + source.name.replace('/', '_')
-            if not source.syntax_name:
-                source.syntax_name = syntax_name
-
-            if source.name in self._custom['alias_source']:
-                # Load alias
-                for alias in self._custom['alias_source'][source.name]:
-                    self._sources[alias] = module.Source(self._vim)
-                    self._sources[alias].name = alias
-                    self._sources[alias].path = path
-                    self._sources[alias].syntax_name = syntax_name
+    def highlight(self):
+        """Make the messages pretty."""
+        self.vim.command('highlight default link deniteSource_Messages         Normal')
+        self.vim.command('highlight default link deniteSource_Messages_Origin  Type')
+        self.vim.command('highlight default link deniteSource_Messages_String  String')
+        self.vim.command('highlight default link deniteSource_Messages_Command PreProc')

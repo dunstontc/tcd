@@ -31,22 +31,6 @@ class Source(Base):
         else:
             context['__command'] = 'diw'
 
-    def highlight(self):
-        self.vim.command(r'highlight default link deniteSource__UltisnipsPath Comment')
-        self.vim.command(r'highlight default link deniteSource__UltisnipsTrigger Identifier')
-        self.vim.command(r'highlight default link deniteSource__UltisnipsDescription Statement')
-
-    def define_syntax(self):
-        self.vim.command('syntax case ignore')
-        self.vim.command(r'syntax match deniteSource__UltisnipsHeader /^.*$/ '
-                         r'containedin=' + self.syntax_name)
-        self.vim.command(r'syntax match deniteSource__UltisnipsPath /\v^\s.{-}\ze\s/ contained '
-                         r'containedin=deniteSource__UltisnipsHeader')
-        self.vim.command(r'syntax match deniteSource__UltisnipsTrigger /\%14c.*\%38c/ contained '
-                         r'containedin=deniteSource__UltisnipsHeader')
-        self.vim.command(r'syntax match deniteSource__UltisnipsDescription /\%39c.*$/ contained '
-                         r'containedin=deniteSource__UltisnipsHeader')
-
     def gather_candidates(self, context):
         args = dict(enumerate(context['args']))
         is_all = str(args.get(0, '')) == 'all'
@@ -72,3 +56,48 @@ class Source(Base):
                 })
         return candidates
 
+    def highlight(self):
+        self.vim.command(r'highlight default link deniteSource__UltisnipsPath        Comment')
+        self.vim.command(r'highlight default link deniteSource__UltisnipsTrigger     Identifier')
+        self.vim.command(r'highlight default link deniteSource__UltisnipsDescription Statement')
+
+    def define_syntax(self):
+        self.vim.command('syntax case ignore')
+        self.vim.command(r'syntax match deniteSource__UltisnipsHeader /^.*$/ '
+                         r'containedin=' + self.syntax_name)
+        self.vim.command(r'syntax match deniteSource__UltisnipsPath        /\v^\s.{-}\ze\s/ contained '
+                         r'containedin=deniteSource__UltisnipsHeader')
+        self.vim.command(r'syntax match deniteSource__UltisnipsTrigger     /\%14c.*\%38c/ contained '
+                         r'containedin=deniteSource__UltisnipsHeader')
+        self.vim.command(r'syntax match deniteSource__UltisnipsDescription /\%39c.*$/ contained '
+                         r'containedin=deniteSource__UltisnipsHeader')
+
+# # ==============================================================================
+# #  FILE: ultisnips.py
+# #  AUTHORS: Alex LaFroscia & Herrington Darkholme
+# #  License: GPL v3.0
+# #  Last Modified: Jan 22, 2016
+# # ==============================================================================
+#
+# from .base import Base
+#
+# class Source(Base):
+#     def __init__(self, vim):
+#         Base.__init__(self, vim)
+#
+#         self.name = 'ultisnips'
+#         self.mark = '[US]'
+#         self.rank = 8
+#
+#     def gather_candidates(self, context):
+#         suggestions = []
+#         snippets = self.vim.eval(
+#             'UltiSnips#SnippetsInCurrentScope()')
+#         for trigger in snippets:
+#             suggestions.append({
+#                 'word': trigger,
+#                 'menu': self.mark + ' ' + snippets.get(trigger, ''),
+#                 'dup': 1
+#             })
+#         return suggestions
+#
