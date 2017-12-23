@@ -1,9 +1,13 @@
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+""
+" @section Autoload, autoload
+" Assorted functions.
+"
 
 
-" =============================================================================
-
-" https://github.com/wincent/wincent
+""
+" @function(tcd#ClearRegisters)
+" Clear all registers.
+" @via(https://github.com/wincent/wincent)
 function! tcd#ClearRegisters() abort
   let l:regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
   let l:i=0
@@ -13,10 +17,10 @@ function! tcd#ClearRegisters() abort
   endwhile
 endfunction
 
-" =============================================================================
-
-" https://github.com/mhartington/dotfiles/blob/master/config/nvim/init.vim#L216 🙏
-" Log scope @ the cursor
+""
+" function(tcd#SynStack)
+" Log syntax scope(s) at the cursor.
+" @via(https://github.com/mhartington/dotfiles/blob/master/config/nvim/init.vim#L217)
 function! tcd#SynStack() abort
   if !exists('*synstack')
     return
@@ -26,8 +30,9 @@ function! tcd#SynStack() abort
   echo l:syntaks
 endfunction
 
-" =============================================================================
-
+""
+" @function(tcd#TwoSplit) {filepath}
+" Given a {filepath}, either open or split the destination.
 " TODO: take non-string input. Parse $HOME.
 function! tcd#TwoSplit(filepath) abort
   let l:confirmed = confirm('Open in a new window?', "&Yes\n&No", 2)
@@ -38,7 +43,20 @@ function! tcd#TwoSplit(filepath) abort
   endif
 endfunction
 
-" =============================================================================
+""
+" @function(tcd#Demo)
+" Prompts for a name and echos it back.
+function! tcd#Demo()
+  " let l:curline = getline('.')
+  call inputsave()
+  let l:name = input('Enter name: ')
+  call inputrestore()
+  " call setline('.', l:curline . ' ' . l:name)
+  echo ' '
+  echohl String
+  echo 'Hello '.l:name.'!'
+  echohl None
+endfunction
 
 " via http://vim.wikia.com/wiki/Capture_ex_command_output
 " function! tcd#DataMessage(cmd) abort
@@ -88,7 +106,9 @@ endfunction
 
 
 " =============================================================================
-" =============================================================================
+""
+" @private
+"
 function! s:fnameescape(file) abort
   if exists('*fnameescape')
     return fnameescape(a:file)

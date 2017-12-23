@@ -1,14 +1,9 @@
-function! Demo()
-  " let l:curline = getline('.')
-  call inputsave()
-  let l:name = input('Enter name: ')
-  call inputrestore()
-  " call setline('.', l:curline . ' ' . l:name)
-  echo ' '
-  echohl String
-  echo 'Hello '.l:name.'!'
-  echohl None
-endfunction
+
+
+""
+" @setting(tcd#snippets_path)
+" Full path to the folder containing Ultisnips snippets.
+let g:tcd#snippets_path = '~/.dotfiles/editors/nvim/snipz'
 
 " via http://vim.wikia.com/wiki/Capture_ex_command_output
 " function! DataMessage(cmd) abort
