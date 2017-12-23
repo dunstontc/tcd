@@ -33,8 +33,8 @@ endfunction
 ""
 " @function(tcd#TwoSplit) {filepath}
 " Given a {filepath}, either open or split the destination.
-" TODO: take non-string input. Parse $HOME.
 function! tcd#TwoSplit(filepath) abort
+  " TODO: take non-string input. Parse $HOME.
   let l:confirmed = confirm('Open in a new window?', "&Yes\n&No", 2)
   if l:confirmed == 1
     execute "vsplit ".fnameescape(a:filepath)

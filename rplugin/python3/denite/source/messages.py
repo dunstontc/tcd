@@ -1,7 +1,7 @@
 """A Denite source for `:messages`."""
 # ==============================================================================
 #  FILE: messages.py
-#  AUTHOR: Clay Dunston <dunstontc at gmail.com>
+#  AUTHOR: Clay Dunston <dunstontc@gmail.com>
 #  Last Modified: 2017-12-21
 # ==============================================================================
 
