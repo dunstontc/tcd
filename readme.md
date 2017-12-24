@@ -8,9 +8,9 @@ These are just scripts, functions, and ideas that I'm fooling around with; feel 
   - `:Denite messages`
     - Source for Vim's messages
   - `:Denite sauce`
-    - Source for Denite sources **(WIP)**
+    - Source for Denite sources
   - `:Denite ultisnips`
-    - Source for Ultisnips snippets **(WIP)**
+    - Source for Ultisnips snippets
 
 
 ## vim() ##
