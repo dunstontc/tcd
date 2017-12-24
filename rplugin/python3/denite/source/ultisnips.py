@@ -52,7 +52,7 @@ class Source(Base):
 
         for item in context['snippetz']:
             candidates.append({
-                'word': str(item),
+                'word': item['key'],
                 'abbr': f"{item['key']:<{key_len}} -- {item['description']}",
                 '__path': item['path'],
                 '__line': item['linenr']
