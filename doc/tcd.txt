@@ -1,0 +1,49 @@
+*tcd.txt*	Experiments and such.
+Clay Dunston <dunstontc@gmail.com>                                       *tcd*
+
+==============================================================================
+CONTENTS                                                        *tcd-contents*
+  1. Configuration................................................|tcd-config|
+  2. Settings...................................................|tcd-settings|
+  3. Functions.................................................|tcd-functions|
+
+==============================================================================
+CONFIGURATION                                                     *tcd-config*
+
+                                                                       *g:tcd*
+|g:tcd#snippets_path| Full path to the folder containing Ultisnips snippets.
+
+==============================================================================
+SETTINGS                                                        *tcd-settings*
+
+
+
+==============================================================================
+FUNCTIONS                                                      *tcd-functions*
+
+Assorted functions.
+
+
+tcd#ClearRegisters()                                    *tcd#ClearRegisters()*
+  |tcd#ClearRegisters()| Clear all registers.
+  via(https://github.com/wincent/wincent)
+
+tcd#SynStack()                                                *tcd#SynStack()*
+  function(tcd#SynStack) Log syntax scope(s) at the cursor. via(https://github
+  .com/mhartington/dotfiles/blob/master/config/nvim/init.vim#L217)
+
+tcd#TwoSplit({filepath})                                      *tcd#TwoSplit()*
+  |tcd#TwoSplit()| {filepath} Given a {filepath}, either open or split the
+  destination.
+
+tcd#Demo()                                                        *tcd#Demo()*
+  |tcd#Demo()| Prompts for a name and echos it back.
+
+tcd#Feedkeys({keys})                                          *tcd#Feedkeys()*
+  |mappings#feedkeys()| {keys} From chemzqm/denite-extras
+
+tcd#Search({keys})                                              *tcd#Search()*
+  |mappings#search()| {keys} From chemzqm/denite-extras
+
+
+vim:tw=78:ts=8:ft=help:norl:

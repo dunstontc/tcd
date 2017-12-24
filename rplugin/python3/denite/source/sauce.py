@@ -27,6 +27,7 @@ class Source(Base):
 
     def on_init(self, context):
         """I will travel across the land, searching far and wide."""
+        # TODO: Actions just feed the word, but if there are arg options, prompt for them
 
     def gather_candidates(self, context):
         """Each Denite source, to understand, the power that's insiiide."""
@@ -46,7 +47,7 @@ class Source(Base):
             if source != str('__init__') and source != str('base'):
                 candidates.append({
                     'word': source,
-                    'abbr': f'{source} -- {root}',
+                    'abbr': f"{source} -- {root}",
                     'action__command': 'Denite ' + source,
                 })
 

@@ -1,0 +1,6 @@
+{
+  "name": "tcd",
+  "description": "Experiments and such.",
+  "author": "Clay Dunston <dunstontc@gmail.com>",
+  "repository": {"type": "git", "url": "git://github.com/dunstontc/tcd"}
+}
