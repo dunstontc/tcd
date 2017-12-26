@@ -2,7 +2,7 @@
 # ==============================================================================
 #  FILE: messages.py
 #  AUTHOR: Clay Dunston <dunstontc@gmail.com>
-#  Last Modified: 2017-12-21
+#  Last Modified: 2017-12-26
 # ==============================================================================
 
 from .base import Base
@@ -27,28 +27,33 @@ class Source(Base):
         """And send the messages onward."""
         candidates = []
         for item in context['__messages']:
-            candidates.append({
-                # 'word': 'test',
-                'word': item
-                # 'abbr': str(item.values())
-                # join(item.values()[1])
-            })
+            if len(item):
+                candidates.insert(0, {
+                    'word': item,
+                })
         return candidates
 
     def define_syntax(self):
-        """Make the messages pretty."""
+        """Define Vim regular expressions for syntax highlighting."""
         self.vim.command(r'syntax match deniteSource_Messages /^.*$/ containedin=' + self.syntax_name + ' '
-                         r'contains=deniteSource_Messages_Origin,deniteSource_Messages_String,deniteSource_Messages_Command')
-        self.vim.command(r'syntax match deniteSource_Messages_Origin   /^\s(.*)\s/   contained ')
-        self.vim.command(r'syntax match deniteSource_Messages_Origin   /^\s\[.*\]\s/ contained ')
-        self.vim.command(r'syntax match deniteSource_Messages_String   /\s".*"/      contained ')
-        self.vim.command(r"syntax match deniteSource_Messages_String   /\s'.*'/      contained ")
-        self.vim.command(r'syntax match deniteSource_Messages_Command  /\s:\w*\s\ze/ contained ')
-        self.vim.command(r'syntax match deniteSource_Messages_Command  /\s:\w*$/     contained ')
+                         r'contains=deniteSource_Messages_Origin,deniteSource_Messages_String,deniteSource_Messages_Command,deniteSource_Messages_Err,deniteSource_Messages_Err,deniteSource_Messages_Noise')
+        self.vim.command(r'syntax match deniteSource_Messages_Noise    /\( -- \)/       contained ')
+        self.vim.command(r'syntax match deniteSource_Messages_Noise    /\(File\)/       contained ')
+        self.vim.command(r'syntax match deniteSource_Messages_Origin   /^\s(.*)\s/      contained ')
+        self.vim.command(r'syntax match deniteSource_Messages_Origin   /^\s\[.*\]\s/    contained ')
+        self.vim.command(r'syntax match deniteSource_Messages_String   /\s".*"/         contained ')
+        self.vim.command(r'syntax match deniteSource_Messages_String   /\s".*"/         contained ')
+        self.vim.command(r'syntax match deniteSource_Messages_Command  /\s:\w*\s\ze/    contained ')
+        self.vim.command(r'syntax match deniteSource_Messages_Command  /\s:\w*$/        contained ')
+        self.vim.command(r'syntax match deniteSource_Messages_Err      /[DEFW]\d\+/     contained ')
+        self.vim.command(r"syntax match deniteSource_Messages_Num      /\d/             contained ")
 
     def highlight(self):
-        """Make the messages pretty."""
+        """Define Vim regular expressions for syntax highlighting."""
         self.vim.command('highlight default link deniteSource_Messages         Normal')
+        self.vim.command('highlight default link deniteSource_Messages_Noise   Comment')
         self.vim.command('highlight default link deniteSource_Messages_Origin  Type')
         self.vim.command('highlight default link deniteSource_Messages_String  String')
         self.vim.command('highlight default link deniteSource_Messages_Command PreProc')
+        self.vim.command('highlight default link deniteSource_Messages_Err     Error')
+        self.vim.command('highlight default link deniteSource_Messages_Num     Number')

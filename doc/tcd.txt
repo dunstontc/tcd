@@ -10,7 +10,7 @@ CONTENTS                                                        *tcd-contents*
 ==============================================================================
 CONFIGURATION                                                     *tcd-config*
 
-                                                                       *g:tcd*
+                                                         *g:tcd#snippets_path*
 |g:tcd#snippets_path| Full path to the folder containing Ultisnips snippets.
 
 ==============================================================================
@@ -25,25 +25,29 @@ Assorted functions.
 
 
 tcd#ClearRegisters()                                    *tcd#ClearRegisters()*
-  |tcd#ClearRegisters()| Clear all registers.
-  via(https://github.com/wincent/wincent)
+  Clear all registers. From 'https://github.com/wincent/wincent'
 
 tcd#SynStack()                                                *tcd#SynStack()*
-  function(tcd#SynStack) Log syntax scope(s) at the cursor. via(https://github
-  .com/mhartington/dotfiles/blob/master/config/nvim/init.vim#L217)
+  Log syntax scope(s) at the cursor.
+  From https://github.com/mhartington/dotfiles'
 
 tcd#TwoSplit({filepath})                                      *tcd#TwoSplit()*
-  |tcd#TwoSplit()| {filepath} Given a {filepath}, either open or split the
-  destination.
+  Given a {filepath}, either open or split the destination.
 
 tcd#Demo()                                                        *tcd#Demo()*
-  |tcd#Demo()| Prompts for a name and echos it back.
+  Prompts for a name and echos it back.
 
 tcd#Feedkeys({keys})                                          *tcd#Feedkeys()*
-  |mappings#feedkeys()| {keys} From chemzqm/denite-extras
+  From 'https://github.com/chemzqm/denite-extras'
 
 tcd#Search({keys})                                              *tcd#Search()*
-  |mappings#search()| {keys} From chemzqm/denite-extras
+  From 'https://github.com/chemzqm/denite-extras'
+
+tcd#GetAllSnippets()                                    *tcd#GetAllSnippets()*
+  Returns a list with all Ultisnips snippets in the current scope.
+
+tcd#GetCmdCompletion({cmd_prefix})                    *tcd#GetCmdCompletion()*
+  From 'http://vim.wikia.com/wiki/Get_ex_command_line_completion_as_a_list'
 
 
 vim:tw=78:ts=8:ft=help:norl:

@@ -54,10 +54,25 @@ class Source(Base):
             candidates.append({
                 'word': item['key'],
                 'abbr': f"{item['key']:<{key_len}} -- {item['description']}",
-                '__path': item['path'],
-                '__line': item['linenr']
+                'action__path': item['path'],
+                'action__line': item['linenr'],
+                'action__col': 0,
             })
         return candidates
+
+    def define_syntax(self):
+        self.vim.command(r'syntax match deniteSource_TCD /^.*$/ '
+                         r'containedin=' + self.syntax_name + ' '
+                         r'contains=deniteSource_TCD_Noise,deniteSource_TCD_Key')
+                         # r'contains=deniteSource_TCD_Noise,deniteSource_TCD_Var,deniteSource_TCD_Num,deniteSource_TCD_String,deniteSource_TCD_Other,deniteSource_TCD_Map,deniteSource_TCD_Punc')
+        self.vim.command(r'syntax match  deniteSource_TCD_Noise  /\(\s--\s\)/                 contained')
+        self.vim.command(r'syntax match  deniteSource_TCD_Key    /^\(.*\)\(\( -- .*\)\)\@=/   contained')
+
+
+    def highlight(self):
+        self.vim.command('highlight link deniteSource_TCD        Normal')
+        self.vim.command('highlight link deniteSource_TCD_Noise  Comment')
+        self.vim.command('highlight link deniteSource_TCD_Key    Identifier')
 
 # {
 #     'linenr': '692',
@@ -134,32 +149,4 @@ class Source(Base):
     #     self.vim.command(r'syntax match deniteSource__UltisnipsDescription /\%39c.*$/ contained '
     #                      r'containedin=deniteSource__UltisnipsHeader')
 
-# # ==============================================================================
-# #  FILE: ultisnips.py
-# #  AUTHORS: Alex LaFroscia & Herrington Darkholme
-# #  License: GPL v3.0
-# #  Last Modified: Jan 22, 2016
-# # ==============================================================================
-#
-# from .base import Base
-#
-# class Source(Base):
-#     def __init__(self, vim):
-#         Base.__init__(self, vim)
-#
-#         self.name = 'ultisnips'
-#         self.mark = '[US]'
-#         self.rank = 8
-#
-#     def gather_candidates(self, context):
-#         suggestions = []
-#         snippets = self.vim.eval(
-#             'UltiSnips#SnippetsInCurrentScope()')
-#         for trigger in snippets:
-#             suggestions.append({
-#                 'word': trigger,
-#                 'menu': self.mark + ' ' + snippets.get(trigger, ''),
-#                 'dup': 1
-#             })
-#         return suggestions
-#
+

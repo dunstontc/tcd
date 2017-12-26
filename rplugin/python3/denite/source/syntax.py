@@ -1,4 +1,4 @@
-"""A Denite source for `:syntax`."""
+"""A Denite source for syntax highlighting groups."""
 # ==============================================================================
 #  FILE: syntax.py
 #  AUTHOR: Clay Dunston <dunstontc@gmail.com>
@@ -22,15 +22,15 @@ class Source(Base):
         self.vars = {}
 
     def on_init(self, context):
-        """Capture `:syntax`."""
-        context['__messages'] = self.vim.call('execute', 'syntax').split('\n')
+        """Capture ``:syntax``."""
+        context['__scopes'] = self.vim.call('execute', 'syntax').split('\n')
 
     def gather_candidates(self, context):
         """And send the candidates onward."""
         candidates = []
         syntax_pattern = re.compile(r'^\w+')
 
-        for item in context['__messages']:
+        for item in context['__scopes']:
             scoop = syntax_pattern.match(item)
             if not str(scoop) == 'None':
                 candidates.append({

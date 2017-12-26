@@ -1,71 +1,59 @@
-"""A Denite source for Vim variables."""
+"""A Denite source for Vim options."""
 # ==============================================================================
-#  FILE: var.py
+#  FILE: opt.py
 #  AUTHOR: Clay Dunston <dunstontc@gmail.com>
-#  Last Modified: 2017-12-25
+#  Last Modified: 2017-12-24
 # ==============================================================================
 
-from re import compile, M
+import re
 
 from .base import Base
 
+search_pattern = re.compile(r'^(\S+)\s+(.*)$', re.M)
+
+
+def get_width(array, attribute):
+    """Get the max string length for an attribute in a collection."""
+    max_count = int(0)
+    for item in array:
+        cur_attr = item[attribute]
+        cur_len = len(cur_attr)
+        if cur_len > max_count:
+            max_count = cur_len
+    return max_count
+
 
 class Source(Base):
-    """A Denite source for Vim variables."""
 
     def __init__(self, vim):
         super().__init__(vim)
 
-        self.name = 'var'
+        self.name = 'opt'
         self.kind = 'word'
         self.vars = {}
 
+    def on_init(self, context):
+        context['__opts'] = self.vim.call('execute', 'set ').split('\n')
 
     def gather_candidates(self, context):
-        context['__vars'] = self.vim.call('execute', 'let ').split('\n')
-        search_pattern = compile(r'^(\S+)\s+(.*)$', M)
         candidates = []
-        for item in context['__vars']:
+        for item in context['__opts']:
             matches = search_pattern.search(item)
             if matches:
                 candidates.append({
                     'word': matches.group(1),
-                    'value': matches.group(2)
+                    '__description': matches.group(2)
                 })
 
-        return self._convert(candidates)
-
-    def _convert(self, candidates):
-        """Format and add metadata to gathered candidates.
-
-        Parameters
-        ----------
-        candidates : list
-
-        Returns
-        -------
-        A sexy source.
-
-        """
-        var_len  = self._get_length(candidates, 'word')
+        var_len = get_width(candidates, 'word')
 
         for candidate in candidates:
             candidate['abbr'] = "{0:<{var_len}} -- {1}".format(
                 candidate['word'],
-                candidate['value'],
-                var_len=var_len,
+                candidate['__description'],
+                var_len=var_len
             )
         return candidates
-
-    def _get_length(self, array, attribute):
-        """Get the max string length for an attribute in a collection."""
-        max_count = int(0)
-        for item in array:
-            cur_attr = item[attribute]
-            cur_len = len(cur_attr)
-            if cur_len > max_count:
-                max_count = cur_len
-        return max_count
 
     def define_syntax(self):
         self.vim.command(r'syntax match deniteSource_TCD /^.*$/ '

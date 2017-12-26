@@ -1,4 +1,3 @@
-
 ""
 " @section Functions, functions
 " Assorted functions.
@@ -6,9 +5,8 @@
 
 ""
 " @public
-" @function(tcd#ClearRegisters)
 " Clear all registers.
-" via(https://github.com/wincent/wincent)
+" From 'https://github.com/wincent/wincent'
 function! tcd#ClearRegisters() abort
   let l:regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
   let l:i=0
@@ -20,9 +18,8 @@ endfunction
 
 ""
 " @public
-" function(tcd#SynStack)
 " Log syntax scope(s) at the cursor.
-" via(https://github.com/mhartington/dotfiles/blob/master/config/nvim/init.vim#L217)
+" From https://github.com/mhartington/dotfiles/blob/master/config/nvim/init.vim#L217'
 function! tcd#SynStack() abort
   if !exists('*synstack')
     return
@@ -34,7 +31,6 @@ endfunction
 
 ""
 " @public
-" @function(tcd#TwoSplit) {filepath}
 " Given a {filepath}, either open or split the destination.
 function! tcd#TwoSplit(filepath) abort
   " TODO: take non-string input. Parse $HOME.
@@ -48,14 +44,11 @@ endfunction
 
 ""
 " @public
-" @function(tcd#Demo)
 " Prompts for a name and echos it back.
 function! tcd#Demo()
-  " let l:curline = getline('.')
   call inputsave()
   let l:name = input('Enter name: ')
   call inputrestore()
-  " call setline('.', l:curline . ' ' . l:name)
   echo ' '
   echohl String
   echo 'Hello '.l:name.'!'
@@ -64,8 +57,7 @@ endfunction
 
 ""
 " @public
-" @function(mappings#feedkeys) {keys}
-" From chemzqm/denite-extras
+" From 'https://github.com/chemzqm/denite-extras'
 function! tcd#Feedkeys(keys)
   let s:map = a:keys
   " let s:map = substitute(s:map, '<NL>', '<C-j>', 'g')
@@ -80,12 +72,11 @@ function! tcd#Feedkeys(keys)
     endfunction
     call timer_start(500, function('s:Callback'))
   endif
-endfunction
+endfunction[denite] NameError: Source "DeniteBufferDir DeniteCursorWord DeniteGhq DeniteGithubStarsFetch DeniteProjectDir^F"vyyo" is not found.
 
 ""
 " @public
-" @function(mappings#search) {keys}
-" From chemzqm/denite-extras
+" From 'https://github.com/chemzqm/denite-extras'
 function! tcd#Search(keys)
   let l:keys = a:keys
   function! Callback(...)
@@ -94,8 +85,8 @@ function! tcd#Search(keys)
   call timer_start(100, function('Callback'))
 endfunction
 
-
 ""
+" @public
 " Returns a list with all Ultisnips snippets in the current scope.
 function! tcd#GetAllSnippets()
   call UltiSnips#SnippetsInCurrentScope(1)
@@ -112,10 +103,58 @@ function! tcd#GetAllSnippets()
   return l:list
 endfunction
 
+""
+" @public
+" Capture wildmode completion options for `:echo $ <Tab>`
+" From 'https://stackoverflow.com/questions/11175842/how-to-list-all-the-environment-variables-in-vim'
+" '<c-a>' Inserts all possible completion options.
+function! tcd#Env() abort
+    redir => l:s
+    sil! exe "norm!:ec$\<c-a>'\<c-b>\<right>\<right>\<del>'\<cr>"
+    redir END
+    return split(l:s)
+endfunction
+
+""
+" @public
+" (see :help |denite|)
+function! tcd#GetChar() abort
+  redraw | echo 'Press any key: '
+  let l:c = getchar()
+  while l:c ==# "\<CursorHold>"
+    redraw | echo 'Press any key: '
+    let l:c = getchar()
+  endwhile
+  redraw | echomsg printf('Raw: "%s" | Char: "%s"', l:c, nr2char(l:c))
+endfunction
+command! GetChar call s:getchar()
+
+""
+" @public
+" From 'https://stackoverflow.com/questions/21117615/how-to-obtain-command-completion-list'
+function! tcd#GetCommandCompletion( base )
+    silent execute "normal! :" a:base . "\<C-a>')\<C-b>return split('\<CR>"
+endfunction
+
+""
+" @public
+" Get cmdline completion suggestions and redraw.
+function! tcd#SexySuggest()
+  let l:current_text = getcmdline()
+  let l:current_pos  = getcmdpos()
+  let l:suggestions  = tcd#GetCommandCompletion(l:current_text)
+  silent execute "normal! :" l:suggestions . "\<C-a>')\<C-b>return split('\<CR>"
+endfunction
+
+function! tcd#Redraw() abort
+  let l:current_text = getcmdline()
+  redraw | call feedkeys( ':' . l:current_text . "\<C-d>")
+endfunction
+
 
 ""
 " @subsection Private Functions
-"
+" Assorted helper functions not in the global scope.
 
 ""
 " @private
@@ -141,53 +180,4 @@ endfunction
 function! s:runtime_globpath(file) abort
   return split(globpath(escape(&runtimepath, ' '), a:file), "\n")
 endfunction
-
-" via http://vim.wikia.com/wiki/Capture_ex_command_output
-" function! tcd#DataMessage(cmd) abort
-"   redir => l:message
-"   silent execute a:cmd
-"   redir END
-"   if empty(l:message)
-"     echoerr 'no output'
-"   else
-"     " use "new" instead of "tabnew" below if you prefer split windows instead of tabs
-"     new
-"     setlocal buftype=nofile bufhidden=wipe noswapfile nobuflisted nomodified
-"     silent put=l:message
-"   endif
-" endfunction
-"
-" command! -nargs=+ -complete=command DataMessage call DataMessage(<q-args>)
-
-" =============================================================================
-
-" romainl/redir.vim
-" function! tcd#Redir(cmd)
-" 	for l:win in range(1, winnr('$'))
-" 		if getwinvar(l:win, 'scratch')
-" 			execute l:win . 'windo close'
-" 		endif
-" 	endfor
-" 	if a:cmd =~ '^!'
-" 		execute "let output = system('" . substitute(a:cmd, '^!', '', '') . "')"
-" 	else
-" 		redir => output
-" 		execute a:cmd
-" 		redir END
-" 	endif
-" 	vnew
-" 	let w:scratch = 1
-" 	setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile
-" 	call setline(1, split(output, "\n"))
-" endfunction
-"
-" command! -nargs=1 Redir silent call Redir(<f-args>)
-
-" Usage:
-" 	:Redir hi ............. show the full output of command ':hi' in a scratch window
-" 	:Redir !ls -al ........ show the full output of command ':!ls -al' in a scratch window
-
-
-
-" =============================================================================
 
