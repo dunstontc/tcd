@@ -7,10 +7,9 @@
 # ============================================================================
 
 from os import listdir
-from os.path import isfile
+from os.path import realpath
 
 from .base import Base
-from denite.util import expand
 
 class Source(Base):
 
@@ -27,23 +26,24 @@ class Source(Base):
 
     def on_init(self, context):
         if self.vars['snippets_path']:
-            context['__snip_dir'] = self.vars['snippets_path']
+            __snip_dir = self.vars['snippets_path']
         # elif context['snippets_dirs']:
         #     if self.vars['snippets_dirs']
         # else:
         #     __snip_dir = self.vars['snippets_dir'][0]
         #     context['__snip_dir'] = expand('~/.config/nvim', __snip_dir)
 
-        context['__snip_files'] = [f for f in listdir(context['__snip_dir']) if isfile(f)]
+        context['__snip_dir'] = realpath(__snip_dir)
+        # context['__snip_files'] = [f for f in listdir(context['__snip_dir']) if isfile(f)]
 
 
 
     def gather_candidates(self, context):
         candidates = []
-        for item in context['__snip_files']:
+        for item in listdir(context['__snip_dir']):
             candidates.append({
-                'word': expand(context['__snip_dir'], item)
-                # 'action__path': obj['path'],
+                'word': item,
+                'action__path': context['__snip_dir'] + '/' + item,
             })
 
         return candidates
