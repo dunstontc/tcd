@@ -22,6 +22,7 @@ class Source(Base):
             'snippets_dirs': vim.vars.get('UltiSnipsSnippetDirectories'),
             'snippets_dir':  vim.vars.get('UltiSnipsSnippetsDir'),
             'snippets_path': vim.vars.get('tcd#snippets_path'),
+            'icon_setting':      vim.vars.get('projectile#enable_devicons'),
         }
 
     def on_init(self, context):
@@ -41,8 +42,13 @@ class Source(Base):
     def gather_candidates(self, context):
         candidates = []
         for item in listdir(context['__snip_dir']):
+            if self.vars['icon_setting'] == 1:
+                icon = self.vim.funcs.WebDevIconsGetFileTypeSymbol(item)
+            else:
+                icon = '  '
             candidates.append({
                 'word': item,
+                'abbr': f'{icon} {item}',
                 'action__path': context['__snip_dir'] + '/' + item,
             })
 

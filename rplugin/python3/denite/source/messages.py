@@ -7,15 +7,42 @@
 
 from .base import Base
 
+SYNTAX_GROUPS = [
+    {'name': 'deniteSource_Messages',         'link': 'Normal' },
+    {'name': 'deniteSource_Messages_Noise',   'link': 'Comment'},
+    {'name': 'deniteSource_Messages_Origin',  'link': 'Type'   },
+    {'name': 'deniteSource_Messages_String',  'link': 'String' },
+    {'name': 'deniteSource_Messages_Command', 'link': 'PreProc'},
+    {'name': 'deniteSource_Messages_Err',     'link': 'Error'  },
+    {'name': 'deniteSource_Messages_Num',     'link': 'Number' },
+]
+
+SYNTAX_PATTERNS = [
+    {'name': 'Noise',   'regex':  r' /\( -- \)/    contained'},
+    {'name': 'Noise',   'regex':  r' /\(File\)/    contained'},
+    {'name': 'Origin',  'regex':  r' /^\s(.*)\s/   contained'},
+    {'name': 'Origin',  'regex':  r' /^\s\[.*\]\s/ contained'},
+    {'name': 'String',  'regex':  r' /\s".*"/      contained'},
+    {'name': 'String',  'regex':  r" /\s'.*'/      contained"},
+    {'name': 'Command', 'regex':  r' /\s:\w*\s\ze/ contained'},
+    {'name': 'Command', 'regex':  r' /\s:\w*$/     contained'},
+    {'name': 'Err',     'regex':  r' /[DEFW]\d\+/  contained'},
+    {'name': 'Err',     'regex':  r' /TypeError/   contained'},
+    {'name': 'Err',     'regex':  r' /KeyError/    contained'},
+    {'name': 'Err',     'regex':  r' /ValueError/  contained'},
+    {'name': 'Num',     'regex':  r' /\d/          contained'},
+]
+
 
 class Source(Base):
     """Make it easier to see our messages."""
 
     def __init__(self, vim):
-        """Character creation."""
+        """Initialize thyself."""
         super().__init__(vim)
 
         self.name = 'messages'
+        self.syntax_name = 'deniteSource_Messages'
         self.kind = 'word'
         self.vars = {}
 
@@ -28,32 +55,19 @@ class Source(Base):
         candidates = []
         for item in context['__messages']:
             if len(item):
-                candidates.insert(0, {
-                    'word': item,
-                })
+                candidates.insert(0, {'word': item})
         return candidates
 
     def define_syntax(self):
         """Define Vim regular expressions for syntax highlighting."""
-        self.vim.command(r'syntax match deniteSource_Messages /^.*$/ containedin=' + self.syntax_name + ' '
-                         r'contains=deniteSource_Messages_Origin,deniteSource_Messages_String,deniteSource_Messages_Command,deniteSource_Messages_Err,deniteSource_Messages_Err,deniteSource_Messages_Noise')
-        self.vim.command(r'syntax match deniteSource_Messages_Noise    /\( -- \)/       contained ')
-        self.vim.command(r'syntax match deniteSource_Messages_Noise    /\(File\)/       contained ')
-        self.vim.command(r'syntax match deniteSource_Messages_Origin   /^\s(.*)\s/      contained ')
-        self.vim.command(r'syntax match deniteSource_Messages_Origin   /^\s\[.*\]\s/    contained ')
-        self.vim.command(r'syntax match deniteSource_Messages_String   /\s".*"/         contained ')
-        self.vim.command(r'syntax match deniteSource_Messages_String   /\s".*"/         contained ')
-        self.vim.command(r'syntax match deniteSource_Messages_Command  /\s:\w*\s\ze/    contained ')
-        self.vim.command(r'syntax match deniteSource_Messages_Command  /\s:\w*$/        contained ')
-        self.vim.command(r'syntax match deniteSource_Messages_Err      /[DEFW]\d\+/     contained ')
-        self.vim.command(r"syntax match deniteSource_Messages_Num      /\d/             contained ")
+        items = [x['name'] for x in SYNTAX_GROUPS]
+        self.vim.command(r'syntax match deniteSource_Messages /^.*$/ '
+                         f"containedin={self.syntax_name} contains={','.join(items)}")
+        for pattern in SYNTAX_PATTERNS:
+            self.vim.command(f"syntax match {self.syntax_name}_{pattern['name']} {pattern['regex']}")
 
     def highlight(self):
-        """Define Vim regular expressions for syntax highlighting."""
-        self.vim.command('highlight default link deniteSource_Messages         Normal')
-        self.vim.command('highlight default link deniteSource_Messages_Noise   Comment')
-        self.vim.command('highlight default link deniteSource_Messages_Origin  Type')
-        self.vim.command('highlight default link deniteSource_Messages_String  String')
-        self.vim.command('highlight default link deniteSource_Messages_Command PreProc')
-        self.vim.command('highlight default link deniteSource_Messages_Err     Error')
-        self.vim.command('highlight default link deniteSource_Messages_Num     Number')
+        """Link highlight groups to existing attributes."""
+        for match in SYNTAX_GROUPS:
+            self.vim.command(f'highlight default link {match["name"]} {match["link"]}')
+
