@@ -72,7 +72,7 @@ function! tcd#Feedkeys(keys)
     endfunction
     call timer_start(500, function('s:Callback'))
   endif
-endfunction[denite] NameError: Source "DeniteBufferDir DeniteCursorWord DeniteGhq DeniteGithubStarsFetch DeniteProjectDir^F"vyyo" is not found.
+endfunction
 
 ""
 " @public
@@ -139,6 +139,7 @@ endfunction
 ""
 " @public
 " Get cmdline completion suggestions and redraw.
+" NOTE: wip
 function! tcd#SexySuggest()
   let l:current_text = getcmdline()
   let l:current_pos  = getcmdpos()
@@ -146,11 +147,86 @@ function! tcd#SexySuggest()
   silent execute "normal! :" l:suggestions . "\<C-a>')\<C-b>return split('\<CR>"
 endfunction
 
+""
+" @public
+" Redraw and get cmdline completion suggestions.
+" NOTE: wip
 function! tcd#Redraw() abort
   let l:current_text = getcmdline()
-  redraw | call feedkeys( ':' . l:current_text . "\<C-d>")
+  " call feedkeys("\<C-c>") | echo '' | call feedkeys( ':' . l:current_text . "\<C-d>" )
+  " redraw | echo '' | call feedkeys("\<C-d>")
+  " silent! redraw
+  let s:map = getcmdline()
+  " let s:map = substitute(s:map, '<NL>', '<C-j>', 'g')
+  " let s:map = substitute(s:map, '\(<.*>\)', '\\\1', 'g')
+  function! s:Callback(...)
+    call feedkeys(s:map ."\<C-D>", 't')
+      execute(s:map)
+    " call feedkeys("\<CR>", 'm')
+  endfunction
+  echo ' '
+  call timer_start(500, function('s:Callback'))
 endfunction
 
+" ""
+" " @public
+" " Get cmdline completion suggestions and redraw.
+" " NOTE: wip
+" function! tcd#Redraw() abort
+"   let l:current_text = getcmdline()
+"   redraw | call feedkeys(':' . l:current_text . "\<C-d>")
+" endfunction
+
+""
+" @function(tcd#ReReg)
+" Replace register {from} with the contents of register {to}
+function! tcd#ReReg(from, to) abort
+  let l:keep = a:from
+  let l:junk = a:to
+  let l:keeping = '@'.a:from.''
+  let l:junked = '@'.a:to.''
+  silent execute "let @".l:junk." = @".l:keep
+  execute "echo ".l:junked." ".l:keeping.""
+endfunction
+
+""
+" @function(tcd#NewID)
+" Used to increment ids for todo.txt files.
+" Returns the highest id in a buffer +1.
+function! tcd#NewID() abort
+  let l:cur_val = 0
+  " let l:new_val = 0
+  " let l:cur_id = 'id:'.l:cur_val.''
+  let l:match = search('id:'.l:cur_val.'', 'nw')
+  if l:match != 0
+    let l:curval += 1
+  else
+    return l:cur_val
+  endif
+  " while search('id:'.l:cur_val.'', 'nw') != 0
+    " let l:cur_val += 1
+    " let l:new_val += 1
+  " endwhile
+  " echo l:cur_val
+endfunction
+
+function! tcd#Count( word )
+  redir => cnt
+    silent exe '%s/' . a:word . '//gn'
+  redir END
+
+  let res = strpart(cnt, 0, stridx(cnt, " "))
+  return res
+endfunction
+
+" function Find()
+"     execute "g!/Script/d"
+"     execute "sort"
+"     normal G
+"     normal 0v$"ay
+"     normal u
+"     execute "call search('".@a."')"
+"   endfunction
 
 ""
 " @subsection Private Functions

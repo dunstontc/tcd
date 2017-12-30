@@ -2,11 +2,34 @@
 # ==============================================================================
 #  FILE: util.py
 #  AUTHOR: Clay Dunston <dunstontc@gmail.com>
-#  Last Modified: 2017-12-19
+#  Last Modified: 2017-12-28
 # ==============================================================================
 
 import os
 import subprocess
+
+
+def _maybe(self, match):
+    """Something possibly might be something else.
+
+    Parameters
+    ----------
+    match : obj, str?
+        Possible Regular Expression match group
+
+    Returns
+    -------
+    value : str
+        If the match is not None, returns *name* = *match*.
+        If the match is None, returns *name* = ''.
+
+    """
+    if match is not None:
+        name = match
+    else:
+        name = ''
+
+    return name
 
 
 def find_root(path):

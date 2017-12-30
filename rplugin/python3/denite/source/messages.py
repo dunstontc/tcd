@@ -2,7 +2,8 @@
 # ==============================================================================
 #  FILE: messages.py
 #  AUTHOR: Clay Dunston <dunstontc@gmail.com>
-#  Last Modified: 2017-12-26
+#  LICENSE: MIT License
+#  Last Modified: 2017-12-27
 # ==============================================================================
 
 from .base import Base
@@ -10,27 +11,32 @@ from .base import Base
 SYNTAX_GROUPS = [
     {'name': 'deniteSource_Messages',         'link': 'Normal' },
     {'name': 'deniteSource_Messages_Noise',   'link': 'Comment'},
-    {'name': 'deniteSource_Messages_Origin',  'link': 'Type'   },
+    {'name': 'deniteSource_Messages_Origin',  'link': 'Comment'},
     {'name': 'deniteSource_Messages_String',  'link': 'String' },
+    {'name': 'deniteSource_Messages_Path',    'link': 'Directory'},
     {'name': 'deniteSource_Messages_Command', 'link': 'PreProc'},
     {'name': 'deniteSource_Messages_Err',     'link': 'Error'  },
     {'name': 'deniteSource_Messages_Num',     'link': 'Number' },
 ]
 
 SYNTAX_PATTERNS = [
-    {'name': 'Noise',   'regex':  r' /\( -- \)/    contained'},
-    {'name': 'Noise',   'regex':  r' /\(File\)/    contained'},
-    {'name': 'Origin',  'regex':  r' /^\s(.*)\s/   contained'},
-    {'name': 'Origin',  'regex':  r' /^\s\[.*\]\s/ contained'},
-    {'name': 'String',  'regex':  r' /\s".*"/      contained'},
-    {'name': 'String',  'regex':  r" /\s'.*'/      contained"},
-    {'name': 'Command', 'regex':  r' /\s:\w*\s\ze/ contained'},
-    {'name': 'Command', 'regex':  r' /\s:\w*$/     contained'},
-    {'name': 'Err',     'regex':  r' /[DEFW]\d\+/  contained'},
-    {'name': 'Err',     'regex':  r' /TypeError/   contained'},
-    {'name': 'Err',     'regex':  r' /KeyError/    contained'},
-    {'name': 'Err',     'regex':  r' /ValueError/  contained'},
-    {'name': 'Num',     'regex':  r' /\d/          contained'},
+    {'name': 'Noise',   'regex':  r' /\( -- \)/            contained'},
+    {'name': 'Noise',   'regex':  r' /\s\{2}\(File\)/      contained'},
+    {'name': 'Origin',  'regex':  r' /^\s(.*)\s/           contained'},
+    {'name': 'Origin',  'regex':  r' /^\s\+\d\+\|\s\[\S\+\]\s/ contained'},
+    {'name': 'String',  'regex':  r' /\s".*"/              contained'},
+    {'name': 'Path',    'regex':  r' /\s"\/.*"/            contained'},
+    {'name': 'String',  'regex':  r" /\s'.*'/              contained"},
+    {'name': 'Command', 'regex':  r' /\s:\w*\s\ze/         contained'},
+    {'name': 'Command', 'regex':  r' /\s:\w*$/             contained'},
+    {'name': 'Err',     'regex':  r' /[DEFW]\d\+/          contained'},
+    {'name': 'Err',     'regex':  r' /TypeError.*/         contained'},
+    {'name': 'Err',     'regex':  r' /KeyError.*/          contained'},
+    {'name': 'Err',     'regex':  r' /ValueError.*/        contained'},
+    {'name': 'Err',     'regex':  r' /AttributeError.*/    contained'},
+    {'name': 'Err',     'regex':  r' /FileNotFoundError.*/ contained'},
+    {'name': 'Err',     'regex':  r' /NvimError.*/         contained'},
+    {'name': 'Num',     'regex':  r' /\d/                  contained'},
 ]
 
 
@@ -53,9 +59,11 @@ class Source(Base):
     def gather_candidates(self, context):
         """And send the messages onward."""
         candidates = []
+        count = int(0)
         for item in context['__messages']:
             if len(item):
-                candidates.insert(0, {'word': item})
+                count += 1
+                candidates.insert(0, {'word': f'{str(count):>2}│ {item}'})
         return candidates
 
     def define_syntax(self):
