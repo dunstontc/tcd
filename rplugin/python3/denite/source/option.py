@@ -5,7 +5,7 @@
 #  Last Modified: 2017-12-24
 # ==============================================================================
 
-from re import compile, search
+from re import compile, M
 
 from .base import Base
 
@@ -27,7 +27,7 @@ class Source(Base):
 
     def gather_candidates(self, context):
         """And send the vars onward."""
-        search_pattern = compile(r'^(\S+)\s+(.*)$', re.M)
+        search_pattern = compile(r'^(\S+)\s+(.*)$', M)
         candidates = []
         for item in context['__options']:
             candidates.insert(0, {

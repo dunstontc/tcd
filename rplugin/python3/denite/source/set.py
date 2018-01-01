@@ -1,8 +1,8 @@
 """A Denite source for Vim options."""
 # ==============================================================================
-#  FILE: opt.py
+#  FILE: set.py
 #  AUTHOR: Clay Dunston <dunstontc@gmail.com>
-#  Last Modified: 2017-12-24
+#  Last Modified: 2017-12-31
 # ==============================================================================
 
 import re
@@ -28,7 +28,7 @@ class Source(Base):
     def __init__(self, vim):
         super().__init__(vim)
 
-        self.name = 'opt'
+        self.name = 'set'
         self.kind = 'word'
         self.vars = {}
 

@@ -29,10 +29,11 @@ class Source(Base):
         candidates = []
 
         for sauce in context['__sauces']:
-            candidates.append({
-                'word': sauce,
-                'action__command': 'Denite ' + sauce,
-            })
+            if sauce != 'Denite':
+                candidates.append({
+                    'word': sauce,
+                    'action__command': 'Denite ' + sauce,
+                })
 
         return candidates
 

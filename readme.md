@@ -20,28 +20,13 @@ These are scripts, functions, and ideas that I'm fooling around with; feel free 
     - Source for Vim's syntax.
   - `:Denite ultisnips`
     - Source for Ultisnips snippets.
+  - `:Denite ultisnips_files`
+    - Source for Ultisnips snippet files.
   - `:Denite var`
     - Source for Vim variables.
 
 
-## Clean Cmdline Comp ##
-  - **References**
-    - [MarcWeber/vim-addon-commandline-completion](https://github.com/MarcWeber/vim-addon-commandline-completion/blob/master/autoload/cmdline_completion.vim)
-  - **Steps**
-    - `getcmdline()`
-    - `redraw`
-    - `<C-d>`
-  - **Keys**
-    - `:`
-    - *...type...*
-    - `<Plug>(hypertab-cmdline)`
-      - `getcmdline()`
-      - `<C-d>`
-      - `<C-a>`
-    - `getcmdline()`
-      - `eescape(getcmdline(), ' \')`
-
-## vim() ##
+## vim api ##
   - vim.buffers
   - vim.call(functionName, args)
     - vim.call(has, *var*)

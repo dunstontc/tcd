@@ -36,6 +36,20 @@ class Source(Base):
                 candidates.append({
                     'word': scoop.group(0)
                 })
+
+        self.vars['__scopes'] = candidates
         return candidates
 
+    def define_syntax(self):
+        """Define Vim regular expressions for syntax highlighting."""
+        items = [x['word'] for x in self.vars['__scopes']]
+        # self.vim.command(f'syntax match {self.syntax_name} /^.*$/ '
+        #                  f'containedin={self.syntax_name} contains={",".join(items)}')
+        for y in items:
+            items = [x['word'] for x in self.vars['__scopes']]
+            self.vim.command(f'syntax keyword {y} {y} ')
 
+    def highlight(self):
+        """Link highlight groups to existing attributes."""
+        for x in self.vars['__scopes']:
+            self.vim.command(f'highlight link {x["word"]} {x["word"]}')

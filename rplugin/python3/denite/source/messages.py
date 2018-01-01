@@ -3,40 +3,36 @@
 #  FILE: messages.py
 #  AUTHOR: Clay Dunston <dunstontc@gmail.com>
 #  LICENSE: MIT License
-#  Last Modified: 2017-12-27
+#  Last Modified: 2017-12-31
 # ==============================================================================
 
 from .base import Base
 
 SYNTAX_GROUPS = [
-    {'name': 'deniteSource_Messages',         'link': 'Normal' },
-    {'name': 'deniteSource_Messages_Noise',   'link': 'Comment'},
-    {'name': 'deniteSource_Messages_Origin',  'link': 'Comment'},
-    {'name': 'deniteSource_Messages_String',  'link': 'String' },
+    {'name': 'deniteSource_Messages',         'link': 'Normal'   },
+    {'name': 'deniteSource_Messages_Noise',   'link': 'Comment'  },
+    {'name': 'deniteSource_Messages_Origin',  'link': 'Comment'  },
+    {'name': 'deniteSource_Messages_String',  'link': 'String'   },
     {'name': 'deniteSource_Messages_Path',    'link': 'Directory'},
-    {'name': 'deniteSource_Messages_Command', 'link': 'PreProc'},
-    {'name': 'deniteSource_Messages_Err',     'link': 'Error'  },
-    {'name': 'deniteSource_Messages_Num',     'link': 'Number' },
+    {'name': 'deniteSource_Messages_Command', 'link': 'PreProc'  },
+    {'name': 'deniteSource_Messages_Err',     'link': 'Error'    },
+    {'name': 'deniteSource_Messages_Num',     'link': 'Number'   },
 ]
 
 SYNTAX_PATTERNS = [
-    {'name': 'Noise',   'regex':  r' /\( -- \)/            contained'},
-    {'name': 'Noise',   'regex':  r' /\s\{2}\(File\)/      contained'},
-    {'name': 'Origin',  'regex':  r' /^\s(.*)\s/           contained'},
+    {'name': 'Noise',   'regex':  r' /\( -- \)/                contained'},
+    {'name': 'Noise',   'regex':  r' /\s\{2}\(File\)/          contained'},
+    {'name': 'Origin',  'regex':  r' /^\s(.*)\s/               contained'},
     {'name': 'Origin',  'regex':  r' /^\s\+\d\+\|\s\[\S\+\]\s/ contained'},
-    {'name': 'String',  'regex':  r' /\s".*"/              contained'},
-    {'name': 'Path',    'regex':  r' /\s"\/.*"/            contained'},
-    {'name': 'String',  'regex':  r" /\s'.*'/              contained"},
-    {'name': 'Command', 'regex':  r' /\s:\w*\s\ze/         contained'},
-    {'name': 'Command', 'regex':  r' /\s:\w*$/             contained'},
-    {'name': 'Err',     'regex':  r' /[DEFW]\d\+/          contained'},
-    {'name': 'Err',     'regex':  r' /TypeError.*/         contained'},
-    {'name': 'Err',     'regex':  r' /KeyError.*/          contained'},
-    {'name': 'Err',     'regex':  r' /ValueError.*/        contained'},
-    {'name': 'Err',     'regex':  r' /AttributeError.*/    contained'},
-    {'name': 'Err',     'regex':  r' /FileNotFoundError.*/ contained'},
-    {'name': 'Err',     'regex':  r' /NvimError.*/         contained'},
-    {'name': 'Num',     'regex':  r' /\d/                  contained'},
+    {'name': 'String',  'regex':  r' /\s".*"/                  contained'},
+    {'name': 'String',  'regex':  r" /\%(\[\)\@<='.*'\%(]\)\@=/                  contained"},
+    {'name': 'Path',    'regex':  r' /\s"\/.*"/                contained'},
+    {'name': 'String',  'regex':  r" /\s'.*'/                  contained"},
+    {'name': 'Command', 'regex':  r' /\s:\w*\s\ze/             contained'},
+    {'name': 'Command', 'regex':  r' /\s:\w*$/                 contained'},
+    {'name': 'Err',     'regex':  r' /[DEFW]\d\+/              contained'},
+    {'name': 'Err',     'regex':  r' /\v([A-Z][a-z]+)+Error.*/ contained'},
+    {'name': 'Num',     'regex':  r' /\d/                      contained'},
 ]
 
 
@@ -55,15 +51,17 @@ class Source(Base):
     def on_init(self, context):
         """Capture `:messages`."""
         context['__messages'] = self.vim.call('execute', 'messages').split('\n')
+        context['msg_count'] = len(list(context['__messages']))
 
     def gather_candidates(self, context):
         """And send the messages onward."""
         candidates = []
-        count = int(0)
+        count = context['msg_count']
         for item in context['__messages']:
             if len(item):
-                count += 1
+                count -= 1
                 candidates.insert(0, {'word': f'{str(count):>2}│ {item}'})
+                # candidates.append({'word': str(context['msg_count'])})
         return candidates
 
     def define_syntax(self):
