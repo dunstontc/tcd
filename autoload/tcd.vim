@@ -221,6 +221,20 @@ endfunction
 
 
 ""
+" @function(s:get_register)
+" From `hecal3/vim-leader-guide`
+function! tcd#get_register()
+    if match(&clipboard, 'unnamedplus') >= 0
+        let g:tcd#clip = '+'
+    elseif match(&clipboard, 'unnamed') >= 0
+        let g:tcd#clip = '*'
+    else
+        let g:tcd#clip = '"'
+    endif
+    return clip
+endfunction
+
+""
 " @public
 " https://stackoverflow.com/questions/7066456/vim-how-to-prevent-jumps-out-of-current-buffer
 function! tcd#JumpInFile(back, forw)
