@@ -1,0 +1,14 @@
+(A) 2017-12-01 Proper filtering & parsing of @rhs commands in. @python id:2
+(A) 2017-12-13 Filter out all newlines from @tsv file input. @Bug id:7
+(A) 2017-12-15 Try `self.vim.command()` for as an alternative to @feedkeys id:8
+(B) 2018-01-01 spell.add source. id:10
+(B) 2017-12-04 Wrap `clean_command` in double quotes for @feedkeys id:5
+(B) 2017-12-16 Figure out what is needed to parse two `<CR>`s in one map. id:9
+(C) 2017-12-01 Proper syntax highlighting for @rhs in. @viml id:1
+(C) 2017-12-02 Add @help action? id:4
+(C) 2017-12-13 Add Mappings/default_mappings to search default mappings. id:6
+
+x 2017-12-04 (B) 2017-12-03 Split by every other line for @verbose
+x 2017-12-04 (B) 2017-12-02 Remove `<>` brackets from @rhs of mappings? notes:unnecessary
+x 2017-12-04 2017-12-02 `substitute(map, '\(<.*>\)', '\\\1', 'g')` @rhs @feedkeys
+x 2017-12-16 2017-12-02 `substitute(map, '<NL>', '<C-j>', 'g')` @rhs @feedkeys id:3

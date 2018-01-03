@@ -7,7 +7,7 @@
 # ============================================================================
 
 from os import listdir
-from os.path import realpath
+from os.path import realpath, basename
 
 from .base import Base
 
@@ -42,13 +42,15 @@ class Source(Base):
     def gather_candidates(self, context):
         candidates = []
         for item in listdir(context['__snip_dir']):
-            if self.vars['icon_setting'] == 1:
-                icon = self.vim.funcs.WebDevIconsGetFileTypeSymbol(item)
-            else:
-                icon = '  '
+            # filetype = item.rsplit('.', 1)[0]
+            # if self.vars['icon_setting'] == 1:
+            #     icon = self.vim.funcs.WebDevIconsGetFileTypeSymbol(basename(filetype))
+            # else:
+            #     icon = '  '
+
             candidates.append({
                 'word': item,
-                'abbr': f'{icon} {item}',
+                'abbr': f'{item}',
                 'action__path': context['__snip_dir'] + '/' + item,
             })
 

@@ -17,7 +17,7 @@ class Source(Base):
         """Character creation."""
         super().__init__(vim)
 
-        self.name = 'syntax'
+        self.name = 'tcd_syntax'
         self.kind = 'word'
         self.vars = {}
 

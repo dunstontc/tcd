@@ -58,7 +58,7 @@ endfunction
 ""
 " @public
 " From 'https://github.com/chemzqm/denite-extras'
-function! tcd#Feedkeys(keys)
+function! tcd#Chemzqm_Feedkeys(keys)
   let s:map = a:keys
   " let s:map = substitute(s:map, '<NL>', '<C-j>', 'g')
   " let s:map = substitute(s:map, '\(<.*>\)', '\\\1', 'g')
@@ -77,7 +77,7 @@ endfunction
 ""
 " @public
 " From 'https://github.com/chemzqm/denite-extras'
-function! tcd#Search(keys)
+function! tcd#Chemzqm_Search(keys)
   let l:keys = a:keys
   function! Callback(...)
     call feedkeys('/' . l:keys . "\<CR>", 't')
@@ -136,37 +136,37 @@ function! tcd#GetCommandCompletion( base )
     silent execute "normal! :" a:base . "\<C-a>')\<C-b>return split('\<CR>"
 endfunction
 
-""
-" @public
-" Get cmdline completion suggestions and redraw.
-" NOTE: wip
-function! tcd#SexySuggest()
-  let l:current_text = getcmdline()
-  let l:current_pos  = getcmdpos()
-  let l:suggestions  = tcd#GetCommandCompletion(l:current_text)
-  silent execute "normal! :" l:suggestions . "\<C-a>')\<C-b>return split('\<CR>"
-endfunction
+" ""
+" " @public
+" " Get cmdline completion suggestions and redraw.
+" " NOTE: wip
+" function! tcd#SexySuggest()
+"   let l:current_text = getcmdline()
+"   let l:current_pos  = getcmdpos()
+"   let l:suggestions  = tcd#GetCommandCompletion(l:current_text)
+"   silent execute "normal! :" l:suggestions . "\<C-a>')\<C-b>return split('\<CR>"
+" endfunction
 
-""
-" @public
-" Redraw and get cmdline completion suggestions.
-" NOTE: wip
-function! tcd#Redraw() abort
-  let l:current_text = getcmdline()
-  " call feedkeys("\<C-c>") | echo '' | call feedkeys( ':' . l:current_text . "\<C-d>" )
-  " redraw | echo '' | call feedkeys("\<C-d>")
-  " silent! redraw
-  let s:map = getcmdline()
-  " let s:map = substitute(s:map, '<NL>', '<C-j>', 'g')
-  " let s:map = substitute(s:map, '\(<.*>\)', '\\\1', 'g')
-  function! s:Callback(...)
-    call feedkeys(s:map ."\<C-D>", 't')
-      execute(s:map)
-    " call feedkeys("\<CR>", 'm')
-  endfunction
-  echo ' '
-  call timer_start(500, function('s:Callback'))
-endfunction
+" ""
+" " @public
+" " Redraw and get cmdline completion suggestions.
+" " NOTE: wip
+" function! tcd#Redraw() abort
+"   let l:current_text = getcmdline()
+"   " call feedkeys("\<C-c>") | echo '' | call feedkeys( ':' . l:current_text . "\<C-d>" )
+"   " redraw | echo '' | call feedkeys("\<C-d>")
+"   " silent! redraw
+"   let s:map = getcmdline()
+"   " let s:map = substitute(s:map, '<NL>', '<C-j>', 'g')
+"   " let s:map = substitute(s:map, '\(<.*>\)', '\\\1', 'g')
+"   function! s:Callback(...)
+"     call feedkeys(s:map ."\<C-D>", 't')
+"       execute(s:map)
+"     " call feedkeys("\<CR>", 'm')
+"   endfunction
+"   echo ' '
+"   call timer_start(500, function('s:Callback'))
+" endfunction
 
 " ""
 " " @public
@@ -177,17 +177,17 @@ endfunction
 "   redraw | call feedkeys(':' . l:current_text . "\<C-d>")
 " endfunction
 
-""
-" @function(tcd#ReReg)
-" Replace register {from} with the contents of register {to}
-function! tcd#ReReg(from, to) abort
-  let l:keep = a:from
-  let l:junk = a:to
-  let l:keeping = '@'.a:from.''
-  let l:junked = '@'.a:to.''
-  silent execute "let @".l:junk." = @".l:keep
-  execute "echo ".l:junked." ".l:keeping.""
-endfunction
+" ""
+" " @function(tcd#ReReg)
+" " Replace register {from} with the contents of register {to}
+" function! tcd#ReReg(from, to) abort
+"   let l:keep = a:from
+"   let l:junk = a:to
+"   let l:keeping = '@'.a:from.''
+"   let l:junked = '@'.a:to.''
+"   silent execute "let @".l:junk." = @".l:keep
+"   execute "echo ".l:junked." ".l:keeping.""
+" endfunction
 
 ""
 " @function(tcd#NewID)
@@ -236,6 +236,7 @@ endfunction
 
 ""
 " @public
+" @usage tcd#JumpInFile({back}, {forw})
 " https://stackoverflow.com/questions/7066456/vim-how-to-prevent-jumps-out-of-current-buffer
 function! tcd#JumpInFile(back, forw)
     let [n, i] = [bufnr('%'), 1]
@@ -266,6 +267,8 @@ endfunction
 ""
 " @subsection Private Functions
 " Assorted helper functions not in the global scope.
+" ==============================================================================
+
 
 ""
 " @private

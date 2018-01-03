@@ -18,7 +18,7 @@ class Source(Base):
     def __init__(self, vim):
         super().__init__(vim)
 
-        self.name = 'env'
+        self.name = 'tcd_env'
         self.kind = 'word'
         self.vars = {}
 

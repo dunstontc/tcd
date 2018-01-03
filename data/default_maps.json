@@ -1,0 +1,4622 @@
+[
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-@|",
+    "char": "<C-@>",
+    "action": "insert previously inserted text and stop insert",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-A|",
+    "char": "<C-A>",
+    "action": "insert previously inserted text",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-C|",
+    "char": "<C-C>",
+    "action": "quit insert mode, without checking for abbreviation, unless insertmode set.",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-D|",
+    "char": "<C-D>",
+    "action": "delete one shiftwidth of indent in the current line",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-E|",
+    "char": "<C-E>",
+    "action": "insert the character which is below the cursor",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-f|",
+    "char": "NOTUSED",
+    "action": "not used (but by default its in cinkeys to re-indent the current line)",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-G_j|",
+    "char": "<C-G> <C-J>",
+    "action": "line down, to column where inserting started",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-G_j|",
+    "char": "<C-G> j",
+    "action": "line down, to column where inserting started",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-G_j|",
+    "char": "<C-G> <Down>",
+    "action": "line down, to column where inserting started",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-G_k|",
+    "char": "<C-G> <C-K>",
+    "action": "line up, to column where inserting started",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-G_k|",
+    "char": "<C-G> k",
+    "action": "line up, to column where inserting started",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-G_k|",
+    "char": "<C-G> <Up>",
+    "action": "line up, to column where inserting started",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-G_u|",
+    "char": "<C-G> u",
+    "action": "start new undoable edit",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-G_U|",
+    "char": "<C-G> U",
+    "action": "dont break undo with next cursor movement",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<BS>|",
+    "char": "<BS>",
+    "action": "delete character before the cursor",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_digraph|",
+    "char": "{char1}<BS>{char2}",
+    "action": "enter digraph (only when digraph option set)",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-H|",
+    "char": "<C-H>",
+    "action": "same as <BS>",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<Tab>|",
+    "char": "<Tab>",
+    "action": "insert a <Tab> character",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-I|",
+    "char": "<C-I>",
+    "action": "same as <Tab>",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<NL>|",
+    "char": "<NL>",
+    "action": "same as <CR>",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-J|",
+    "char": "<C-J>",
+    "action": "same as <CR>",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-K|",
+    "char": "<C-K> {char1} {char2}",
+    "action": "enter digraph",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-L|",
+    "char": "<C-L>",
+    "action": "when insertmode set: Leave Insert mode",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<CR>|",
+    "char": "<CR>",
+    "action": "begin new line",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-M|",
+    "char": "<C-M>",
+    "action": "same as <CR>",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-N|",
+    "char": "<C-N>",
+    "action": "find next match for keyword in front of the cursor",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-O|",
+    "char": "<C-O>",
+    "action": "execute a single command and return to insert mode",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-P|",
+    "char": "<C-P>",
+    "action": "find previous match for keyword in front of the cursor",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-Q|",
+    "char": "<C-Q>",
+    "action": "same as CTRL-V, unless used for terminal control flow",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-R|",
+    "char": "<C-R> {0-9a-z%#*:=}",
+    "action": "insert the contents of a register",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-R_CTRL-R|",
+    "char": "<C-R> <C-R> {0-9a-z%#*:=}",
+    "action": "insert the contents of a register literally",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-R_CTRL-O|",
+    "char": "<C-R> <C-O> {0-9a-z%#*:=}",
+    "action": "insert the contents of a register literally and dont auto-indent",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-R_CTRL-P|",
+    "char": "<C-R> <C-P> {0-9a-z%#*:=}",
+    "action": "insert the contents of a register literally and fix indent.",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-S|",
+    "char": "NOTUSED",
+    "action": "(used for terminal control flow)",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-T|",
+    "char": "<C-T>",
+    "action": "insert one shiftwidth of indent in current line",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-U|",
+    "char": "<C-U>",
+    "action": "delete all entered characters in the current line",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-V|",
+    "char": "<C-V> {char}",
+    "action": "insert next non-digit literally",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-V_digit|",
+    "char": "<C-V> {number}",
+    "action": "insert three digit decimal number as a single byte.",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-W|",
+    "char": "<C-W>",
+    "action": "delete word before the cursor",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-X|",
+    "char": "<C-X> {mode}",
+    "action": "enter CTRL-X sub mode, see |i_CTRL-X_index|",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-Y|",
+    "char": "<C-Y>",
+    "action": "insert the character which is above the cursor",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-Z|",
+    "char": "<C-Z>",
+    "action": "when insertmode set: suspend Vim",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<Esc>|",
+    "char": "<Esc>",
+    "action": "end insert mode (unless insertmode set)",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-[|",
+    "char": "<C-[>",
+    "action": "same> as <Esc>",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-\\_CTRL-N|",
+    "char": "<C-\\> <C-N>",
+    "action": "go to Normal mode",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-\\_CTRL-G|",
+    "char": "<C-\\> <C-G>",
+    "action": "go to mode specified with insertmode",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-\\|",
+    "char": "NOTUSED ",
+    "action": "not used",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-]|",
+    "char": "<C-]>",
+    "action": "trigger abbreviation",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-^|",
+    "char": "<C-^>",
+    "action": "toggle use of |:lmap| mappings",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_CTRL-_|",
+    "char": "<C-_>",
+    "action": "When allowrevins set: change language (Hebrew, Farsi)",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_0_CTRL-D|",
+    "char": "0 <C-D>",
+    "action": "delete all indent in the current line",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_^_CTRL-D|",
+    "char": "^ <C-D>",
+    "action": "delete all indent in the current line, restore it in the next line",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<Del>|",
+    "char": "<Del>",
+    "action": "delete character under the cursor",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<Left>|",
+    "char": "<Left>",
+    "action": "cursor one character left",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<S-Left>|",
+    "char": "<S-Left>",
+    "action": "cursor one word left",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<C-Left>|",
+    "char": "<C-Left>",
+    "action": "cursor one word left",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<Right>|",
+    "char": "<Right>",
+    "action": "cursor one character right",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<S-Right>|",
+    "char": "<S-Right>",
+    "action": "cursor one word right",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<C-Right>|",
+    "char": "<C-Right>",
+    "action": "cursor one word right",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<Up>|",
+    "char": "<Up>",
+    "action": "cursor one line up",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<S-Up>|",
+    "char": "<S-Up>",
+    "action": "same as <PageUp>",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<Down>|",
+    "char": "<Down>",
+    "action": "cursor one line down",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<S-Down>|",
+    "char": "<S-Down>",
+    "action": "same as <PageDown>",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<Home>|",
+    "char": "<Home>",
+    "action": "cursor to start of line",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<C-Home>|",
+    "char": "<C-Home>",
+    "action": "cursor to start of file",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<End>|",
+    "char": "<End>",
+    "action": "cursor past end of line",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<C-End>|",
+    "char": "<C-End>",
+    "action": "cursor past end of file",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<PageUp>|",
+    "char": "<PageUp>",
+    "action": "one screenful backward",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<PageDown>|",
+    "char": "<PageDown>",
+    "action": "one screenful forward",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<F1>|",
+    "char": "<F1>",
+    "action": "same as <Help>",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<Help>|",
+    "char": "<Help>",
+    "action": "stop insert mode and display help window",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<Insert>|",
+    "char": "<Insert>",
+    "action": "toggle Insert/Replace mode",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<LeftMouse>|",
+    "char": "<LeftMouse>",
+    "action": "cursor at mouse click",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<ScrollWheelDown>|",
+    "char": "<ScrollWheelDown>",
+    "action": "move window three lines down",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<S-ScrollWheelDown>|",
+    "char": "<S-ScrollWheelDown>",
+    "action": "move window one page down",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<ScrollWheelUp>|",
+    "char": "<ScrollWheelUp>",
+    "action": "move window three lines up",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<S-ScrollWheelUp>|",
+    "char": "<S-ScrollWheelUp>",
+    "action": "move window one page up",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<ScrollWheelLeft>|",
+    "char": "<ScrollWheelLeft>",
+    "action": "move window six columns left",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<S-ScrollWheelLeft>|",
+    "char": "<S-ScrollWheelLeft>",
+    "action": "move window one page left",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<ScrollWheelRight>|",
+    "char": "<ScrollWheelRight>",
+    "action": "move window six columns right",
+    "note": 0
+  },
+  {
+    "mode": "insert",
+    "tag": "|i_<S-ScrollWheelRight>|",
+    "char": "<S-ScrollWheelRight>",
+    "action": "move window one page right",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-@|",
+    "char": "NOTUSED",
+    "action": "not used",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-A|",
+    "char": "<C-A>",
+    "action": "add N to number at/after cursor",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-B|",
+    "char": "<C-B>",
+    "action": "scroll N screens Backwards",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-C|",
+    "char": "<C-C>",
+    "action": "interrupt current (search) command",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-D|",
+    "char": "<C-D>",
+    "action": "scroll Down N lines (default: half a screen)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-E|",
+    "char": "<C-E>",
+    "action": "scroll N lines upwards (N lines Extra)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-F|",
+    "char": "<C-F>",
+    "action": "scroll N screens Forward",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-G|",
+    "char": "<C-G>",
+    "action": "display current file name and position",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<BS>|",
+    "char": "<BS>",
+    "action": "same as h",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-H|",
+    "char": "<C-H>",
+    "action": "same as h",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<Tab>|",
+    "char": "<Tab>",
+    "action": "go to N newer entry in jump list",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-I|",
+    "char": "<C-I>",
+    "action": "same as <Tab>",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<NL>|",
+    "char": "<NL>",
+    "action": "same as j",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-J|",
+    "char": "<C-J>",
+    "action": "same as j",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-K|",
+    "char": "NOTUSED",
+    "action": "not used",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-L|",
+    "char": "<C-L>",
+    "action": "redraw screen",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<CR>|",
+    "char": "<CR>",
+    "action": "cursor to the first CHAR N lines lower",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-M|",
+    "char": "<C-M>",
+    "action": "same as <CR>",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-N|",
+    "char": "<C-N>",
+    "action": "same as j",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-O|",
+    "char": "<C-O>",
+    "action": "go to N older entry in jump list",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-P|",
+    "char": "<C-P>",
+    "action": "same as k",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-Q|",
+    "char": "NOTUSED",
+    "action": "(used for terminal control flow)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-R|",
+    "char": "<C-R>",
+    "action": "redo changes which were undone with u",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-S|",
+    "char": "NOTUSED",
+    "action": "(used for terminal control flow)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-T|",
+    "char": "<C-T>",
+    "action": "jump to N older Tag in tag list",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-U|",
+    "char": "<C-U>",
+    "action": "scroll N lines Upwards (default: half a screen)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-V|",
+    "char": "<C-V>",
+    "action": "start blockwise Visual mode",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W|",
+    "char": "<C-W> {char}",
+    "action": "window commands, see |CTRL-W|",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-X|",
+    "char": "<C-X>",
+    "action": "subtract N from number at/after cursor",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-Y|",
+    "char": "<C-Y>",
+    "action": "scroll N lines downwards",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-Z|",
+    "char": "<C-Z>",
+    "action": "suspend program (or start new shell)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-[ <Esc>|",
+    "char": "NOTUSED",
+    "action": "not used",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-\\_CTRL-N|",
+    "char": "<C-\\> <C-N>",
+    "action": "go to Normal mode (no-op)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-\\_CTRL-G|",
+    "char": "<C-\\> <C-G>",
+    "action": "go to mode specified with insertmode",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-\\|",
+    "char": "NOTUSED",
+    "action": "not used",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-]|",
+    "char": "<C-]>",
+    "action": ":ta to ident under cursor",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-^|",
+    "char": "<C-^>",
+    "action": "edit Nth alternate file (equivalent to :e #N)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-_|",
+    "char": "NOTUSED",
+    "action": "not used",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<Space>|",
+    "char": "<Space>",
+    "action": "same as l",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|!|",
+    "char": "!{motion}{filter}",
+    "action": "filter Nmove text through the {filter} command",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|!!|",
+    "char": "!!{filter}",
+    "action": "filter N lines through the {filter} command",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|quote|",
+    "char": "{a-zA-Z0-9.%#:-}",
+    "action": "use register {a-zA-Z0-9.%#:-} for next delete, yank or put (uppercase to append) ({.%#:} only work with put)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|#|",
+    "char": "#",
+    "action": "search backward for the Nth occurrence of the ident under the cursor",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|$|",
+    "char": "$",
+    "action": "cursor to the end of Nth next line",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|%|",
+    "char": "%",
+    "action": "find the next (curly/square) bracket on this line and go to its match, or go to matching comment bracket, or go to matching preprocessor directive.",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|N%|",
+    "char": "{count}%",
+    "action": "go to N percentage in the file",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|&|",
+    "char": "&",
+    "action": "repeat last :s",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "||",
+    "char": "{a-zA-Z0-9}",
+    "action": "cursor to the first CHAR on the line with mark {a-zA-Z0-9}",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "||",
+    "char": "||",
+    "action": "cursor to the first CHAR of the line where the cursor was before the latest jump.",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|(|",
+    "char": "(",
+    "action": "cursor to the first CHAR on the line of the start of the current sentence",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|)|",
+    "char": ")",
+    "action": "cursor to the first CHAR on the line of the end of the current sentence",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<|",
+    "char": "<",
+    "action": "cursor to the first CHAR of the line where highlighted area starts/started in the current buffer.",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|>|",
+    "char": ">",
+    "action": "cursor to the first CHAR of the line where highlighted area ends/ended in the current buffer.",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|[|",
+    "char": "[",
+    "action": "cursor to the first CHAR on the line of the start of last operated text or start of put text",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|]|",
+    "char": "]",
+    "action": "cursor to the first CHAR on the line of the end of last operated text or end of put text",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|{|",
+    "char": "{",
+    "action": "cursor to the first CHAR on the line of the start of the current paragraph",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|}|",
+    "char": "}",
+    "action": "cursor to the first CHAR on the line of the end of the current paragraph",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|(|",
+    "char": "(",
+    "action": "cursor N sentences backward",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|)|",
+    "char": ")",
+    "action": "cursor N sentences forward",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|star|",
+    "char": "*",
+    "action": "search forward for the Nth occurrence of the ident under the cursor",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|+|",
+    "char": "+",
+    "action": "same as <CR>",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|,|",
+    "char": ",",
+    "action": "repeat latest f, t, F or T in opposite direction N times",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|-|",
+    "char": "-",
+    "action": "cursor to the first CHAR N lines higher",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|.|",
+    "char": ".",
+    "action": "repeat last change with count replaced with N",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|/|",
+    "char": "/{pattern}<CR>",
+    "action": "search forward for the Nth occurrence of {pattern}",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|/<CR>|",
+    "char": "/<CR>",
+    "action": "search forward for {pattern} of last search",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|count|",
+    "char": 0,
+    "action": "1  cursor to the first char of the line",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|count|",
+    "char": 1,
+    "action": "prepend to command to give a count",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|:|",
+    "char": ":",
+    "action": "start entering an Ex command",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|N:|",
+    "char": "{count}:",
+    "action": "start entering an Ex command with range from current line to N-1 lines down",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|;|",
+    "char": ";",
+    "action": "repeat latest f, t, F or T N times",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<|",
+    "char": "<{motion}",
+    "action": "shift Nmove lines one shiftwidth leftwards",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|<<|",
+    "char": "<<",
+    "action": "shift N lines one shiftwidth leftwards",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|=|",
+    "char": "={motion}",
+    "action": "filter Nmove lines through indent",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|==|",
+    "char": "==",
+    "action": "filter N lines through indent",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|>|",
+    "char": ">{motion}",
+    "action": "shift Nmove lines one shiftwidth rightwards",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|>>|",
+    "char": ">>",
+    "action": "shift N lines one shiftwidth rightwards",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|?|",
+    "char": "?{pattern}<CR>",
+    "action": "search backward for the Nth previous occurrence of {pattern}",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|?<CR>|",
+    "char": "?<CR>",
+    "action": "search backward for {pattern} of last search",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|@|",
+    "char": "@{a-z}",
+    "action": "execute the contents of register {a-z} N times",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|@:|",
+    "char": "@:",
+    "action": "repeat the previous : command N times",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|@@|",
+    "char": "@@",
+    "action": "repeat the previous @{a-z} N times",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|A|",
+    "char": "A",
+    "action": "append text after the end of the line N times",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|B|",
+    "char": "B",
+    "action": "cursor N WORDS backward",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|C|",
+    "char": "[x]C",
+    "action": "change from the cursor position to the end of the line, and N-1 more lines [into register x]; synonym for c$",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|D|",
+    "char": "[x]D",
+    "action": "delete the characters under the cursor until the end of the line and N-1 more lines [into register x]; synonym for d$",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|E|",
+    "char": "E",
+    "action": "cursor forward to the end of WORD N",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|F|",
+    "char": "F{char}",
+    "action": "cursor to the Nth occurrence of {char} to the left",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|G|",
+    "char": "G",
+    "action": "cursor to line N, default last line",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|H|",
+    "char": "H",
+    "action": "cursor to line N from top of screen",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|I|",
+    "char": "I",
+    "action": "insert text before the first CHAR on the line N times",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|J|",
+    "char": "J",
+    "action": "Join N lines; default is 2",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|K|",
+    "char": "K",
+    "action": "lookup Keyword under the cursor with keywordprg",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|L|",
+    "char": "L",
+    "action": "cursor to line N from bottom of screen",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|M|",
+    "char": "M",
+    "action": "cursor to middle line of screen",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|N|",
+    "char": "N",
+    "action": "repeat the latest / or ? N times in opposite direction",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|O|",
+    "char": "O",
+    "action": "begin a new line above the cursor and insert text, repeat N times",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|P|",
+    "char": "[x]P",
+    "action": "put the text [from register x] before the cursor N times",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|Q|",
+    "char": "Q",
+    "action": "switch to Ex mode",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|R|",
+    "char": "R",
+    "action": "enter replace mode: overtype existing characters, repeat the entered text N-1 times",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|S|",
+    "char": "[x]S",
+    "action": "delete N lines [into register x] and start insert; synonym for cc.",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|T|",
+    "char": "T{char}",
+    "action": "cursor till after Nth occurrence of {char} to the left",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|U|",
+    "char": "U",
+    "action": "undo all latest changes on one line",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|V|",
+    "char": "V",
+    "action": "start linewise Visual mode",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|W|",
+    "char": "W",
+    "action": "cursor N WORDS forward",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|X|",
+    "char": "[x]X",
+    "action": "delete N characters before the cursor [into register x]",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|Y|",
+    "char": "[x]Y",
+    "action": "yank N lines [into register x]; synonym for yy",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|ZZ|",
+    "char": "ZZ",
+    "action": "store current file if modified, and exit",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|ZQ|",
+    "char": "ZQ",
+    "action": "exit current file always",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|[|",
+    "char": "[{char}",
+    "action": "square bracket command (see |[| below)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|\\|",
+    "char": "NOTUSED",
+    "action": "not used",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|]|",
+    "char": "]{char}",
+    "action": "square bracket command (see |]| below)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|^|",
+    "char": "^",
+    "action": "cursor to the first CHAR of the line",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|_|",
+    "char": "_",
+    "action": "cursor to the first CHAR N - 1 lines lower",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|`|",
+    "char": "`{a-zA-Z0-9}",
+    "action": "cursor to the mark {a-zA-Z0-9}",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|`(|",
+    "char": "`(",
+    "action": "cursor to the start of the current sentence",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|`)|",
+    "char": "`)",
+    "action": "cursor to the end of the current sentence",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|`<|",
+    "char": "`<",
+    "action": "cursor to the start of the highlighted area",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|`>|",
+    "char": "`>",
+    "action": "cursor to the end of the highlighted area",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|`[|",
+    "char": "`[",
+    "action": "cursor to the start of last operated text or start of putted text",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|`]|",
+    "char": "`]",
+    "action": "cursor to the end of last operated text or end of putted text",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|``|",
+    "char": "``",
+    "action": "cursor to the position before latest jump",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|`{|",
+    "char": "`{",
+    "action": "cursor to the start of the current paragraph",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|`}|",
+    "char": "`}",
+    "action": "cursor to the end of the current paragraph",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|a|",
+    "char": "a",
+    "action": "append text after the cursor N times",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|b|",
+    "char": "b",
+    "action": "cursor N words backward",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|c|",
+    "char": "[x]c{motion}",
+    "action": "delete Nmove text [into register x] and start insert",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|cc|",
+    "char": "[x]cc",
+    "action": "delete N lines [into register x] and start insert",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|d|",
+    "char": "[x]d{motion}",
+    "action": "delete Nmove text [into register x]",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|dd|",
+    "char": "[x]dd",
+    "action": "delete N lines [into register x]",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|do|",
+    "char": "do",
+    "action": "same as :diffget",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|dp|",
+    "char": "dp",
+    "action": "same as :diffput",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|e|",
+    "char": "e",
+    "action": "cursor forward to the end of word N",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|f|",
+    "char": "f{char}",
+    "action": "cursor to Nth occurrence of {char} to the right",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|g|",
+    "char": "g{char}",
+    "action": "extended commands, see |g| below",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|h|",
+    "char": "h",
+    "action": "cursor N chars to the left",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|i|",
+    "char": "i",
+    "action": "insert text before the cursor N times",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|j|",
+    "char": "j",
+    "action": "cursor N lines downward",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|k|",
+    "char": "k",
+    "action": "cursor N lines upward",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|l|",
+    "char": "l",
+    "action": "cursor N chars to the right",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|m|",
+    "char": "m{A-Za-z}",
+    "action": "set mark {A-Za-z} at cursor position",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|n|",
+    "char": "n",
+    "action": "repeat the latest / or ? N times",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|o|",
+    "char": "o",
+    "action": "begin a new line below the cursor and insert text, repeat N times",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|p|",
+    "char": "[x]p",
+    "action": "put the text [from register x] after the cursor N times",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|q|",
+    "char": "q{0-9a-zA-Z}",
+    "action": "record typed characters into named register {0-9a-zA-Z} (uppercase to append)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|q|",
+    "char": "q",
+    "action": "(while recording) stops recording",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|q:|",
+    "char": "q:",
+    "action": "edit : command-line in command-line window",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|q/|",
+    "char": "q/",
+    "action": "edit / command-line in command-line window",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|q?|",
+    "char": "q?",
+    "action": "edit ? command-line in command-line window",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|r|",
+    "char": "r{char}",
+    "action": "replace N chars with {char}",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|s|",
+    "char": "[x]s",
+    "action": "(substitute) delete N characters [into register x] and start insert",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|t|",
+    "char": "t{char}",
+    "action": "cursor till before Nth occurrence of {char} to the right",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|u|",
+    "char": "u",
+    "action": "undo changes",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|v|",
+    "char": "v",
+    "action": "start characterwise Visual mode",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|w|",
+    "char": "w",
+    "action": "cursor N words forward",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|x|",
+    "char": "[x]x",
+    "action": "delete N characters under and after the cursor [into register x]",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|y|",
+    "char": "[x]y{motion}",
+    "action": "yank Nmove text [into register x]",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|yy|",
+    "char": "[x]yy",
+    "action": "yank N lines [into register x]",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|z|",
+    "char": "z{char}",
+    "action": "commands starting with z, see |z| below",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|{|",
+    "char": "{",
+    "action": "cursor N paragraphs backward",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|bar|",
+    "char": "|",
+    "action": "cursor to column N",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|}|",
+    "char": "}",
+    "action": "cursor N paragraphs forward",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|~|",
+    "char": "~",
+    "action": "tildeop off: switch case of N characters under cursor and move the cursor N characters to the right",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|~|",
+    "char": "~{motion}",
+    "action": "tildeop on: switch case of Nmove text",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<C-End>|",
+    "char": "<C-End>",
+    "action": "same as G",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<C-Home>|",
+    "char": "<C-Home>",
+    "action": "same as gg",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<C-Left>|",
+    "char": "<C-Left>",
+    "action": "same as b",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<C-LeftMouse>|",
+    "char": "<C-LeftMouse>",
+    "action": ":ta to the keyword at the mouse click",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<C-Right>|",
+    "char": "<C-Right>",
+    "action": "same as w",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<C-RightMouse>|",
+    "char": "<C-RightMouse>",
+    "action": "same as CTRL-T",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<Del>|",
+    "char": "[x]<Del>",
+    "action": "same as x",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|N<Del>|",
+    "char": "{count}<Del>",
+    "action": "remove the last digit from {count}",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<Down>|",
+    "char": "<Down>",
+    "action": "same as j",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<End>|",
+    "char": "<End>",
+    "action": "same as $",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<F1>|",
+    "char": "<F1>",
+    "action": "same as <Help>",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<Help>|",
+    "char": "<Help>",
+    "action": "open a help window",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<Home>|",
+    "char": "<Home>",
+    "action": "same as 0",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<Insert>|",
+    "char": "<Insert>",
+    "action": "same as i",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|<Left>|",
+    "char": "<Left>",
+    "action": "same as h",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<LeftMouse>|",
+    "char": "<LeftMouse>",
+    "action": "move cursor to the mouse click position",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<MiddleMouse>|",
+    "char": "<MiddleMouse>",
+    "action": "same as gP at the mouse click position",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|<PageDown>|",
+    "char": "<PageDown>",
+    "action": "same as CTRL-F",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<PageUp>|",
+    "char": "<PageUp>",
+    "action": "same as CTRL-B",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<Right>|",
+    "char": "<Right>",
+    "action": "same as l",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<RightMouse>|",
+    "char": "<RightMouse>",
+    "action": "start Visual mode, move cursor to the mouse click position",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<S-Down>|",
+    "char": "<S-Down>",
+    "action": "same as CTRL-F",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<S-Left>|",
+    "char": "<S-Left>",
+    "action": "same as b",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<S-LeftMouse>|",
+    "char": "<S-LeftMouse>",
+    "action": "same as * at the mouse click position",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<S-Right>|",
+    "char": "<S-Right>",
+    "action": "same as w",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<S-RightMouse>|",
+    "char": "<S-RightMouse>",
+    "action": "same as # at the mouse click position",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<S-Up>|",
+    "char": "<S-Up>",
+    "action": "same as CTRL-B",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<Undo>|",
+    "char": "<Undo>",
+    "action": "same as u",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|<Up>|",
+    "char": "<Up>",
+    "action": "same as k",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|<ScrollWheelDown>|",
+    "char": "<ScrollWheelDown>",
+    "action": "move window three lines down",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<S-ScrollWheelDown>|",
+    "char": "<S-ScrollWheelDown>",
+    "action": "move window one page down",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<ScrollWheelUp>|",
+    "char": "<ScrollWheelUp>",
+    "action": "move window three lines up",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<S-ScrollWheelUp>|",
+    "char": "<S-ScrollWheelUp>",
+    "action": "move window one page up",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<ScrollWheelLeft>|",
+    "char": "<ScrollWheelLeft>",
+    "action": "move window six columns left",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<S-ScrollWheelLeft>|",
+    "char": "<S-ScrollWheelLeft>",
+    "action": "move window one page left",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<ScrollWheelRight>|",
+    "char": "<ScrollWheelRight>",
+    "action": "move window six columns right",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|<S-ScrollWheelRight>|",
+    "char": "<S-ScrollWheelRight>",
+    "action": "move window one page right",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|z<CR>|",
+    "char": "z<CR>",
+    "action": "redraw, cursor line to top of window, cursor on first non-blank",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zN<CR>|",
+    "char": "z{height}<CR>",
+    "action": "redraw, make window {height} lines high",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|z+|",
+    "char": "z+",
+    "action": "cursor on line N (default line below window), otherwise like `z<CR>`",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|z-|",
+    "char": "z-",
+    "action": "redraw, cursor line at bottom of window, cursor on first non-blank",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|z.|",
+    "char": "z.",
+    "action": "redraw, cursor line to center of window, cursor on first non-blank",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|z=|",
+    "char": "z=",
+    "action": "give spelling suggestions",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zA|",
+    "char": "zA",
+    "action": "open a closed fold or close an open fold recursively",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zC|",
+    "char": "zC",
+    "action": "close folds recursively",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zD|",
+    "char": "zD",
+    "action": "delete folds recursively",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zE|",
+    "char": "zE",
+    "action": "eliminate all folds",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zF|",
+    "char": "zF",
+    "action": "create a fold for N lines",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zG|",
+    "char": "zG",
+    "action": "mark word as good spelled word",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zH|",
+    "char": "zH",
+    "action": "when wrap off scroll half a screenwidth to the right",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zL|",
+    "char": "zL",
+    "action": "when wrap off scroll half a screenwidth to the left",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zM|",
+    "char": "zM",
+    "action": "set foldlevel to zero",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zN|",
+    "char": "zN",
+    "action": "set foldenable",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zO|",
+    "char": "zO",
+    "action": "open folds recursively",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zR|",
+    "char": "zR",
+    "action": "set foldlevel to the deepest fold",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zW|",
+    "char": "zW",
+    "action": "mark word as wrong (bad) spelled word",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zX|",
+    "char": "zX",
+    "action": "re-apply foldlevel",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|z^|",
+    "char": "z^",
+    "action": "cursor on line N (default line above window), otherwise like `z-`",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|za|",
+    "char": "za",
+    "action": "open a closed fold, close an open fold",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zb|",
+    "char": "zb",
+    "action": "redraw, cursor line at bottom of window",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zc|",
+    "char": "zc",
+    "action": "close a fold",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zd|",
+    "char": "zd",
+    "action": "delete a fold",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|ze|",
+    "char": "ze",
+    "action": "when wrap off scroll horizontally to position the cursor at the end (right side) of the screen",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zf|",
+    "char": "zf{motion}",
+    "action": "create a fold for Nmove text",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zg|",
+    "char": "zg",
+    "action": "mark word as good spelled word",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zh|",
+    "char": "zh",
+    "action": "when wrap off scroll screen N characters to the right",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zi|",
+    "char": "zi",
+    "action": "toggle foldenable",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zj|",
+    "char": "zj",
+    "action": "move to the start of the next fold",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|zk|",
+    "char": "zk",
+    "action": "move to the end of the previous fold",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|zl|",
+    "char": "zl",
+    "action": "when wrap off scroll screen N characters to the left",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zm|",
+    "char": "zm",
+    "action": "subtract one from foldlevel",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zn|",
+    "char": "zn",
+    "action": "reset foldenable",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zo|",
+    "char": "zo",
+    "action": "open fold",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zr|",
+    "char": "zr",
+    "action": "add one to foldlevel",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zs|",
+    "char": "zs",
+    "action": "when wrap off scroll horizontally to position the cursor at the start (left side) of the screen",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zt|",
+    "char": "zt",
+    "action": "redraw, cursor line at top of window",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zv|",
+    "char": "zv",
+    "action": "open enough folds to view the cursor line",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zw|",
+    "char": "zw",
+    "action": "mark word as wrong (bad) spelled word",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zx|",
+    "char": "zx",
+    "action": "re-apply foldlevel and do `zv`",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|zz|",
+    "char": "zz",
+    "action": "redraw, cursor line at center of window",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|z<Left>|",
+    "char": "z<Left>",
+    "action": "same as `zh`",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|z<Right>|",
+    "char": "z<Right>",
+    "action": "same as zl",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g_CTRL-A|",
+    "char": "g <C-A>",
+    "action": "only when compiled with MEM_PROFILE defined: dump a memory profile",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g_CTRL-G|",
+    "char": "g <C-G>",
+    "action": "show information about current cursor position",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g_CTRL-H|",
+    "char": "g <C-H>",
+    "action": "start Select block mode",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g_<C-]|",
+    "char": "g> <C-]>",
+    "action": "|:tjump| to the tag under the cursor",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g#|",
+    "char": "g#",
+    "action": "like `#`, but without using `<` and `>`",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|g$|",
+    "char": "g$",
+    "action": "when wrap off go to rightmost character of the current line that is on the screen; when wrap on go to the rightmost character of the current screen line",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|g&|",
+    "char": "g&",
+    "action": "repeat last `:s` on all lines",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|g|",
+    "char": "g{mark}",
+    "action": "like || but without changing the jumplist",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|g`|",
+    "char": "g`{mark}",
+    "action": "like |`| but without changing the jumplist",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|gstar|",
+    "char": "g*",
+    "action": "like `*`, but without using `<` and `>`",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g+|",
+    "char": "g+",
+    "action": "go to newer text state N times",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g,|",
+    "char": "g,",
+    "action": "go to N newer position in change list",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|g-|",
+    "char": "g-",
+    "action": "go to older text state N times",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g0|",
+    "char": "g0",
+    "action": "when wrap off go to leftmost character of the current line that is on the screen; when wrap on go to the leftmost character of the current screen line",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|g8|",
+    "char": "g8",
+    "action": "print hex value of bytes used in UTF-8 character under the cursor",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g;|",
+    "char": "g;",
+    "action": "go to N older position in change list",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|g<|",
+    "char": "g<",
+    "action": "display previous command output",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g?|",
+    "char": "g?",
+    "action": "Rot13 encoding operator",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|g?g?|",
+    "char": "g??",
+    "action": "Rot13 encode current line",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|g?g?|",
+    "char": "g?g?",
+    "action": "Rot13 encode current line",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|gD|",
+    "char": "gD",
+    "action": "go to definition of word under the cursor in current file",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|gE|",
+    "char": "gE",
+    "action": "go backwards to the end of the previous WORD",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|gH|",
+    "char": "gH",
+    "action": "start Select line mode",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|gI|",
+    "char": "gI",
+    "action": "like `I`, but always start in column 1",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|gJ|",
+    "char": "gJ",
+    "action": "join lines without inserting space",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|gN|",
+    "char": "gN",
+    "action": "find the previous match with the last used search pattern and Visually select it",
+    "note": 12
+  },
+  {
+    "mode": "normal",
+    "tag": "|gP|",
+    "char": "[x]gP",
+    "action": "put the text [from register x] before the cursor N times, leave the cursor after it",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|gQ|",
+    "char": "gQ",
+    "action": "switch to Ex mode with Vim editing",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|gR|",
+    "char": "gR",
+    "action": "enter Virtual Replace mode",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|gT|",
+    "char": "gT",
+    "action": "go to the previous tab page",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|gU|",
+    "char": "gU{motion}",
+    "action": "make Nmove text uppercase",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|gV|",
+    "char": "gV",
+    "action": "dont reselect the previous Visual area when executing a mapping or menu in Select mode",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g]|",
+    "char": "g]",
+    "action": ":tselect on the tag under the cursor",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g^|",
+    "char": "g^",
+    "action": "when wrap off go to leftmost non-white character of the current line that is on the screen; when wrap on go to the leftmost non-white character of the current screen line",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|g_|",
+    "char": "g_",
+    "action": "cursor to the last CHAR N - 1 lines lower",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|ga|",
+    "char": "ga",
+    "action": "print ascii value of character under the cursor",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|gd|",
+    "char": "gd",
+    "action": "go to definition of word under the cursor in current function",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|ge|",
+    "char": "ge",
+    "action": "go backwards to the end of the previous word",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|gf|",
+    "char": "gf",
+    "action": "start editing the file whose name is under the cursor",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|gF|",
+    "char": "gF",
+    "action": "start editing the file whose name is under the cursor and jump to the line number following the filename.",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|gg|",
+    "char": "gg",
+    "action": "cursor to line N, default first line",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|gh|",
+    "char": "gh",
+    "action": "start Select mode",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|gi|",
+    "char": "gi",
+    "action": "like `i`, but first move to the |^| mark",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|gj|",
+    "char": "gj",
+    "action": "like `j`, but when wrap on go N screen lines down",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|gk|",
+    "char": "gk",
+    "action": "like `k`, but when wrap on go N screen lines up",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|gn|",
+    "char": "gn",
+    "action": "find the next match with the last used search pattern and Visually select it",
+    "note": 12
+  },
+  {
+    "mode": "normal",
+    "tag": "|gm|",
+    "char": "gm",
+    "action": "go to character at middle of the screenline",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|go|",
+    "char": "go",
+    "action": "cursor to byte N in the buffer",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|gp|",
+    "char": "[x]gp",
+    "action": "put the text [from register x] after the cursor N times, leave the cursor after it",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|gq|",
+    "char": "gq{motion}",
+    "action": "format Nmove text",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|gr|",
+    "char": "gr{char}",
+    "action": "virtual replace N chars with {char}",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|gs|",
+    "char": "gs",
+    "action": "go to sleep for N seconds (default 1)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|gt|",
+    "char": "gt",
+    "action": "go to the next tab page",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|gu|",
+    "char": "gu{motion}",
+    "action": "make Nmove text lowercase",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|gv|",
+    "char": "gv",
+    "action": "reselect the previous Visual area",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|gw|",
+    "char": "gw{motion}",
+    "action": "format Nmove text and keep cursor",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|netrw-gx|",
+    "char": "gx",
+    "action": "execute application for file name under the cursor (only with |netrw| plugin)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g@|",
+    "char": "g@{motion}",
+    "action": "call operatorfunc",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g~|",
+    "char": "g~{motion}",
+    "action": "swap case for Nmove text",
+    "note": 2
+  },
+  {
+    "mode": "normal",
+    "tag": "|g<Down>|",
+    "char": "g<Down>",
+    "action": "same as `gj`",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|g<End>|",
+    "char": "g<End>",
+    "action": "same as `g$`",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|g<Home>|",
+    "char": "g<Home>",
+    "action": "same as `g0`",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|g<LeftMouse>|",
+    "char": "g<LeftMouse>",
+    "action": "same as `<C-LeftMouse>`",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g<MiddleMouse>|",
+    "char": "g<MiddleMouse>",
+    "action": "same as `<C-MiddleMouse>`",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g<RightMouse>|",
+    "char": "g<RightMouse>",
+    "action": "same as `<C-RightMouse>`",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|g<Up>|",
+    "char": "g<Up>",
+    "action": "same as `gk`",
+    "note": 1
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-D|",
+    "char": "<C-X> <C-D>",
+    "action": "complete defined identifiers ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-E|",
+    "char": "<C-X> <C-E>",
+    "action": "scroll up ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-F|",
+    "char": "<C-X> <C-F>",
+    "action": "complete file names ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-I|",
+    "char": "<C-X> <C-I>",
+    "action": "complete identifier ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-K|",
+    "char": "<C-X> <C-K>",
+    "action": "complete identifiers from dictionar ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-L|",
+    "char": "<C-X> <C-L>",
+    "action": "complete whole line ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-N|",
+    "char": "<C-X> C-N>",
+    "action": "next completion ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-O|",
+    "char": "<C-X> <C-O>",
+    "action": "omni completion ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-P|",
+    "char": "<C-X> <C-P>",
+    "action": "previous completion ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-S|",
+    "char": "<C-X> <C-S>",
+    "action": "spelling suggestion ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-T|",
+    "char": "<C-X> <C-T>",
+    "action": "complete identifiers from thesaurus ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-Y|",
+    "char": "<C-X> <C-Y>",
+    "action": "scroll down ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-U|",
+    "char": "<C-X> <C-U>",
+    "action": "complete with completefunc ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-V|",
+    "char": "<C-X> <C-V>",
+    "action": "complete like in : command line ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_CTRL-]|",
+    "char": "<C-X> <C-]>",
+    "action": "complete tags ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|i_CTRL-X_s|",
+    "char": "<C-X> s",
+    "action": "spelling suggestion ",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-B|",
+    "char": "<C-W> <C-B>",
+    "action": "same as <C-W> b",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-C|",
+    "char": "<C-W> <C-C>",
+    "action": "same as <C-W> c",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-D|",
+    "char": "<C-W> <C-D>",
+    "action": "same as <C-W> d",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-F|",
+    "char": "<C-W> <C-F>",
+    "action": "same as <C-W> f",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W CTRL-G|",
+    "char": "<C-W> <C-F>",
+    "action": "same as <C-W> g ..",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-H|",
+    "char": "<C-W> <C-H>",
+    "action": "same as <C-W> h",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-I|",
+    "char": "<C-W> <C-I>",
+    "action": "same as <C-W> i",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-J|",
+    "char": "<C-W> <C-J>",
+    "action": "same as <C-W> j",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-K|",
+    "char": "<C-W> <C-K>",
+    "action": "same as <C-W> k",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-L|",
+    "char": "<C-W> <C-L>",
+    "action": "same as <C-W> l",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-N|",
+    "char": "<C-W> <C-N>",
+    "action": "same as <C-W> n",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-O|",
+    "char": "<C-W> <C-O>",
+    "action": "same as <C-W> o",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-P|",
+    "char": "<C-W> <C-P>",
+    "action": "same as <C-W> p",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-Q|",
+    "char": "<C-W> <C-Q>",
+    "action": "same as <C-W> q",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-R|",
+    "char": "<C-W> <C-R>",
+    "action": "same as <C-W> r",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-S|",
+    "char": "<C-W> <C-S>",
+    "action": "same as <C-W> s",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-T|",
+    "char": "<C-W> <C-T>",
+    "action": "same as <C-W> t",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-V|",
+    "char": "<C-W> <C-V>",
+    "action": "same as <C-W> v",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-W|",
+    "char": "<C-W> <C-W>",
+    "action": "same as <C-W> w",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-X|",
+    "char": "<C-W> <C-X>",
+    "action": "same as <C-W> x",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-Z|",
+    "char": "<C-W> <C-Z>",
+    "action": "same as <C-W> z",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-]|",
+    "char": "<C-W> <C-]>",
+    "action": "same as <C-W> ]",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-^|",
+    "char": "<C-W> <C-^>",
+    "action": "same as <C-W> ^",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_CTRL-_|",
+    "char": "<C-W> <C-_>",
+    "action": "same as <C-W> _",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_+|",
+    "char": "<C-W> +",
+    "action": "increase current window height N lines",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_-|",
+    "char": "<C-W> -",
+    "action": "decrease current window height N lines",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_<|",
+    "char": "<C-W> <",
+    "action": "decrease current window width N columns",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_=|",
+    "char": "<C-W> =",
+    "action": "make all windows the same height & width",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_>|",
+    "char": "<C-W> >",
+    "action": "increase current window width N columns",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_H|",
+    "char": "<C-W> H",
+    "action": "move current window to the far left",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_J|",
+    "char": "<C-W> J",
+    "action": "move current window to the very bottom",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_K|",
+    "char": "<C-W> K",
+    "action": "move current window to the very top",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_L|",
+    "char": "<C-W> L",
+    "action": "move current window to the far right",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_P|",
+    "char": "<C-W> P",
+    "action": "go to preview window",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_R|",
+    "char": "<C-W> R",
+    "action": "rotate windows upwards N times",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_S|",
+    "char": "<C-W> S",
+    "action": "same as CTRL-W s",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_T|",
+    "char": "<C-W> T",
+    "action": "move current window to a new tab page",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_W|",
+    "char": "<C-W> W",
+    "action": "go to N previous window (wrap around)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_]|",
+    "char": "<C-W> ]",
+    "action": "split window and jump to tag under cursor",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_^|",
+    "char": "<C-W> ^",
+    "action": "split current window and edit alternate file N",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W__|",
+    "char": "<C-W> _",
+    "action": "set current window height to N (default: very high)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_b|",
+    "char": "<C-W> b",
+    "action": "<go bottom window>",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_c|",
+    "char": "<C-W> c",
+    "action": "close current window (like |:close|)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_d|",
+    "char": "<C-W> d",
+    "action": "split window and jump to definition under the cursor",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_f|",
+    "char": "<C-W> f",
+    "action": "split window and edit file name under the cursor",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_F|",
+    "char": "<C-W> F",
+    "action": "split window and edit file name under the cursor and jump to the line number following the file name.",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_g_CTRL-]|",
+    "char": "<C-W> g <C-]>",
+    "action": "split window and do |:tjump| to tag under cursor",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_g]|",
+    "char": "<C-W> g ]",
+    "action": "split window and do |:tselect| for tag under cursor",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_g}|",
+    "char": "<C-W> g }",
+    "action": "do a |:ptjump| to the tag under the cursor",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_gf|",
+    "char": "<C-W> g f",
+    "action": "edit file name under the cursor in a new tab page",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_gF|",
+    "char": "<C-W> g F",
+    "action": "edit file name under the cursor in a new tab page and jump to the line number following the file name.",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_h|",
+    "char": "<C-W> h",
+    "action": "go to Nth left window (stop at first window)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_i|",
+    "char": "<C-W> i",
+    "action": "split window and jump to declaration of identifier under the cursor",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_j|",
+    "char": "<C-W> j",
+    "action": "go N windows down (stop at last window)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_k|",
+    "char": "<C-W> k",
+    "action": "go N windows up (stop at first window)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_l|",
+    "char": "<C-W> l",
+    "action": "go to Nth right window (stop at last window)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_n|",
+    "char": "<C-W> n",
+    "action": "open new window, N lines high",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_o|",
+    "char": "<C-W> o",
+    "action": "close all but current window (like |:only|)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_p|",
+    "char": "<C-W> p",
+    "action": "go to previous (last accessed) window",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_q|",
+    "char": "<C-W> q",
+    "action": "quit current window (like |:quit|)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_r|",
+    "char": "<C-W> r",
+    "action": "rotate windows downwards N times",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_s|",
+    "char": "<C-W> s",
+    "action": "split current window in two parts, new window N lines high",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_t|",
+    "char": "<C-W> t",
+    "action": "go to top window",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_v|",
+    "char": "<C-W> v",
+    "action": "split current window vertically, new window N columns wide",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_w|",
+    "char": "<C-W> w",
+    "action": "go to N next window (wrap around)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_x|",
+    "char": "<C-W> x",
+    "action": "exchange current window with window N (default: next window)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_z|",
+    "char": "<C-W> z",
+    "action": "close preview window",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_bar|",
+    "char": "<C-W> |",
+    "action": "set window width to N columns",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_}|",
+    "char": "<C-W> }",
+    "action": "show tag under cursor in preview window",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_<Down>|",
+    "char": "<C-W> <Down>",
+    "action": "same as CTRL-W j",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_<Up>|",
+    "char": "<C-W> <Up>",
+    "action": "same as CTRL-W k",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_<Left>|",
+    "char": "<C-W> <Left>",
+    "action": "same as CTRL-W h",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|CTRL-W_<Right>|",
+    "char": "<C-W> <Right>",
+    "action": "same as CTRL-W l",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_aquote|",
+    "char": "a",
+    "action": "double quoted string",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_a|",
+    "char": "a",
+    "action": "single quoted string",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_a(|",
+    "char": "a(",
+    "action": "same as ab",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_a)|",
+    "char": "a)",
+    "action": "same as ab",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_a<|",
+    "char": "a<",
+    "action": "`a <>` from < to the matching >",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_a>|",
+    "char": "a>",
+    "action": "same as a<",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_aB|",
+    "char": "aB",
+    "action": "a Block from `[{` to `]}` (with brackets)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_aW|",
+    "char": "aW",
+    "action": "a WORD (with white space)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_a[|",
+    "char": "a[",
+    "action": "a [] from [ to the matching ]",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_a]|",
+    "char": "a]",
+    "action": "same as a[",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_a`|",
+    "char": "a`",
+    "action": "string in backticks",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_ab|",
+    "char": "ab",
+    "action": "a block from `[(` to `])` (with braces)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_ap|",
+    "char": "ap",
+    "action": "a paragraph (with white space)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_as|",
+    "char": "as",
+    "action": "a sentence (with white space)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_at|",
+    "char": "at",
+    "action": "a tag block (with white space)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_aw|",
+    "char": "aw",
+    "action": "a word (with white space)",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_a{|",
+    "char": "a{",
+    "action": "same as aB",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_a}|",
+    "char": "a}",
+    "action": "same as aB",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_iquote|",
+    "char": "i",
+    "action": "double quoted string without the quotes",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_i|",
+    "char": "i",
+    "action": "single quoted string without the quotes",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_i(|",
+    "char": "i(",
+    "action": "same as ib",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_i)|",
+    "char": "i)",
+    "action": "same as ib",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_i<|",
+    "char": "i<",
+    "action": "inner <> from < to the matching >",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_i>|",
+    "char": "i>",
+    "action": "same as i<",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_iB|",
+    "char": "iB",
+    "action": "inner Block from `[{` and `]}`",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_iW|",
+    "char": "iW",
+    "action": "inner WORD",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_i[|",
+    "char": "i[",
+    "action": "inner [] from [ to the matching ]",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_i]|",
+    "char": "i]",
+    "action": "same as i[",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_i`|",
+    "char": "i`",
+    "action": "string in backticks without the backticks",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_ib|",
+    "char": "ib",
+    "action": "inner block from `[(` to `])`",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_ip|",
+    "char": "ip",
+    "action": "inner paragraph",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_is|",
+    "char": "is",
+    "action": "inner sentence",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_it|",
+    "char": "it",
+    "action": "inner tag block",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_iw|",
+    "char": "iw",
+    "action": "inner word",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_i{|",
+    "char": "i{",
+    "action": "same as iB",
+    "note": 0
+  },
+  {
+    "mode": "normal",
+    "tag": "|v_i}|",
+    "char": "i}",
+    "action": "same as iB",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_CTRL-\\_CTRL-N|",
+    "char": "<C-\\> <C-N>",
+    "action": "stop Visual mode",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_CTRL-\\_CTRL-G|",
+    "char": "<C-\\> <C-G>",
+    "action": "go to mode specified with insertmode",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_CTRL-A|",
+    "char": "<C-A>",
+    "action": "add N to number in highlighted text",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_CTRL-C|",
+    "char": "<C-C>",
+    "action": "stop Visual mode",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_CTRL-G|",
+    "char": "<C-G>",
+    "action": "toggle between Visual mode and Select mode",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_<BS>|",
+    "char": "<BS>",
+    "action": "Select mode: delete highlighted area",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_CTRL-H|",
+    "char": "<C-H>",
+    "action": "same as <BS>",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_CTRL-O|",
+    "char": "<C-O>",
+    "action": "switch from Select to Visual mode for one command",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_CTRL-V|",
+    "char": "<C-V>",
+    "action": "make Visual mode blockwise or stop Visual mode",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_CTRL-X|",
+    "char": "<C-X>",
+    "action": "subtract N from number in highlighted text",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_<Esc>|",
+    "char": "<Esc>",
+    "action": "stop Visual mode",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_CTRL-]|",
+    "char": "<C-]>",
+    "action": "jump> to highlighted tag",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_!|",
+    "char": "!{filter}",
+    "action": "filter the highlighted lines through the external command {filter}",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_:|",
+    "char": ":",
+    "action": "start a command-line with the highlighted lines as a range",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_<|",
+    "char": "<",
+    "action": "shift the highlighted lines one shiftwidth left",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_=|",
+    "char": "=",
+    "action": "filter the highlighted lines through the external program given with the equalprg option",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_>|",
+    "char": ">",
+    "action": "shift the highlighted lines one shiftwidth right",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_b_A|",
+    "char": "A",
+    "action": "block mode: append same text in all lines, after the highlighted area",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_C|",
+    "char": "C",
+    "action": "delete the highlighted lines and start insert",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_D|",
+    "char": "D",
+    "action": "delete the highlighted lines",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_b_I|",
+    "char": "I",
+    "action": "block mode: insert same text in all lines, before the highlighted area",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_J|",
+    "char": "J",
+    "action": "join the highlighted lines",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_K|",
+    "char": "K",
+    "action": "run keywordprg on the highlighted area",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_O|",
+    "char": "O",
+    "action": "Move horizontally to other corner of area.",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_R|",
+    "char": "R",
+    "action": "delete the highlighted lines and start insert",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_S|",
+    "char": "S",
+    "action": "delete the highlighted lines and start insert",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_U|",
+    "char": "U",
+    "action": "make highlighted area uppercase",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_V|",
+    "char": "V",
+    "action": "make Visual mode linewise or stop Visual mode",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_X|",
+    "char": "X",
+    "action": "delete the highlighted lines",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_Y|",
+    "char": "Y",
+    "action": "yank the highlighted lines",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_aquote|",
+    "char": "a",
+    "action": "extend highlighted area with a double quoted string",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_a|",
+    "char": "a",
+    "action": "extend highlighted area with a single quoted string",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_a(|",
+    "char": "a(",
+    "action": "same as ab",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_a)|",
+    "char": "a)",
+    "action": "same as ab",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_a<|",
+    "char": "a<",
+    "action": "extend highlighted area with a <> block",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_a>|",
+    "char": "a>",
+    "action": "same as a<",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_aB|",
+    "char": "aB",
+    "action": "extend highlighted area with a {} block",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_aW|",
+    "char": "aW",
+    "action": "extend highlighted area with a WORD",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_a[|",
+    "char": "a[",
+    "action": "extend highlighted area with a [] block",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_a]|",
+    "char": "a]",
+    "action": "same as a[",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_a`|",
+    "char": "a`",
+    "action": "extend highlighted area with a backtick quoted string",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_ab|",
+    "char": "ab",
+    "action": "extend highlighted area with a () block",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_ap|",
+    "char": "ap",
+    "action": "extend highlighted area with a paragraph",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_as|",
+    "char": "as",
+    "action": "extend highlighted area with a sentence",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_at|",
+    "char": "at",
+    "action": "extend highlighted area with a tag block",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_aw|",
+    "char": "aw",
+    "action": "extend highlighted area with a word",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_a{|",
+    "char": "a{",
+    "action": "same as aB",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_a}|",
+    "char": "a}",
+    "action": "same as aB",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_c|",
+    "char": "c",
+    "action": "delete highlighted area and start insert",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_d|",
+    "char": "d",
+    "action": "delete highlighted area",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_g_CTRL-A|",
+    "char": "g <C-A>",
+    "action": "add N to number in highlighted text",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_g_CTRL-X|",
+    "char": "g <C-X>",
+    "action": "subtract N from number in highlighted text",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_gJ|",
+    "char": "gJ",
+    "action": "join the highlighted lines without inserting spaces",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_gq|",
+    "char": "gq",
+    "action": "format the highlighted lines",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_gv|",
+    "char": "gv",
+    "action": "exchange current and previous highlighted area",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_iquote|",
+    "char": "i\\",
+    "action": "extend highlighted area with a double quoted string (without quotes)",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_i|",
+    "char": "i",
+    "action": "extend highlighted area with a single quoted string (without quotes)",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_i(|",
+    "char": "i(",
+    "action": "same as ib",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_i)|",
+    "char": "i)",
+    "action": "same as ib",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_i<|",
+    "char": "i<",
+    "action": "extend highlighted area with inner <> block",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_i>|",
+    "char": "i>",
+    "action": "same as i<",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_iB|",
+    "char": "iB",
+    "action": "extend highlighted area with inner {} block",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_iW|",
+    "char": "iW",
+    "action": "extend highlighted area with inner WORD",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_i[|",
+    "char": "i[",
+    "action": "extend highlighted area with inner [] block",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_i]|",
+    "char": "i]",
+    "action": "same as i[",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_i`|",
+    "char": "i`",
+    "action": "extend highlighted area with a backtick quoted string (without the backticks)",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_ib|",
+    "char": "ib",
+    "action": "extend highlighted area with inner () block",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_ip|",
+    "char": "ip",
+    "action": "extend highlighted area with inner paragraph",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_is|",
+    "char": "is",
+    "action": "extend highlighted area with inner sentence",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_it|",
+    "char": "it",
+    "action": "extend highlighted area with inner tag block",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_iw|",
+    "char": "iw",
+    "action": "extend highlighted area with inner word",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_i{|",
+    "char": "i{",
+    "action": "same as iB",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_i}|",
+    "char": "i}",
+    "action": "same as iB",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_o|",
+    "char": "o",
+    "action": "move cursor to other corner of area",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_r|",
+    "char": "r",
+    "action": "delete highlighted area and start insert",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_s|",
+    "char": "s",
+    "action": "delete highlighted area and start insert",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_u|",
+    "char": "u",
+    "action": "make highlighted area lowercase",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_v|",
+    "char": "v",
+    "action": "make Visual mode characterwise or stop Visual mode",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_x|",
+    "char": "x",
+    "action": "delete the highlighted area",
+    "note": 2
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_y|",
+    "char": "y",
+    "action": "yank the highlighted area",
+    "note": 0
+  },
+  {
+    "mode": "visual",
+    "tag": "|v_~|",
+    "char": "~",
+    "action": "swap case for the highlighted area",
+    "note": 2
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-@|",
+    "char": "NOTUSED",
+    "action": "not used",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-A|",
+    "char": "<C-A>",
+    "action": "do completion on the pattern in front of the cursor and insert all matches",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-B|",
+    "char": "<C-B>",
+    "action": "cursor to begin of command-line",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-C|",
+    "char": "<C-C>",
+    "action": "same as <Esc>",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-D|",
+    "char": "<C-D>",
+    "action": "list completions that match the pattern in front of the cursor",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-E|",
+    "char": "<C-E>",
+    "action": "cursor to end of command-line",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|cedit|",
+    "char": "<C-F>",
+    "action": "default value for cedit: opens the command-line window; otherwise not used",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-G|",
+    "char": "<C-G>",
+    "action": "next match when incsearch is active",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<BS>|",
+    "char": "<BS>",
+    "action": "delete the character in front of the cursor",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_digraph|",
+    "char": "{char1} <BS> {char2}",
+    "action": "enter digraph when digraph is on",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-H|",
+    "char": "<C-H>",
+    "action": "same as <BS>",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<Tab>|",
+    "char": "<Tab>",
+    "action": "if wildchar is <Tab>: Do completion on the pattern in front of the cursor",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<S-Tab>|",
+    "char": "<S-Tab>",
+    "action": "same as CTRL-P",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_wildchar|",
+    "char": "`wildchar`",
+    "action": "Do completion on the pattern in front of the cursor (default: <Tab>)",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-I|",
+    "char": "<C-I>",
+    "action": "same as <Tab>",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<NL>|",
+    "char": "<NL>",
+    "action": "same as <CR>",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-J|",
+    "char": "<C-J>",
+    "action": "same as <CR>",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-K|",
+    "char": "<C-K> {char1} {char2}",
+    "action": "enter digraph",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-L|",
+    "char": "<C-L>",
+    "action": "do completion on the pattern in front of the cursor and insert the longest common part",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<CR>|",
+    "char": "<CR>",
+    "action": "execute entered command",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-M|",
+    "char": "<C-M>",
+    "action": "same as <CR>",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-N|",
+    "char": "<C-N>",
+    "action": "after using wildchar with multiple matches: go to next match, otherwise: recall older command-line from history.",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-O|",
+    "char": "NOTUSED ",
+    "action": "not used",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-P|",
+    "char": "<C-P>",
+    "action": "after using wildchar with multiple matches: go to previous match, otherwise: recall older command-line from history.",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-Q|",
+    "char": "<C-Q>",
+    "action": "same as CTRL-V, unless its used for terminal control flow",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-R|",
+    "char": "<C-R> {0-9a-z%#*:= <C-F> <C-P> <C-W> <C-A>}",
+    "action": "insert the contents of a register or object under the cursor as if typed",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-R_CTRL-R|",
+    "char": "<C-R> <C-R> {0-9a-z%#*:= <C-F> <C-P> <C-W> <C-A>}",
+    "action": "insert the contents of a register or object under the cursor literally",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-S|",
+    "char": "NOTUSED",
+    "action": "(used for terminal control flow)",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-T|",
+    "char": "<C-T>",
+    "action": "previous match when incsearch is active",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-U|",
+    "char": "<C-U>",
+    "action": "remove all characters",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-V|",
+    "char": "<C-V>",
+    "action": "insert next non-digit literally, insert three digit decimal number as a single byte.",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-W|",
+    "char": "<C-W>",
+    "action": "delete the word in front of the cursor",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-X|",
+    "char": "NOTUSED ",
+    "action": "not used (reserved for completion)",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-Y|",
+    "char": "copy (yank) ",
+    "action": "modeless selection",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-Z|",
+    "char": "NOTUSED ",
+    "action": "not used (reserved for suspend)",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<Esc>|",
+    "char": "<Esc>",
+    "action": "abandon command-line without executing it",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-[|",
+    "char": "<C-[>",
+    "action": "same as <Esc>",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-\\_CTRL-N|",
+    "char": "<C-\\> <C-N>",
+    "action": "go to Normal mode, abandon command-line",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-\\_CTRL-G|",
+    "char": "<C-\\> <C-G>",
+    "action": "go to mode specified with insertmode, abandon command-line",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-\\_e|",
+    "char": "<C-\\> e {expr}",
+    "action": "replace the command line with the result of {expr}",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|CTRL-\\|",
+    "char": "NOTUSED",
+    "action": "not used",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-]|",
+    "char": "<C-]>",
+    "action": "trigger abbreviation",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-^|",
+    "char": "<C-^>",
+    "action": "toggle use of |:lmap| mappings",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_CTRL-_|",
+    "char": "<C-_>",
+    "action": "when allowrevins set: change language (Hebrew, Farsi)",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<Del>|",
+    "char": "<Del>",
+    "action": "delete the character under the cursor",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<Left>|",
+    "char": "<Left>",
+    "action": "cursor left",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<S-Left>|",
+    "char": "<S-Left>",
+    "action": "cursor one word left",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<C-Left>|",
+    "char": "<C-Left>",
+    "action": "cursor one word left",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<Right>|",
+    "char": "<Right>",
+    "action": "cursor right",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<S-Right>|",
+    "char": "<S-Right>",
+    "action": "cursor one word right",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<C-Right>|",
+    "char": "<C-Right>",
+    "action": "cursor one word right",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<Up>|",
+    "char": "<Up>",
+    "action": "recall previous command-line from history that matches pattern in front of the cursor",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<S-Up>|",
+    "char": "<S-Up>",
+    "action": "recall previous command-line from history",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<Down>|",
+    "char": "<Down>",
+    "action": "recall next command-line from history that matches pattern in front of the cursor",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<S-Down>|",
+    "char": "<S-Down>",
+    "action": "recall next command-line from history",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<Home>|",
+    "char": "<Home>",
+    "action": "cursor to start of command-line",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<End>|",
+    "char": "<End>",
+    "action": "cursor to end of command-line",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<PageDown>|",
+    "char": "<PageDown>",
+    "action": "same as <S-Down>",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<PageUp>|",
+    "char": "<PageUp>",
+    "action": "same as <S-Up>",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<Insert>|",
+    "char": "<Insert>",
+    "action": "toggle insert/overstrike mode",
+    "note": 0
+  },
+  {
+    "mode": "command",
+    "tag": "|c_<LeftMouse>|",
+    "char": "<LeftMouse>",
+    "action": "cursor at mouse click",
+    "note": 0
+  }
+]
