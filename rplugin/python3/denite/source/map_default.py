@@ -27,7 +27,7 @@ class Source(Base):
         # self.__re_tokens  = re.compile(r'^\|:(.+)\|[\t\s]+:([^\t]+)[\t\s]+(.+)')
         # self.commands     = []
         self.vars = {
-            'data_file': '/Users/clay/Projects/Vim/Denite/me/denite-mappings-source/default_maps.json'
+            'data_file': '/Users/clay/Projects/Vim/me/tcd/data/default_maps.json'
         }
 
     # def on_init(self, context):
@@ -59,6 +59,8 @@ class Source(Base):
                          f'containedin={self.syntax_name} contains={",".join(items)}')
         for pattern in SYNTAX_PATTERNS:
             self.vim.command(f'syntax match {self.syntax_name}_{pattern["name"]} {pattern["regex"]}')
+            self.vim.command(r'syntax keyword deniteSource__Mapping_Notation contained	'
+                             r'CR	NL	LF	BS	Tab	Esc	Space	')
 
     def highlight(self):
         """Link highlight groups to existing attributes."""
@@ -68,53 +70,63 @@ class Source(Base):
 
 
 SYNTAX_GROUPS = [
-    # {'name': 'deniteSource_Projectile_Project',   'link': 'Normal'    },
-    {'name': 'deniteSource_cheatsheet_Noise',     'link': 'Comment'    },
-    {'name': 'deniteSource_cheatsheet_Context',   'link': 'Conditional'    },
-    {'name': 'deniteSource_cheatsheet_Command',   'link': 'Identifier' },
-    {'name': 'deniteSource_cheatsheet_Ctrl',      'link': 'Error'   },
-    {'name': 'deniteSource_cheatsheet_Tab',       'link': 'Question'   },
-    {'name': 'deniteSource_cheatsheet_Shift',     'link': 'Question'   },
-    {'name': 'deniteSource_cheatsheet_Leader',    'link': 'Constant'   },
-    {'name': 'deniteSource_cheatsheet_Title',     'link': 'Conditional'},
+    {'name': 'deniteSource__Mapping_Noise',     'link': 'Comment'     },
+    {'name': 'deniteSource__Mapping_Insert',    'link': 'Identifier'  },
+    {'name': 'deniteSource__Mapping_Normal',    'link': 'SpecialKey'  },
+    {'name': 'deniteSource__Mapping_Visual',    'link': 'Conditional' },
+    {'name': 'deniteSource__Mapping_Command',   'link': 'Type'        },
+    {'name': 'deniteSource__Mapping_Notation',  'link': 'vimNotation' },
+    {'name': 'deniteSource__Mapping_Ctrl',      'link': 'Error'       },
+    {'name': 'deniteSource__Mapping_Motion',    'link': 'Type'        },
+    {'name': 'deniteSource__Mapping_Shift',     'link': 'Question'    },
+    {'name': 'deniteSource__Mapping_Leader',    'link': 'Constant'    },
+    {'name': 'deniteSource__Mapping_Title',     'link': 'Conditional' },
 ]
 
 SYNTAX_PATTERNS = [
-    # {'name': 'Noise',     'regex': r'/\(\s--\s\)/                        contained'},
+    {'name': 'Noise',    'regex': r'/\(\s--\s\)/              contained'},
     {'name': 'Noise',    'regex': r'/</                        contained'},
     {'name': 'Noise',    'regex': r'/>/                        contained'},
-    {'name': 'Leader',   'regex': r'/leader/                   contained'},
-    {'name': 'Tab',      'regex': r'/Tab/                      contained'},
-    {'name': 'Tab',      'regex': r'/\v%(S-)Tab/               contained'},
-    {'name': 'Shift',    'regex': r'/S-\S/                     contained contains=deniteSource_cheatsheet_Tab'},
-    {'name': 'Ctrl',     'regex': r'/C-\S/                     contained'},
-    {'name': 'Context',  'regex': r'/^\s\w\+/                   contained'},
-    {'name': 'Command',  'regex': r'/:.\+/                     contained'},
-    {'name': 'Title',    'regex': r'/\(context\|│name\|│mapping\|│:command\)/        contained'},
+    {'name': 'Notation', 'regex': r'/\s<\S\+>\s/                contained '
+                                  r' contains=deniteSource__Mapping_Tab,deniteSource__Mapping_Shift,deniteSource__Mapping_Ctrl,deniteSource__Mapping_Noise'},
+    {'name': 'Motion',   'regex': r'/{.\+}/                     contained'},
+    {'name': 'Motion',   'regex': r'/`\S\+`/                     contained'},
+    # {'name': 'Shift',    'regex': r'/S-\S/                     contained contains=deniteSource__Mapping_Tab'},
+    # {'name': 'Ctrl',     'regex': r'/C-\S/                     contained'},
+    {'name': 'Ctrl',     'regex': r'/C-\w+/                     contained'},
+    {'name': 'Insert',   'regex': r'/^\s\+insert/              contained'},
+    {'name': 'Normal',   'regex': r'/^\s\+normal/              contained'},
+    {'name': 'Visual',   'regex': r'/^\s\+visual/              contained'},
+    {'name': 'Command',  'regex': r'/^\s\+command/             contained'},
     # {'name': 'Name',      'regex': r'/^\(.*\)\(\(.* -- \)\{2\}\)\@=/     contained'},
     # {'name': 'Title',      'regex': r'/\(.* -- \)\@<=\(.*\)\(.* -- \)\@=/ contained'},
     # {'name': 'Timestamp', 'regex': r'/\v((-- .*){2})@<=(.*)/             contained'},
 ]
 
-    # def define_syntax(self):
-    #     self.vim.command('syntax case ignore')
-    #     self.vim.command(r'syntax match deniteSource_Mappings /\v^.*$/ containedin=' + self.syntax_name)
-    #     self.vim.command(r'syntax match deniteSource_MappingsBracket contained /<\S*>/ '
-    #                      r'contained containedin=deniteSource_Mappings')
-    #     # self.vim.command(r'syntax match deniteSource_MappingsMode /^\s\w\+/ contained '
-    #     self.vim.command(r'syntax match deniteSource_MappingsMode /\v^\s(command|insert|normal|visual)/')
-    #                      # r'contained containedin=deniteSource_Mappings')
-    #     # self.vim.command(r'syntax match deniteSource_MappingsLhs /\(^.*--\s\zs.*\ze--\)/ contained '
-    #                      # r'contained containedin=deniteSource_Mappings')
-    #     # self.vim.command(r'syntax match deniteSource_MappingsRhs /\v%(--.+--)\zs(.*$)\ze/ contained '
-    #                      # r'contained containedin=deniteSource_Mappings')
-    #
-    # def highlight(self):
-    #     self.vim.command('highlight default link deniteSource_Mappings Comment')
-    #     self.vim.command('highlight default link deniteSource_MappingsBracket Preprocessor')
-    #     self.vim.command('highlight default link deniteSource_MappingsMode Number')
-    #     self.vim.command('highlight default link deniteSource_MappingsRhs String')
-    #     # self.vim.command('highlight default link deniteSource_MappingsLhs Identifier')
+# syn match	vimNotation	"\(\\\=<\|<lt>\)\([scamd]-\)\{0,4}x\=\(f\d\{1,2}\|[^ \t:]\|cr\|lf\|linefeed\|enter\|return\|k\=del\%[ete]\|bs\|backspace\|tab\|esc\|right\|left\|help\|undo\|insert\|ins\|k\=home\|k\=end\|kplus\|kminus\|kdivide\|kmultiply\|kenter\|kpoint\|space\|k\=\(page\)\=\(\|down\|up\|k\d\>\)\)>" contains=vimBracket
+# syn match	vimNotation	"\(\\\=<\|<lt>\)\([scam2-4]-\)\{0,4}\(right\|left\|middle\)\(mouse\)\=\(drag\|release\)\=>"	contains=vimBracket
+
+
+
+# def define_syntax(self):
+#     self.vim.command('syntax case ignore')
+#     self.vim.command(r'syntax match deniteSource_Mappings /\v^.*$/ containedin=' + self.syntax_name)
+#     self.vim.command(r'syntax match deniteSource_MappingsBracket contained /<\S*>/ '
+#                      r'contained containedin=deniteSource_Mappings')
+#     # self.vim.command(r'syntax match deniteSource_MappingsMode /^\s\w\+/ contained '
+#     self.vim.command(r'syntax match deniteSource_MappingsMode /\v^\s(command|insert|normal|visual)/')
+#                      # r'contained containedin=deniteSource_Mappings')
+#     # self.vim.command(r'syntax match deniteSource_MappingsLhs /\(^.*--\s\zs.*\ze--\)/ contained '
+#                      # r'contained containedin=deniteSource_Mappings')
+#     # self.vim.command(r'syntax match deniteSource_MappingsRhs /\v%(--.+--)\zs(.*$)\ze/ contained '
+#                      # r'contained containedin=deniteSource_Mappings')
+#
+# def highlight(self):
+#     self.vim.command('highlight default link deniteSource_Mappings Comment')
+#     self.vim.command('highlight default link deniteSource_MappingsBracket Preprocessor')
+#     self.vim.command('highlight default link deniteSource_MappingsMode Number')
+#     self.vim.command('highlight default link deniteSource_MappingsRhs String')
+#     # self.vim.command('highlight default link deniteSource_MappingsLhs Identifier')
 
 # class Kind(BaseKind):
 #     def __init__(self, vim):
