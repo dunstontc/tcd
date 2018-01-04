@@ -35,6 +35,6 @@ class Source(Base):
                 candidates.append({
                     'word': obj['option'],
                     # 'abbr': obj['shortname'],
-                    'abbr': f"{obj['shortname']}{obj['description']}",
+                    'abbr': f"{obj['option']} ({obj['shortname']}) - {obj['description']}",
                 })
         return candidates

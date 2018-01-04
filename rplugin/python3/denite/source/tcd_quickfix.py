@@ -14,6 +14,7 @@ class Source(Base):
 
         self.name     = 'tcd_quickfix'
         self.kind     = 'file'
+        self.syntax_name = 'deniteSource_Quickfix'
         self.matchers = ['matcher_fuzzy']
         self.sorters  = []
 

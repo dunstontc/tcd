@@ -3,11 +3,11 @@
 # FILE:    ultisnips.py
 # AUTHOR:  Clay Dunston <dunstontc@gmail.com>
 # License: MIT license
-# Last Modified: 2017-12-26
+# Last Modified: 2018-01-04
 # ============================================================================
 
 from os import listdir
-from os.path import realpath, basename
+from os.path import realpath, basename, splitext
 
 from .base import Base
 
@@ -19,10 +19,30 @@ class Source(Base):
         self.matchers = ['matcher_regexp']
         self.kind = 'file'
         self.vars = {
-            'snippets_dirs': vim.vars.get('UltiSnipsSnippetDirectories'),
-            'snippets_dir':  vim.vars.get('UltiSnipsSnippetsDir'),
-            'snippets_path': vim.vars.get('tcd#snippets_path'),
-            'icon_setting':      vim.vars.get('projectile#enable_devicons'),
+            'snippets_dirs':  vim.vars.get('UltiSnipsSnippetDirectories'),
+            'snippets_dir':   vim.vars.get('UltiSnipsSnippetsDir'),
+            'snippets_path':  vim.vars.get('tcd#snippets_path'),
+            'icon_setting':   vim.vars.get('projectile#enable_devicons'),
+            'extensions': {
+                'python':     'file.py',
+                'vim':        'file.vim',
+                'javascript': 'file.js',
+                'rust':       'file.rs',
+                'all':        'file.snippets',
+                'snippets':   'file.snippets',
+                'all_tests':  'file.snippets',
+                'Ultisnips':  'file.snippets',
+                'sh':         'file.sh',
+                'lua':        'file.lua',
+                'markdown':   'file.md',
+                'html':       'file.html',
+                'json':       'file.json',
+                'help':       'file.txt',
+                'vimwiki':       'file.txt',
+                'lisp':       'file.el',
+                'todo':       'file.todo',
+
+            }
         }
 
     def on_init(self, context):
@@ -43,14 +63,16 @@ class Source(Base):
         candidates = []
         for item in listdir(context['__snip_dir']):
             # filetype = item.rsplit('.', 1)[0]
-            # if self.vars['icon_setting'] == 1:
-            #     icon = self.vim.funcs.WebDevIconsGetFileTypeSymbol(basename(filetype))
-            # else:
-            #     icon = '  '
+            if self.vars['icon_setting'] == 1:
+                # icon = self.vim.funcs.WebDevIconsGetFileTypeSymbol('file.lua')
+                icon = self.vim.funcs.WebDevIconsGetFileTypeSymbol(self.vars['extensions'][splitext(basename(item))[0]])
+            else:
+                icon = '  '
 
             candidates.append({
                 'word': item,
-                'abbr': f'{item}',
+                # 'abbr': f'{item}',
+                'abbr': f'{icon} {item}',
                 'action__path': context['__snip_dir'] + '/' + item,
             })
 

@@ -4,7 +4,7 @@
 ""
 " @setting(g:tcd#snippets_path)
 " Full path to the folder containing Ultisnips snippets.
-let g:tcd#snippets_path = $HOME . '/Users/clay/nvim.d/snipz'
+let g:tcd#snippets_path = $HOME . '/nvim.d/snipz'
 
 
 " if !exists('g:tcd#data_dir')

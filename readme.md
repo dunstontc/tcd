@@ -1,6 +1,8 @@
 # T.C.D. #
 
 These are scripts, functions, and ideas that I'm fooling around with; feel free to have a look.
+Do note though that most all paths and some other things are specific to my system,
+so if you want to use something make sure you take that into account.
 
 ## Denite Sources ##
   - `:Denite env`

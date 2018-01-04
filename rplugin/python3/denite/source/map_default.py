@@ -2,7 +2,7 @@
 #  FILE: mappings_default.py
 #  AUTHOR: Clay Dunston <dunstontc@gmail.com>
 #  License: MIT license
-#  Last Modified: 2017-12-24
+#  Last Modified: 2018-01-04
 # ==============================================================================
 
 # import re
@@ -20,7 +20,7 @@ class Source(Base):
         super().__init__(vim)
         self.name         = 'map_default'
         self.kind         = 'command'
-        # self.syntax_name = 'deniteSource_Mappings'
+        self.syntax_name = 'deniteSource__Mapping'
         # self.sorters  = ['sorter_rank']
         # self.__re__tsv    = re.compile(r'^\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)')
         # self.__re_command = re.compile(r'^\|:.+\|')
@@ -50,6 +50,51 @@ class Source(Base):
                 # util.error(self.vim, err_string)
 
         return candidates
+
+    def define_syntax(self):
+        """Define Vim regular expressions for syntax highlighting."""
+        # if self.vars['highlight_setting'] == 1:
+        items = [x['name'] for x in SYNTAX_GROUPS]
+        self.vim.command(f'syntax match {self.syntax_name} /^.*$/ '
+                         f'containedin={self.syntax_name} contains={",".join(items)}')
+        for pattern in SYNTAX_PATTERNS:
+            self.vim.command(f'syntax match {self.syntax_name}_{pattern["name"]} {pattern["regex"]}')
+
+    def highlight(self):
+        """Link highlight groups to existing attributes."""
+        # if self.vars['highlight_setting'] == 1:
+        for match in SYNTAX_GROUPS:
+            self.vim.command(f'highlight link {match["name"]} {match["link"]}')
+
+
+SYNTAX_GROUPS = [
+    # {'name': 'deniteSource_Projectile_Project',   'link': 'Normal'    },
+    {'name': 'deniteSource_cheatsheet_Noise',     'link': 'Comment'    },
+    {'name': 'deniteSource_cheatsheet_Context',   'link': 'Conditional'    },
+    {'name': 'deniteSource_cheatsheet_Command',   'link': 'Identifier' },
+    {'name': 'deniteSource_cheatsheet_Ctrl',      'link': 'Error'   },
+    {'name': 'deniteSource_cheatsheet_Tab',       'link': 'Question'   },
+    {'name': 'deniteSource_cheatsheet_Shift',     'link': 'Question'   },
+    {'name': 'deniteSource_cheatsheet_Leader',    'link': 'Constant'   },
+    {'name': 'deniteSource_cheatsheet_Title',     'link': 'Conditional'},
+]
+
+SYNTAX_PATTERNS = [
+    # {'name': 'Noise',     'regex': r'/\(\s--\s\)/                        contained'},
+    {'name': 'Noise',    'regex': r'/</                        contained'},
+    {'name': 'Noise',    'regex': r'/>/                        contained'},
+    {'name': 'Leader',   'regex': r'/leader/                   contained'},
+    {'name': 'Tab',      'regex': r'/Tab/                      contained'},
+    {'name': 'Tab',      'regex': r'/\v%(S-)Tab/               contained'},
+    {'name': 'Shift',    'regex': r'/S-\S/                     contained contains=deniteSource_cheatsheet_Tab'},
+    {'name': 'Ctrl',     'regex': r'/C-\S/                     contained'},
+    {'name': 'Context',  'regex': r'/^\s\w\+/                   contained'},
+    {'name': 'Command',  'regex': r'/:.\+/                     contained'},
+    {'name': 'Title',    'regex': r'/\(context\|│name\|│mapping\|│:command\)/        contained'},
+    # {'name': 'Name',      'regex': r'/^\(.*\)\(\(.* -- \)\{2\}\)\@=/     contained'},
+    # {'name': 'Title',      'regex': r'/\(.* -- \)\@<=\(.*\)\(.* -- \)\@=/ contained'},
+    # {'name': 'Timestamp', 'regex': r'/\v((-- .*){2})@<=(.*)/             contained'},
+]
 
     # def define_syntax(self):
     #     self.vim.command('syntax case ignore')

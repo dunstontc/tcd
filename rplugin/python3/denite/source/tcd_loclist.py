@@ -13,6 +13,7 @@ class Source(Base):
         super().__init__(vim)
         self.name     = 'tcd_loclist'
         self.kind     = 'file'
+        self.syntax_name = 'deniteSource__LocationList'
         self.matchers = ['matcher_regexp']
         self.sorters  = []
 
@@ -24,20 +25,20 @@ class Source(Base):
 
     def define_syntax(self):
         self.vim.command('syntax case ignore')
-        self.vim.command(r'syntax match deniteSource__LocationListHeader '
-                         r'/\v^.*\|\d.{-}\|/ containedin=' + self.syntax_name)
-        self.vim.command(r'syntax match deniteSource__LocationListName '
-                         r'/\v^[^|]+/ contained containedin=deniteSource__LocationListHeader')
-        self.vim.command(r'syntax match deniteSource__LocationListPosition '
-                         r'/\v\|\zs.{-}\ze\|/ contained containedin=deniteSource__LocationListHeader')
-        self.vim.command(r'syntax match deniteSource__LocationListError /\vError/ contained containedin=deniteSource__LocationListPosition')
-        self.vim.command(r'syntax match deniteSource__LocationListWarning /\vWarning/ contained containedin=deniteSource__LocationListPosition')
+        self.vim.command(r'syntax match deniteSource__LocationList   /^.*$/  containedin=' + self.syntax_name + ' '
+                         r'contains=deniteSource__LocationLisHeader,deniteSource__LocationListName,deniteSource__LocationListPosition,deniteSource__LocationLisError,deniteSource__LocationListWarning')
+        self.vim.command(r'syntax match deniteSource__LocationListHeader   /\v^.*\|\d.{-}\|/  containedin=' + self.syntax_name)
+        self.vim.command(r'syntax match deniteSource__LocationListName     /\v^[^|]+/         contained containedin=deniteSource__LocationListHeader')
+        self.vim.command(r'syntax match deniteSource__LocationListPosition /\v\[[\d|\s]\]+/ contained containedin=deniteSource__LocationListHeader')
+        self.vim.command(r'syntax match deniteSource__LocationListError    /\vError/          contained containedin=deniteSource__LocationListPosition')
+        self.vim.command(r'syntax match deniteSource__LocationListWarning  /\vWarning/        contained containedin=deniteSource__LocationListPosition')
 
     def highlight(self):
-        self.vim.command('highlight default link deniteSource__LocationListWarning Comment')
-        self.vim.command('highlight default link deniteSource__LocationListError Error')
-        self.vim.command('highlight default link deniteSource__LocationListName Identifier')
-        self.vim.command('highlight default link deniteSource__LocationListPosition LineNr')
+        # self.vim.command('highlight default link deniteSource__LocationListHeader   Normal')
+        self.vim.command('highlight default link deniteSource__LocationListWarning  Comment')
+        self.vim.command('highlight default link deniteSource__LocationListError    Error')
+        self.vim.command('highlight default link deniteSource__LocationListName     Comment')
+        self.vim.command('highlight default link deniteSource__LocationListPosition Comment')
 
     def convert(self, val, context):
         type_str = 'Error' if val['type'].lower() == 'e' else 'Warning'
@@ -52,6 +53,7 @@ class Source(Base):
 
         return {
             'word': word,
+            'abbr': f"{context['__filename']} | [{line} {col}] {type_str} | {val['text']}",
             'action__path': context['__bufname'],
             'action__line': line,
             'action__col': col,
