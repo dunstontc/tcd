@@ -1,8 +1,8 @@
-"""A template for denite source files."""
+"""A denite source for Vim options."""
 # ==============================================================================
-#  FILE: cheatsheet.py
+#  FILE: options.py
 #  AUTHOR: Clay Dunston <dunstontc@gmail.com>
-#  Last Modified: 2018-01-02
+#  Last Modified: 2018-01-03
 # ==============================================================================
 
 
@@ -20,19 +20,16 @@ class Source(Base):
         """Initialize thyself."""
         super().__init__(vim)
 
-        self.name = 'cheatsheet'
+        self.name = 'options'
         self.kind = 'word'
-        self.syntax_name = 'deniteSource_cheatsheet'
+        self.syntax_name = 'deniteSource_options'
         self.vars = {
-            'data_dir':     vim.vars.get('projectile#data_dir', '~/.cache/projectile'),
-            'highlight_setting': vim.vars.get('projectile#enable_highlighting'),
-            'format_setting':    vim.vars.get('projectile#enable_formatting'),
-            'icon_setting': vim.vars.get('projectile#enable_devicons'),
+            'data_dir':  vim.vars.get('tcd#data_dir', '~/.cache/tcd'),
         }
 
     def on_init(self, context):
         """Parse, gather, or set variables, settings, etc."""
-        context['data_file'] = expand(self.vars['data_dir'] + '/cheatsheet.json')
+        context['data_file'] = expand(self.vars['data_dir'] + '/options.json')
         if not exists(context['data_file']):
             error(self.vim, f'Error accessing {context["data_file"]}')
             return
@@ -51,12 +48,11 @@ class Source(Base):
 
             for obj in config:
                 candidates.append({
-                    'word':            obj['name'],
-                    'action__command': obj['command'],
-                    '__context':       obj['context'],
-                    '__mapping':       obj['mapping'],
-                    'abbr':            f"{obj['context']:<15}│{obj['name']:<20}│{obj['mapping']:<15}│:{obj['command']:<15}",
-
+                    'word':        obj['option'],
+                    '__option':    obj['option'],
+                    '__shortname': obj['shortname'],
+                    '__description': obj['description'],
+                    'abbr':        f"{obj['option']:<15}│{obj['shortname']:<10}│{obj['description']:<15}",
                 })
 
         return candidates
@@ -118,41 +114,36 @@ class Source(Base):
                 max_count = cur_len
         return max_count
 
-    def define_syntax(self):
-        """Define Vim regular expressions for syntax highlighting."""
-        # if self.vars['highlight_setting'] == 1:
-        items = [x['name'] for x in SYNTAX_GROUPS]
-        self.vim.command(f'syntax match {self.syntax_name} /^.*$/ '
-                            f'containedin={self.syntax_name} contains={",".join(items)}')
-        for pattern in SYNTAX_PATTERNS:
-            self.vim.command(f'syntax match {self.syntax_name}_{pattern["name"]} {pattern["regex"]}')
-
-    def highlight(self):
-        """Link highlight groups to existing attributes."""
-        # if self.vars['highlight_setting'] == 1:
-        for match in SYNTAX_GROUPS:
-            self.vim.command(f'highlight link {match["name"]} {match["link"]}')
+    # def define_syntax(self):
+    #     """Define Vim regular expressions for syntax highlighting."""
+    #     # if self.vars['highlight_setting'] == 1:
+    #     items = [x['name'] for x in SYNTAX_GROUPS]
+    #     self.vim.command(f'syntax match {self.syntax_name} /^.*$/ '
+    #                      f'containedin={self.syntax_name} contains={",".join(items)}')
+    #     for pattern in SYNTAX_PATTERNS:
+    #         self.vim.command(f'syntax match {self.syntax_name}_{pattern["name"]} {pattern["regex"]}')
+    #
+    # def highlight(self):
+    #     """Link highlight groups to existing attributes."""
+    #     # if self.vars['highlight_setting'] == 1:
+    #     for match in SYNTAX_GROUPS:
+    #         self.vim.command(f'highlight link {match["name"]} {match["link"]}')
 
 
 SYNTAX_GROUPS = [
     # {'name': 'deniteSource_Projectile_Project',   'link': 'Normal'    },
-    {'name': 'deniteSource_cheatsheet_Noise',     'link': 'Comment'    },
-    {'name': 'deniteSource_cheatsheet_Name',      'link': 'Identifier' },
-    {'name': 'deniteSource_cheatsheet_Ctrl',      'link': 'Question'   },
-    {'name': 'deniteSource_cheatsheet_Shift',     'link': 'Question'   },
-    {'name': 'deniteSource_cheatsheet_Leader',    'link': 'Question'   },
-    {'name': 'deniteSource_cheatsheet_Title',     'link': 'Conditional'},
+    # {'name': 'deniteSource_Projectile_Noise',     'link': 'Comment'   },
+    # {'name': 'deniteSource_cheatsheet_Name',      'link':  'Identifier'},
+    # {'name': 'deniteSource_cheatsheet_Key',       'link':  'Question'},
+    # {'name': 'deniteSource_cheatsheet_Title',     'link':  'Conditional'   },
 ]
 
 SYNTAX_PATTERNS = [
     # {'name': 'Noise',     'regex': r'/\(\s--\s\)/                        contained'},
-    {'name': 'Noise',     'regex': r'/</                        contained'},
-    {'name': 'Noise',     'regex': r'/>/                        contained'},
-    {'name': 'Leader',   'regex': r'/leader/                                        contained'},
-    {'name': 'Ctrl',     'regex': r'/S-\S/                                          contained'},
-    {'name': 'Shift',     'regex': r'/C-\S/                                          contained'},
-    {'name': 'Title',     'regex': r'/\(context\|│name\|│mapping\|│:command\)/        contained'},
+    # {'name': 'Key',     'regex': r'/<leader>/                        contained'},
+    # {'name': 'Title',     'regex': r'/\(context\|name\|mapping\|:command\)/        contained'},
     # {'name': 'Name',      'regex': r'/^\(.*\)\(\(.* -- \)\{2\}\)\@=/     contained'},
     # {'name': 'Title',      'regex': r'/\(.* -- \)\@<=\(.*\)\(.* -- \)\@=/ contained'},
     # {'name': 'Timestamp', 'regex': r'/\v((-- .*){2})@<=(.*)/             contained'},
 ]
+

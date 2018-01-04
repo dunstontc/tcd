@@ -1,5 +1,10 @@
 [
   {
+    "option": "Option:",
+    "shortname": "Shortname:",
+    "description": "Description:"
+  },
+  {
     "option": "aleph",
     "shortname": "al",
     "description": "ASCII code of the letter Aleph (Hebrew)"
@@ -130,8 +135,9 @@
     "description": "wrapped line repeats indent"
   },
   {
-    "option": "breakindentopt  briopt",
-    "shortname": "settings for breakindent"
+    "option": "breakindentopt",
+    "shortname": "briopt",
+    "description": "settings for breakindent"
   },
   {
     "option": "browsedir",
@@ -224,8 +230,9 @@
     "description": "patterns that can start a comment line"
   },
   {
-    "option": "commentstring   cms",
-    "shortname": "template for comments; used for fold marker"
+    "option": "commentstring",
+    "shortname": "cms",
+    "description": "template for comments; used for fold marker"
   },
   {
     "option": "complete",
@@ -268,32 +275,39 @@
     "description": "flags for Vi-compatible behavior"
   },
   {
-    "option": "cscopepathcomp  cspc",
-    "shortname": "how many components of the path to show"
+    "option": "cscopepathcomp",
+    "shortname": "cspc",
+    "description": "how many components of the path to show"
   },
   {
-    "option": "cscopeprg       csprg",
-    "shortname": "command to execute cscope"
+    "option": "cscopeprg",
+    "shortname": "csprg",
+    "description": "command to execute cscope"
   },
   {
-    "option": "cscopequickfix  csqf",
-    "shortname": "use quickfix window for cscope results"
+    "option": "cscopequickfix",
+    "shortname": "csqf",
+    "description": "use quickfix window for cscope results"
   },
   {
-    "option": "cscoperelative  csre",
-    "shortname": "Use cscope.out path basename as prefix"
+    "option": "cscoperelative",
+    "shortname": "csre",
+    "description": "Use cscope.out path basename as prefix"
   },
   {
-    "option": "cscopetag       cst",
-    "shortname": "use cscope for tag commands"
+    "option": "cscopetag",
+    "shortname": "cst",
+    "description": "use cscope for tag commands"
   },
   {
-    "option": "cscopetagorder  csto",
-    "shortname": "determines :cstag search order"
+    "option": "cscopetagorder",
+    "shortname": "csto",
+    "description": "determines :cstag search order"
   },
   {
-    "option": "cscopeverbose   csverb",
-    "shortname": "give messages when adding a cscope database"
+    "option": "cscopeverbose",
+    "shortname": "cpo",
+    "description": "give messages when adding a cscope database"
   },
   {
     "option": "cursorbind",
@@ -421,8 +435,9 @@
     "description": "file encoding for multi-byte text"
   },
   {
-    "option": "fileencodings   fencs",
-    "shortname": "automatically detected character encodings"
+    "option": "fileencodings",
+    "shortname": "fencs",
+    "description": "automatically detected character encodings"
   },
   {
     "option": "fileformat",
@@ -435,8 +450,9 @@
     "description": "automatically detected values for fileformat"
   },
   {
-    "option": "fileignorecase  fic",
-    "shortname": "ignore case when using file names"
+    "option": "fileignorecase",
+    "shortname": "fic",
+    "description": "ignore case when using file names"
   },
   {
     "option": "filetype",
@@ -489,8 +505,9 @@
     "description": "close folds with a level higher than this"
   },
   {
-    "option": "foldlevelstart  fdls",
-    "shortname": "foldlevel when starting to edit a file"
+    "option": "foldlevelstart",
+    "shortname": "fdls",
+    "description": "foldlevel when starting to edit a file"
   },
   {
     "option": "foldmarker",
@@ -528,12 +545,14 @@
     "description": "expression used with gq command"
   },
   {
-    "option": "formatlistpat   flp",
-    "shortname": "pattern used to recognize a list header"
+    "option": "formatlistpat",
+    "shortname": "flp",
+    "description": "pattern used to recognize a list header"
   },
   {
-    "option": "formatoptions   fo",
-    "shortname": "how automatic formatting is to be done"
+    "option": "formatoptions",
+    "shortname": "fo",
+    "description": "how automatic formatting is to be done"
   },
   {
     "option": "formatprg",
@@ -591,8 +610,9 @@
     "description": "GUI: custom label for a tab page"
   },
   {
-    "option": "guitabtooltip   gtt",
-    "shortname": "GUI: custom tooltip for a tab page"
+    "option": "guitabtooltip",
+    "shortname": "gtt",
+    "description": "GUI: custom tooltip for a tab page"
   },
   {
     "option": "helpfile",
@@ -855,8 +875,9 @@
     "description": "maximum memory (in Kbyte) used for one buffer"
   },
   {
-    "option": "maxmempattern   mmp",
-    "shortname": "maximum memory (in Kbyte) used for pattern search"
+    "option": "maxmempattern",
+    "shortname": "mmp",
+    "description": "maximum memory (in Kbyte) used for pattern search"
   },
   {
     "option": "maxmemtot",
@@ -999,16 +1020,19 @@
     "description": "name of the Perl dynamic library"
   },
   {
-    "option": "preserveindent  pi",
-    "shortname": "preserve the indent structure when reindenting"
+    "option": "preserveindent",
+    "shortname": "pi",
+    "description": "preserve the indent structure when reindenting"
   },
   {
-    "option": "previewheight   pvh",
-    "shortname": "height of the preview window"
+    "option": "previewheight",
+    "shortname": "pvh",
+    "description": "height of the preview window"
   },
   {
-    "option": "previewwindow   pvw",
-    "shortname": "identifies the preview window"
+    "option": "previewwindow",
+    "shortname": "pvw",
+    "description": "identifies the preview window"
   },
   {
     "option": "printdevice",
@@ -1016,8 +1040,9 @@
     "description": "name of the printer to be used for :hardcopy"
   },
   {
-    "option": "printencoding   penc",
-    "shortname": "encoding to be used for printing"
+    "option": "printencoding",
+    "shortname": "penc",
+    "description": "encoding to be used for printing"
   },
   {
     "option": "printexpr",
@@ -1035,8 +1060,9 @@
     "description": "format of the header used for :hardcopy"
   },
   {
-    "option": "printmbcharset  pmbcs",
-    "shortname": "CJK character set to be used for :hardcopy"
+    "option": "printmbcharset",
+    "shortname": "pmbcs",
+    "description": "CJK character set to be used for :hardcopy"
   },
   {
     "option": "printmbfont",
@@ -1089,8 +1115,9 @@
     "description": "default regexp engine to use"
   },
   {
-    "option": "relativenumber  rnu",
-    "shortname": "show relative line number in front of each line"
+    "option": "relativenumber",
+    "shortname": "rnu",
+    "description": "show relative line number in front of each line"
   },
   {
     "option": "remap",
@@ -1183,8 +1210,9 @@
     "description": "when to use Select mode instead of Visual mode"
   },
   {
-    "option": "sessionoptions  ssop",
-    "shortname": "options for |:mksession|"
+    "option": "sessionoptions",
+    "shortname": " ssop",
+    "description": "options for |:mksession|"
   },
   {
     "option": "shada",
@@ -1287,8 +1315,9 @@
     "description": "minimum number of columns to scroll horizontal"
   },
   {
-    "option": "sidescrolloff   siso",
-    "shortname": "min. nr. of columns to left and right of cursor"
+    "option": "sidescrolloff",
+    "shortname": "siso",
+    "description": "min. nr. of columns to left and right of cursor"
   },
   {
     "option": "signcolumn",
@@ -1321,8 +1350,9 @@
     "description": "enable spell checking"
   },
   {
-    "option": "spellcapcheck   spc",
-    "shortname": "pattern to locate end of a sentence"
+    "option": "spellcapcheck",
+    "shortname": "spc",
+    "description": "pattern to locate end of a sentence"
   },
   {
     "option": "spellfile",
@@ -1595,8 +1625,9 @@
     "description": "files matching these patterns are not completed"
   },
   {
-    "option": "wildignorecase  wic",
-    "shortname": "ignore case when completing file names"
+    "option": "wildignorecase",
+    "shortname": "wic",
+    "description": "ignore case when completing file names"
   },
   {
     "option": "wildmenu",

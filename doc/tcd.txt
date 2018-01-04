@@ -4,8 +4,9 @@ Clay Dunston <dunstontc@gmail.com>                                       *tcd*
 ==============================================================================
 CONTENTS                                                        *tcd-contents*
   1. Configuration................................................|tcd-config|
-  2. Settings...................................................|tcd-settings|
-  3. Functions.................................................|tcd-functions|
+  2. Commands...................................................|tcd-commands|
+  3. Settings...................................................|tcd-settings|
+  4. Functions.................................................|tcd-functions|
 
 ==============================================================================
 CONFIGURATION                                                     *tcd-config*
@@ -13,10 +14,19 @@ CONFIGURATION                                                     *tcd-config*
                                                          *g:tcd#snippets_path*
 |g:tcd#snippets_path| Full path to the folder containing Ultisnips snippets.
 
+                                                              *g:tcd#data_dir*
+|g:tcd#data_dir| The location to store files containing saved projects &
+bookmarks.
+
+==============================================================================
+COMMANDS                                                        *tcd-commands*
+
+:MoveReg {from} {to}                                                *:MoveReg*
+  |:MoveReg| `:MoveReg {from} {to}` Copies the text {from} one register {to}
+  another.
+
 ==============================================================================
 SETTINGS                                                        *tcd-settings*
-
-
 
 ==============================================================================
 FUNCTIONS                                                      *tcd-functions*
@@ -28,8 +38,8 @@ tcd#ClearRegisters()                                    *tcd#ClearRegisters()*
   Clear all registers. From 'https://github.com/wincent/wincent'
 
 tcd#SynStack()                                                *tcd#SynStack()*
-  Log syntax scope(s) at the cursor.
-  From https://github.com/mhartington/dotfiles'
+  Log syntax scope(s) at the cursor. From https://github.com/mhartington/dotfi
+  les/blob/master/config/nvim/init.vim#L217'
 
 tcd#TwoSplit({filepath})                                      *tcd#TwoSplit()*
   Given a {filepath}, either open or split the destination.
@@ -37,17 +47,30 @@ tcd#TwoSplit({filepath})                                      *tcd#TwoSplit()*
 tcd#Demo()                                                        *tcd#Demo()*
   Prompts for a name and echos it back.
 
-tcd#Feedkeys({keys})                                          *tcd#Feedkeys()*
+tcd#Chemzqm_Feedkeys({keys})                          *tcd#Chemzqm_Feedkeys()*      daw
   From 'https://github.com/chemzqm/denite-extras'
 
-tcd#Search({keys})                                              *tcd#Search()*
+tcd#Chemzqm_Search({keys})                              *tcd#Chemzqm_Search()*
   From 'https://github.com/chemzqm/denite-extras'
 
 tcd#GetAllSnippets()                                    *tcd#GetAllSnippets()*
   Returns a list with all Ultisnips snippets in the current scope.
 
-tcd#GetCmdCompletion({cmd_prefix})                    *tcd#GetCmdCompletion()*
-  From 'http://vim.wikia.com/wiki/Get_ex_command_line_completion_as_a_list'
+tcd#Env()                                                          *tcd#Env()*
+  Capture wildmode completion options for `:echo $ <Tab>` From 'https://stacko
+  verflow.com/questions/11175842/how-to-list-all-the-environment-variables-in-
+  vim' '<c-a>' Inserts all possible completion options.
+
+tcd#GetChar()                                                  *tcd#GetChar()*
+  (see :help |denite|)
+
+tcd#GetCommandCompletion({base})                  *tcd#GetCommandCompletion()*
+  From 'https://stackoverflow.com/questions/21117615/how-to-obtain-command-com
+  pletion-list'
+
+tcd#JumpInFile({back}, {forw})                              *tcd#JumpInFile()*
+  tcd#JumpInFile({back}, {forw}) https://stackoverflow.com/questions/7066456/v
+  im-how-to-prevent-jumps-out-of-current-buffer
 
 
 vim:tw=78:ts=8:ft=help:norl:

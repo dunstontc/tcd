@@ -1,5 +1,5 @@
+(A) 2018-01-03 Remove `<Plug>` and `<SID>` Mappings from @verbose . id:11
 (A) 2017-12-01 Proper filtering & parsing of @rhs commands in. @python id:2
-(A) 2017-12-13 Filter out all newlines from @tsv file input. @Bug id:7
 (A) 2017-12-15 Try `self.vim.command()` for as an alternative to @feedkeys id:8
 (B) 2018-01-01 spell.add source. id:10
 (B) 2017-12-04 Wrap `clean_command` in double quotes for @feedkeys id:5

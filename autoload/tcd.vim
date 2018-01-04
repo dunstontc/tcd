@@ -236,7 +236,7 @@ endfunction
 
 ""
 " @public
-" @usage tcd#JumpInFile({back}, {forw})
+" tcd#JumpInFile({back}, {forw})
 " https://stackoverflow.com/questions/7066456/vim-how-to-prevent-jumps-out-of-current-buffer
 function! tcd#JumpInFile(back, forw)
     let [n, i] = [bufnr('%'), 1]

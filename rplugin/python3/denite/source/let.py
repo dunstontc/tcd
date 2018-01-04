@@ -14,10 +14,9 @@ class Source(Base):
     """Make it easier to see our options."""
 
     def __init__(self, vim):
-        """Character creation."""
         super().__init__(vim)
 
-        self.name = 'option'
+        self.name = 'let'
         self.kind = 'word'
         self.vars = {}
 
