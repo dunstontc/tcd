@@ -4189,7 +4189,7 @@
     "mode": "command",
     "tag": "|c_CTRL-Q|",
     "char": "<C-Q>",
-    "action": "same as CTR 1│ Neomake: [1.1:2:1] vint: unexpected output. See :messages for more information.L-V, unless its used for terminal control flow",
+    "action": "same as CTRL-V, unless its used for terminal control flow",
     "note": 0
   },
   {

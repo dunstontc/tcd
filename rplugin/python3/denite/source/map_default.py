@@ -60,7 +60,9 @@ class Source(Base):
         for pattern in SYNTAX_PATTERNS:
             self.vim.command(f'syntax match {self.syntax_name}_{pattern["name"]} {pattern["regex"]}')
             self.vim.command(r'syntax keyword deniteSource__Mapping_Notation contained	'
-                             r'CR	NL	LF	BS	Tab	Esc	Space	')
+                             r'CR	NL	LF	BS	Del	Tab	Esc	Space	PageUp	PageDown	Help	ScrollWheelDown	ScrollWheelUp	ScrollWheelLeft	ScrollWheelRight	LeftMouse	RightMouse	MiddleMouse')
+            self.vim.command(r'syn match	deniteSource__Mapping_Notation "\(\\\=<\|<lt>\)\([scamd]-\)\{0,4}x\=\(f\d\{1,2}\|[^\t:]\|cr\|lf\|linefeed\|enter\|return\|k\=del\%[ete]\|bs\|backspace\|tab\|esc\|right\|left\|help\|undo\|insert\|ins\|k\=home\|k\=end\|kplus\|kminus\|kdivide\|kmultiply\|kenter\|kpoint\|space\|k\=\(page\)\=\(\|down\|up\|k\d\>\)\)>" '
+                             r' contains=deniteSource__Mapping_Bracket')
 
     def highlight(self):
         """Link highlight groups to existing attributes."""
@@ -71,6 +73,7 @@ class Source(Base):
 
 SYNTAX_GROUPS = [
     {'name': 'deniteSource__Mapping_Noise',     'link': 'Comment'     },
+    {'name': 'deniteSource__Mapping_Bracket',   'link': 'Comment'     },
     {'name': 'deniteSource__Mapping_Insert',    'link': 'Identifier'  },
     {'name': 'deniteSource__Mapping_Normal',    'link': 'SpecialKey'  },
     {'name': 'deniteSource__Mapping_Visual',    'link': 'Conditional' },
@@ -78,22 +81,23 @@ SYNTAX_GROUPS = [
     {'name': 'deniteSource__Mapping_Notation',  'link': 'vimNotation' },
     {'name': 'deniteSource__Mapping_Ctrl',      'link': 'Error'       },
     {'name': 'deniteSource__Mapping_Motion',    'link': 'Type'        },
-    {'name': 'deniteSource__Mapping_Shift',     'link': 'Question'    },
     {'name': 'deniteSource__Mapping_Leader',    'link': 'Constant'    },
+    {'name': 'deniteSource__Mapping_Special',   'link': 'Constant'    },
+    {'name': 'deniteSource__Mapping_Register',  'link': 'Constant'    },
     {'name': 'deniteSource__Mapping_Title',     'link': 'Conditional' },
 ]
 
 SYNTAX_PATTERNS = [
-    {'name': 'Noise',    'regex': r'/\(\s--\s\)/              contained'},
-    {'name': 'Noise',    'regex': r'/</                        contained'},
-    {'name': 'Noise',    'regex': r'/>/                        contained'},
-    {'name': 'Notation', 'regex': r'/\s<\S\+>\s/                contained '
-                                  r' contains=deniteSource__Mapping_Tab,deniteSource__Mapping_Shift,deniteSource__Mapping_Ctrl,deniteSource__Mapping_Noise'},
-    {'name': 'Motion',   'regex': r'/{.\+}/                     contained'},
-    {'name': 'Motion',   'regex': r'/`\S\+`/                     contained'},
+    {'name': 'Noise',    'regex': r'/\(\s--\s\)/             contained'},
+    {'name': 'Bracket',  'regex': r'/[\\<>]/                 contained'},
+    # {'name': 'Notation', 'regex': r'//                       contained '},
+                                  # r' contains=deniteSource__Mapping_Ctrl,deniteSource__Mapping_Bracket'},
+    {'name': 'Register', 'regex': r'/\["x\]/                     contained'},
+    {'name': 'Motion',   'regex': r'/{\S\+}/                     contained'},
+    {'name': 'Special',   'regex': r'/`\S\+`/                     contained'},
     # {'name': 'Shift',    'regex': r'/S-\S/                     contained contains=deniteSource__Mapping_Tab'},
     # {'name': 'Ctrl',     'regex': r'/C-\S/                     contained'},
-    {'name': 'Ctrl',     'regex': r'/C-\w+/                     contained'},
+    # {'name': 'Ctrl',     'regex': r'/C-\S\+\ze>/               contained'},
     {'name': 'Insert',   'regex': r'/^\s\+insert/              contained'},
     {'name': 'Normal',   'regex': r'/^\s\+normal/              contained'},
     {'name': 'Visual',   'regex': r'/^\s\+visual/              contained'},
@@ -105,7 +109,8 @@ SYNTAX_PATTERNS = [
 
 # syn match	vimNotation	"\(\\\=<\|<lt>\)\([scamd]-\)\{0,4}x\=\(f\d\{1,2}\|[^ \t:]\|cr\|lf\|linefeed\|enter\|return\|k\=del\%[ete]\|bs\|backspace\|tab\|esc\|right\|left\|help\|undo\|insert\|ins\|k\=home\|k\=end\|kplus\|kminus\|kdivide\|kmultiply\|kenter\|kpoint\|space\|k\=\(page\)\=\(\|down\|up\|k\d\>\)\)>" contains=vimBracket
 # syn match	vimNotation	"\(\\\=<\|<lt>\)\([scam2-4]-\)\{0,4}\(right\|left\|middle\)\(mouse\)\=\(drag\|release\)\=>"	contains=vimBracket
-
+# {0-9a-z%#*:= <C-F> <C-P> <C-W> <C-A>}
+# {0-9a-z%#*:= <C-F> <C-P> <C-W> <C-A>}
 
 
 # def define_syntax(self):
