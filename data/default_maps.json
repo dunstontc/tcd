@@ -36,13 +36,6 @@
   },
   {
     "mode": "insert",
-    "tag": "|i_CTRL-f|",
-    "char": "NOTUSED",
-    "action": "not used (but by default its in cinkeys to re-indent the current line)",
-    "note": 0
-  },
-  {
-    "mode": "insert",
     "tag": "|i_CTRL-G_j|",
     "char": "<C-G> <C-J>",
     "action": "line down, to column where inserting started",
@@ -232,13 +225,6 @@
   },
   {
     "mode": "insert",
-    "tag": "|i_CTRL-S|",
-    "char": "NOTUSED",
-    "action": "(used for terminal control flow)",
-    "note": 0
-  },
-  {
-    "mode": "insert",
     "tag": "|i_CTRL-T|",
     "char": "<C-T>",
     "action": "insert one shiftwidth of indent in current line",
@@ -319,13 +305,6 @@
     "tag": "|i_CTRL-\\_CTRL-G|",
     "char": "<C-\\> <C-G>",
     "action": "go to mode specified with insertmode",
-    "note": 0
-  },
-  {
-    "mode": "insert",
-    "tag": "|i_CTRL-\\|",
-    "char": "NOTUSED ",
-    "action": "not used",
     "note": 0
   },
   {
@@ -568,13 +547,6 @@
   },
   {
     "mode": "normal",
-    "tag": "|CTRL-@|",
-    "char": "NOTUSED",
-    "action": "not used",
-    "note": 0
-  },
-  {
-    "mode": "normal",
     "tag": "|CTRL-A|",
     "char": "<C-A>",
     "action": "add `N` to number at/after cursor",
@@ -666,13 +638,6 @@
   },
   {
     "mode": "normal",
-    "tag": "|CTRL-K|",
-    "char": "NOTUSED",
-    "action": "not used",
-    "note": 0
-  },
-  {
-    "mode": "normal",
     "tag": "|CTRL-L|",
     "char": "<C-L>",
     "action": "redraw screen",
@@ -715,24 +680,10 @@
   },
   {
     "mode": "normal",
-    "tag": "|CTRL-Q|",
-    "char": "NOTUSED",
-    "action": "(used for terminal control flow)",
-    "note": 0
-  },
-  {
-    "mode": "normal",
     "tag": "|CTRL-R|",
     "char": "<C-R>",
     "action": "redo changes which were undone with `u`",
     "note": 2
-  },
-  {
-    "mode": "normal",
-    "tag": "|CTRL-S|",
-    "char": "NOTUSED",
-    "action": "(used for terminal control flow)",
-    "note": 0
   },
   {
     "mode": "normal",
@@ -785,13 +736,6 @@
   },
   {
     "mode": "normal",
-    "tag": "|CTRL-[ <Esc>|",
-    "char": "NOTUSED",
-    "action": "not used",
-    "note": 0
-  },
-  {
-    "mode": "normal",
     "tag": "|CTRL-\\_CTRL-N|",
     "char": "<C-\\> <C-N>",
     "action": "go to Normal mode (no-op)",
@@ -806,13 +750,6 @@
   },
   {
     "mode": "normal",
-    "tag": "|CTRL-\\|",
-    "char": "NOTUSED",
-    "action": "not used",
-    "note": 0
-  },
-  {
-    "mode": "normal",
     "tag": "|CTRL-]|",
     "char": "<C-]>",
     "action": ":ta to ident under cursor",
@@ -823,13 +760,6 @@
     "tag": "|CTRL-^|",
     "char": "<C-^>",
     "action": "edit `Nth` alternate file (equivalent to `:e #N`)",
-    "note": 0
-  },
-  {
-    "mode": "normal",
-    "tag": "|CTRL-_|",
-    "char": "NOTUSED",
-    "action": "not used",
     "note": 0
   },
   {
@@ -1334,13 +1264,6 @@
     "tag": "|[|",
     "char": "[{char}",
     "action": "square bracket command (see `|[|` below)",
-    "note": 0
-  },
-  {
-    "mode": "normal",
-    "tag": "|\\|",
-    "char": "NOTUSED",
-    "action": "not used",
     "note": 0
   },
   {
@@ -4019,13 +3942,6 @@
   },
   {
     "mode": "command",
-    "tag": "|c_CTRL-@|",
-    "char": "NOTUSED",
-    "action": "not used",
-    "note": 0
-  },
-  {
-    "mode": "command",
     "tag": "|c_CTRL-A|",
     "char": "<C-A>",
     "action": "do completion on the pattern in front of the cursor and insert all matches",
@@ -4173,13 +4089,6 @@
   },
   {
     "mode": "command",
-    "tag": "|c_CTRL-O|",
-    "char": "NOTUSED ",
-    "action": "not used",
-    "note": 0
-  },
-  {
-    "mode": "command",
     "tag": "|c_CTRL-P|",
     "char": "<C-P>",
     "action": "after using wildchar with multiple matches: go to previous match, otherwise: recall older command-line from history.",
@@ -4204,13 +4113,6 @@
     "tag": "|c_CTRL-R_CTRL-R|",
     "char": "<C-R> <C-R> {0-9a-z%#*:= <C-F> <C-P> <C-W> <C-A>}",
     "action": "insert the contents of a register or object under the cursor literally",
-    "note": 0
-  },
-  {
-    "mode": "command",
-    "tag": "|c_CTRL-S|",
-    "char": "NOTUSED",
-    "action": "(used for terminal control flow)",
     "note": 0
   },
   {
@@ -4243,23 +4145,9 @@
   },
   {
     "mode": "command",
-    "tag": "|c_CTRL-X|",
-    "char": "NOTUSED ",
-    "action": "not used (reserved for completion)",
-    "note": 0
-  },
-  {
-    "mode": "command",
     "tag": "|c_CTRL-Y|",
     "char": "copy (yank) ",
     "action": "modeless selection",
-    "note": 0
-  },
-  {
-    "mode": "command",
-    "tag": "|c_CTRL-Z|",
-    "char": "NOTUSED ",
-    "action": "not used (reserved for suspend)",
     "note": 0
   },
   {
@@ -4295,13 +4183,6 @@
     "tag": "|c_CTRL-\\_e|",
     "char": "<C-\\> e {expr}",
     "action": "replace the command line with the result of {expr}",
-    "note": 0
-  },
-  {
-    "mode": "command",
-    "tag": "|CTRL-\\|",
-    "char": "NOTUSED",
-    "action": "not used",
     "note": 0
   },
   {

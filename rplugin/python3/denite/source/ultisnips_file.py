@@ -38,7 +38,7 @@ class Source(Base):
                 'html':       'file.html',
                 'json':       'file.json',
                 'help':       'file.txt',
-                'vimwiki':       'file.txt',
+                'vimwiki':    'file.txt',
                 'lisp':       'file.el',
                 'todo':       'file.todo',
 
@@ -63,16 +63,16 @@ class Source(Base):
         candidates = []
         for item in listdir(context['__snip_dir']):
             # filetype = item.rsplit('.', 1)[0]
-            if self.vars['icon_setting'] == 1:
+            # if self.vars['icon_setting'] == 1:
                 # icon = self.vim.funcs.WebDevIconsGetFileTypeSymbol('file.lua')
-                icon = self.vim.funcs.WebDevIconsGetFileTypeSymbol(self.vars['extensions'][splitext(basename(item))[0]])
-            else:
-                icon = '  '
+                # icon = self.vim.funcs.WebDevIconsGetFileTypeSymbol(self.vars['extensions'][splitext(basename(item))[1]])
+            # else:
+                # icon = '  '
 
             candidates.append({
                 'word': item,
-                # 'abbr': f'{item}',
-                'abbr': f'{icon} {item}',
+                'abbr': f'{item}',
+                # 'abbr': f'{icon} {item}',
                 'action__path': context['__snip_dir'] + '/' + item,
             })
 

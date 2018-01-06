@@ -26,4 +26,13 @@ let g:tcd#data_dir = '/Users/clay/Projects/Vim/me/tcd/data'
 " Copies the text {from} one register {to} another.
 command! -nargs=+ MoveReg :<C-u> call tcd#ReReg(<f-args>)
 
+""
+" @section Mappings
+
+""
+" see: https://github.com/romainl/vim-qf/blob/master/autoload/qf/wrap.vim
+nnoremap <silent> <Plug>tcd_qf_previous  :<C-u> call tcd#qf#WrapCommand('up', 'c')<CR>
+nnoremap <silent> <Plug>tcd_qf_next      :<C-u> call tcd#qf#WrapCommand('down', 'c')<CR>
+nnoremap <silent> <Plug>tcd_loc_previous :<C-u> call tcd#qf#WrapCommand('up', 'l')<CR>
+nnoremap <silent> <Plug>tcd_loc_next     :<C-u> call tcd#qf#WrapCommand('down', 'l')<CR>
 

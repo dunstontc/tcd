@@ -3,20 +3,20 @@
 #  FILE: messages.py
 #  AUTHOR: Clay Dunston <dunstontc@gmail.com>
 #  LICENSE: MIT License
-#  Last Modified: 2017-12-31
+#  Last Modified: 2018-01-05
 # ==============================================================================
 
 from .base import Base
 
 SYNTAX_GROUPS = [
-    {'name': 'deniteSource_Messages',         'link': 'Normal'   },
-    {'name': 'deniteSource_Messages_Noise',   'link': 'Comment'  },
-    {'name': 'deniteSource_Messages_Origin',  'link': 'Comment'  },
-    {'name': 'deniteSource_Messages_String',  'link': 'String'   },
-    {'name': 'deniteSource_Messages_Path',    'link': 'Directory'},
-    {'name': 'deniteSource_Messages_Command', 'link': 'PreProc'  },
-    {'name': 'deniteSource_Messages_Err',     'link': 'Error'    },
-    {'name': 'deniteSource_Messages_Num',     'link': 'Number'   },
+    {'name': 'deniteSource__Messages',         'link': 'Normal'   },
+    {'name': 'deniteSource__Messages_Noise',   'link': 'Comment'  },
+    {'name': 'deniteSource__Messages_Origin',  'link': 'Comment'  },
+    {'name': 'deniteSource__Messages_String',  'link': 'String'   },
+    {'name': 'deniteSource__Messages_Path',    'link': 'Directory'},
+    {'name': 'deniteSource__Messages_Command', 'link': 'PreProc'  },
+    {'name': 'deniteSource__Messages_Err',     'link': 'Error'    },
+    {'name': 'deniteSource__Messages_Num',     'link': 'Number'   },
 ]
 
 SYNTAX_PATTERNS = [
@@ -44,7 +44,7 @@ class Source(Base):
         super().__init__(vim)
 
         self.name = 'messages'
-        self.syntax_name = 'deniteSource_Messages'
+        self.syntax_name = 'deniteSource__Messages'
         self.kind = 'word'
         self.vars = {}
 
@@ -58,7 +58,7 @@ class Source(Base):
         candidates = []
         count = context['msg_count']
         for item in context['__messages']:
-            if len(item):
+            if len(item) > 1:
                 count -= 1
                 candidates.insert(0, {'word': f'{str(count):>2}│ {item}'})
                 # candidates.append({'word': str(context['msg_count'])})
@@ -67,7 +67,7 @@ class Source(Base):
     def define_syntax(self):
         """Define Vim regular expressions for syntax highlighting."""
         items = [x['name'] for x in SYNTAX_GROUPS]
-        self.vim.command(r'syntax match deniteSource_Messages /^.*$/ '
+        self.vim.command(r'syntax match deniteSource__Messages /^.*$/ '
                          f"containedin={self.syntax_name} contains={','.join(items)}")
         for pattern in SYNTAX_PATTERNS:
             self.vim.command(f"syntax match {self.syntax_name}_{pattern['name']} {pattern['regex']}")

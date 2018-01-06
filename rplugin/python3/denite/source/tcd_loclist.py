@@ -1,6 +1,7 @@
 # ============================================================================
 # FILE: location_list.py
 # AUTHOR: Qiming Zhao <chemzqm@gmail.com>
+# Editor: Clay Dunston <dunstontc@gmail.com>
 # License: MIT license
 # ============================================================================
 # pylint: disable=E0401,C0411
@@ -23,40 +24,24 @@ class Source(Base):
         context['__bufnr']    = self.vim.current.buffer.number
         context['__filename'] = os.path.basename(context['__bufname'])
 
-    def define_syntax(self):
-        self.vim.command('syntax case ignore')
-        self.vim.command(r'syntax match deniteSource__LocationList   /^.*$/  containedin=' + self.syntax_name + ' '
-                         r'contains=deniteSource__LocationLisHeader,deniteSource__LocationListName,deniteSource__LocationListPosition,deniteSource__LocationLisError,deniteSource__LocationListWarning')
-        self.vim.command(r'syntax match deniteSource__LocationListHeader   /\v^.*\|\d.{-}\|/  containedin=' + self.syntax_name)
-        self.vim.command(r'syntax match deniteSource__LocationListName     /\v^[^|]+/         contained containedin=deniteSource__LocationListHeader')
-        self.vim.command(r'syntax match deniteSource__LocationListPosition /\v\[[\d|\s]\]+/ contained containedin=deniteSource__LocationListHeader')
-        self.vim.command(r'syntax match deniteSource__LocationListError    /\vError/          contained containedin=deniteSource__LocationListPosition')
-        self.vim.command(r'syntax match deniteSource__LocationListWarning  /\vWarning/        contained containedin=deniteSource__LocationListPosition')
-
-    def highlight(self):
-        # self.vim.command('highlight default link deniteSource__LocationListHeader   Normal')
-        self.vim.command('highlight default link deniteSource__LocationListWarning  Comment')
-        self.vim.command('highlight default link deniteSource__LocationListError    Error')
-        self.vim.command('highlight default link deniteSource__LocationListName     Comment')
-        self.vim.command('highlight default link deniteSource__LocationListPosition Comment')
-
     def convert(self, val, context):
         type_str = 'Error' if val['type'].lower() == 'e' else 'Warning'
-        bufnr = val['bufnr']
-        line = val['lnum'] if bufnr != 0 else 0
-        col = val['col'] if bufnr != 0 else 0
+        bufnr    = val['bufnr']
+        line     = val['lnum'] if bufnr != 0 else 0
+        col      = val['col'] if bufnr != 0 else 0
+        pos      = f"{line}:{col}"
 
+        # TODO: What is this checking for?
         if len(context['__bufname']) == 0:
             word = val['text']
         else:
-            word = context['__filename'] + ' |' + str(line) + ' col ' + str(col) + ' ' + type_str + '| ' + val['text']
+            word = f"{context['__filename']}  {pos:<6} | {val['text']}"
 
         return {
             'word': word,
-            'abbr': f"{context['__filename']} | [{line} {col}] {type_str} | {val['text']}",
             'action__path': context['__bufname'],
             'action__line': line,
-            'action__col': col,
+            'action__col':  col,
             'action__buffer_nr': context['__bufnr']
             }
 
@@ -68,4 +53,60 @@ class Source(Base):
             if item['valid'] != 0:
                 res.append(self.convert(item, context))
         return res
+
+    def highlight(self):
+        """Link highlight groups to existing attributes."""
+        for match in SYNTAX_GROUPS:
+            self.vim.command(f'highlight default link {match["name"]} {match["link"]}')
+
+    def define_syntax(self):
+        """Define Vim regular expressions for syntax highlighting."""
+        self.vim.command(r'syntax match deniteSource__LocationList /^.*$/ containedin=' + self.syntax_name + ' contains='
+                         r'deniteSource__LocationListNoise,'
+                         r'deniteSource__LocationListFile,'
+                         r'deniteSource__LocationListPosition,'
+                         r'deniteSource__LocationListErr,'
+                         r'deniteSource__LocationListWarning')
+        for pattern in SYNTAX_PATTERNS:
+            self.vim.command(f"syntax match {self.syntax_name}{pattern['name']} {pattern['regex']}")
+
+    # def define_syntax(self):
+    #     """Define Vim regular expressions for syntax highlighting."""
+    #     items = [x['name'] for x in SYNTAX_GROUPS]
+    #     self.vim.command(r'syntax match deniteSource__LocationList /^.*$/ '
+    #                      f"containedin={self.syntax_name} contains={','.join(items)}")
+    #     for pattern in SYNTAX_PATTERNS:
+    #         self.vim.command(f"syntax match {self.syntax_name}_{pattern['name']} {pattern['regex']}")
+
+SYNTAX_GROUPS = [
+    {'name': 'deniteSource__LocationListNoise',    'link':  'Comment'},
+    {'name': 'deniteSource__LocationListWarning',  'link':  'WarningMsg'},
+    {'name': 'deniteSource__LocationListErr',      'link':  'Error'},
+    {'name': 'deniteSource__LocationListName',     'link':  'Directory'},
+    {'name': 'deniteSource__LocationListFile',     'link':  'Directory'},
+    {'name': 'deniteSource__LocationListPosition', 'link':  'Number'},
+    {'name': 'deniteSource__LocationListNum',      'link':  'Number'},
+
+]
+
+SYNTAX_PATTERNS = [
+    # {'name': 'Noise',   'regex':  r' /\( -- \)/                contained'},
+    {'name': 'Noise',   'regex':  r' /\(|\)/                contained'},
+    {'name': 'Noise',   'regex':  r' /\(:\)/ contained containedin=deniteSource__LocationListPosition'},
+    # {'name': 'Noise',   'regex':  r' /\s\{2}\(File\)/          contained'},
+    # {'name': 'Noise',   'regex':  r' /\s\{2}\(File\)/          contained'},
+    # {'name': 'Origin',  'regex':  r' /^\s(.*)\s/               contained'},
+    # {'name': 'Origin',  'regex':  r' /^\s\+\d\+\|\s\[\S\+\]\s/ contained'},
+    {'name': 'Err',     'regex':  r' /\v\s[DEFW]\d+/            contained'},
+    # {'name': 'Err',     'regex':  r' /\v([A-Z][a-z]+)+Error.*/ contained'},
+    # {'name': 'Num',     'regex':  r' /\d/                      contained'},
+
+    # {'name': 'Header',   'regex':  r' /\v^.*\|\d.{-}\|/ contained containedin= deniteSource__LocationList'},
+    # {'name': 'Num',      'regex':  r' /\d/                      contained'},
+    {'name': 'File',     'regex':  r' /^\s\+\S\+\s/       contained '},
+    # {'name': 'Position', 'regex':  r' /\v\[[\d|\s]\]+/  contained '},
+    {'name': 'Position', 'regex':  r' /\s\d\+:\d\+\s/  contained '},
+    # {'name': 'Err',      'regex':  r' /Error/           contained containedin=deniteSource__LocationListPosition'},
+    # {'name': 'Warning',  'regex':  r' /Warning/         contained containedin=deniteSource__LocationListPosition'},
+]
 

@@ -1,6 +1,7 @@
 # ============================================================================
 # FILE: quickfix.py
 # AUTHOR: Qiming Zhao <chemzqm@gmail.com>
+# Editor: Clay Dunston <dunstontc@gmail.com>
 # License: MIT license
 # ============================================================================
 # pylint: disable=E0401,C0411
