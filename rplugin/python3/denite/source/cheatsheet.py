@@ -51,7 +51,7 @@ class Source(Base):
 
             for obj in config:
                 candidates.append({
-                    'word':            obj['name'],
+                    'word':            f"{obj['context']}  {obj['name']}  {obj['mapping']} {obj['command']}",
                     'action__command': obj['command'],
                     '__context':       obj['context'],
                     '__mapping':       obj['mapping'],
@@ -59,53 +59,6 @@ class Source(Base):
 
                 })
 
-        return candidates
-
-    def _convert(self, candidates):
-        """Format and add metadata to gathered candidates.
-
-        Parameters
-        ----------
-        candidates : list
-            Our raw source.
-
-        Returns
-        -------
-        candidates : list
-            A sexy source.
-            Aligns candidate properties.
-            Adds error mark if a source's path is inaccessible.
-            Adds nerdfont icon if ``projectile#enable_devicons`` == ``1``.
-
-        """
-        path_len = self._get_length(candidates, 'short_path')
-        name_len = self._get_length(candidates, 'name')
-        if self.vars['icon_setting'] == 0:
-            err_icon = 'X '
-        else:
-            err_icon = '✗ '
-
-        for candidate in candidates:
-
-            if not isfile(candidate['action__path']):
-                err_mark = err_icon
-            else:
-                err_mark = '  '
-
-            if self.vars['icon_setting'] == 1:
-                icon = self.vim.funcs.WebDevIconsGetFileTypeSymbol(candidate['action__path'])
-            else:
-                icon = '  '
-
-            candidate['abbr'] = "{0} {1:^{name_len}} -- {err_mark} {2:<{path_len}} -- {3}".format(
-                icon,
-                candidate['name'],
-                candidate['short_path'],
-                candidate['timestamp'],
-                name_len=name_len,
-                err_mark=err_mark,
-                path_len=(path_len + 3),
-            )
         return candidates
 
     def _get_length(self, array, attribute):
@@ -135,7 +88,6 @@ class Source(Base):
 
 
 SYNTAX_GROUPS = [
-    # {'name': 'deniteSource_Projectile_Project',   'link': 'Normal'    },
     {'name': 'deniteSource_cheatsheet_Noise',     'link': 'Comment'     },
     {'name': 'deniteSource_cheatsheet_Context',   'link': 'Conditional' },
     {'name': 'deniteSource_cheatsheet_Command',   'link': 'Identifier'  },
@@ -150,14 +102,18 @@ SYNTAX_PATTERNS = [
     # {'name': 'Noise',     'regex': r'/\(\s--\s\)/                        contained'},
     {'name': 'Noise',    'regex': r'/</                        contained'},
     {'name': 'Noise',    'regex': r'/>/                        contained'},
+    {'name': 'Noise',    'regex': r'/│/  contained containedin=deniteSource_cheatsheet_Title'},
     {'name': 'Leader',   'regex': r'/leader/                   contained'},
+    {'name': 'Leader',   'regex': r'/\v%(│)@<=(\[|\]|z|g)/     contained'},
+    {'name': 'Leader',   'regex': r'/\v(i)(\w\s\/\sa\w)@=/     contained'},
+    {'name': 'Leader',   'regex': r'/\v(i\w\s\/\s)@<=(a)/     contained'},
     {'name': 'Tab',      'regex': r'/Tab/                      contained'},
     {'name': 'Tab',      'regex': r'/\v%(S-)Tab/               contained'},
-    {'name': 'Shift',    'regex': r'/S-\S/                     contained contains=deniteSource_cheatsheet_Tab'},
+    {'name': 'Shift',    'regex': r'/S-\S/  contained contains=deniteSource_cheatsheet_Tab'},
     {'name': 'Ctrl',     'regex': r'/C-\S/                     contained'},
-    {'name': 'Context',  'regex': r'/^\s\w\+/                   contained'},
+    {'name': 'Context',  'regex': r'/^\s\w\+/                  contained'},
     {'name': 'Command',  'regex': r'/:.\+/                     contained'},
-    {'name': 'Title',    'regex': r'/\(context\|│name\|│mapping\|│:command\)/        contained'},
+    {'name': 'Title',    'regex': r'/\(CONTEXT\|│NAME\|│MAPPING\|│:COMMAND\)/ contained'},
     # {'name': 'Name',      'regex': r'/^\(.*\)\(\(.* -- \)\{2\}\)\@=/     contained'},
     # {'name': 'Title',      'regex': r'/\(.* -- \)\@<=\(.*\)\(.* -- \)\@=/ contained'},
     # {'name': 'Timestamp', 'regex': r'/\v((-- .*){2})@<=(.*)/             contained'},

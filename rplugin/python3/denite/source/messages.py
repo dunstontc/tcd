@@ -20,19 +20,20 @@ SYNTAX_GROUPS = [
 ]
 
 SYNTAX_PATTERNS = [
-    {'name': 'Noise',   'regex':  r' /\( -- \)/                contained'},
-    {'name': 'Noise',   'regex':  r' /\s\{2}\(File\)/          contained'},
-    {'name': 'Origin',  'regex':  r' /^\s(.*)\s/               contained'},
-    {'name': 'Origin',  'regex':  r' /^\s\+\d\+\|\s\[\S\+\]\s/ contained'},
-    {'name': 'String',  'regex':  r' /\s".*"/                  contained'},
+    {'name': 'Noise',   'regex':  r' /\( -- \)/                 contained'},
+    {'name': 'Noise',   'regex':  r' /\s\{2}\(File\)/           contained'},
+    {'name': 'Origin',  'regex':  r' /^\s(.*)\s/                contained'},
+    {'name': 'Origin',  'regex':  r' /^\s\+\d\+\|\s\[\S\+\]\s/  contained'},
     {'name': 'String',  'regex':  r" /\%(\[\)\@<='.*'\%(]\)\@=/ contained"},
-    {'name': 'Path',    'regex':  r' /\s"\/.*"/                contained'},
-    {'name': 'String',  'regex':  r" /\s'.*'/                  contained"},
-    {'name': 'Command', 'regex':  r' /\s:\w*\s\ze/             contained'},
-    {'name': 'Command', 'regex':  r' /\s:\w*$/                 contained'},
-    {'name': 'Err',     'regex':  r' /\s[DEFW]\d\+/            contained'},
-    {'name': 'Err',     'regex':  r' /\v([A-Z][a-z]+)+Error.*/ contained'},
-    {'name': 'Num',     'regex':  r' /\d/                      contained'},
+    {'name': 'String',  'regex':  r' /\s".*"/                   contained'},
+    {'name': 'String',  'regex':  r" /\s'.*'/                   contained"},
+    {'name': 'Path',    'regex':  r' /\s"\/.*"/                 contained'},
+    # {'name': 'Path',    'regex':  r' /\d\+\(L\|C\)/             contained contains=deniteSource__Messages_Num'},
+    {'name': 'Command', 'regex':  r' /\s:\w*\s\ze/              contained'},
+    {'name': 'Command', 'regex':  r' /\s:\w*$/                  contained'},
+    {'name': 'Err',     'regex':  r' /\s[DEFW]\d\+/             contained'},
+    {'name': 'Err',     'regex':  r' /\v([A-Z][a-z]+)+Error.*/  contained'},
+    {'name': 'Num',     'regex':  r' /\d/                       contained'},
 ]
 
 

@@ -62,9 +62,11 @@ class Source(Base):
     def define_syntax(self):
         """Define Vim regular expressions for syntax highlighting."""
         self.vim.command(r'syntax match deniteSource__LocationList /^.*$/ containedin=' + self.syntax_name + ' contains='
+                         r'deniteSource__LocationListPosition,'
+                         r'deniteSource__LocationListString,'
                          r'deniteSource__LocationListNoise,'
                          r'deniteSource__LocationListFile,'
-                         r'deniteSource__LocationListPosition,'
+                         r'deniteSource__LocationListNum,'
                          r'deniteSource__LocationListErr,'
                          r'deniteSource__LocationListWarning')
         for pattern in SYNTAX_PATTERNS:
@@ -86,26 +88,21 @@ SYNTAX_GROUPS = [
     {'name': 'deniteSource__LocationListFile',     'link':  'Directory'},
     {'name': 'deniteSource__LocationListPosition', 'link':  'Number'},
     {'name': 'deniteSource__LocationListNum',      'link':  'Number'},
-
+    {'name': 'deniteSource__LocationListString',   'link':  'String'},
 ]
 
 SYNTAX_PATTERNS = [
-    # {'name': 'Noise',   'regex':  r' /\( -- \)/                contained'},
-    {'name': 'Noise',   'regex':  r' /\(|\)/                contained'},
-    {'name': 'Noise',   'regex':  r' /\(:\)/ contained containedin=deniteSource__LocationListPosition'},
-    # {'name': 'Noise',   'regex':  r' /\s\{2}\(File\)/          contained'},
-    # {'name': 'Noise',   'regex':  r' /\s\{2}\(File\)/          contained'},
-    # {'name': 'Origin',  'regex':  r' /^\s(.*)\s/               contained'},
-    # {'name': 'Origin',  'regex':  r' /^\s\+\d\+\|\s\[\S\+\]\s/ contained'},
-    {'name': 'Err',     'regex':  r' /\v\s[DEFW]\d+/            contained'},
+    {'name': 'Header',   'regex':  r' /\v^.*\|\d.{-}\|/ contained containedin= deniteSource__LocationList'},
+    {'name': 'Noise',    'regex':  r' /\( -- \)/        contained'},
+    {'name': 'Noise',    'regex':  r' /\(|\)/           contained'},
+    {'name': 'Noise',    'regex':  r' /\(:\)/           contained containedin=deniteSource__LocationListPosition'},
+    {'name': 'Position', 'regex':  r' /\s\d\+:\d\+\s/   contained '},
+    {'name': 'File',     'regex':  r' /^\s\+\S\+\s/     contained '},
+    {'name': 'Num',      'regex':  r' /\d/              contained'},
+    {'name': 'String',   'regex':  r' /\s".*"/          contained'},
+    {'name': 'String',   'regex':  r" /\s'.*'/          contained"},
+    {'name': 'Err',      'regex':  r' /\v\s[DEFW]\d+/   contained'},
     # {'name': 'Err',     'regex':  r' /\v([A-Z][a-z]+)+Error.*/ contained'},
-    # {'name': 'Num',     'regex':  r' /\d/                      contained'},
-
-    # {'name': 'Header',   'regex':  r' /\v^.*\|\d.{-}\|/ contained containedin= deniteSource__LocationList'},
-    # {'name': 'Num',      'regex':  r' /\d/                      contained'},
-    {'name': 'File',     'regex':  r' /^\s\+\S\+\s/       contained '},
-    # {'name': 'Position', 'regex':  r' /\v\[[\d|\s]\]+/  contained '},
-    {'name': 'Position', 'regex':  r' /\s\d\+:\d\+\s/  contained '},
     # {'name': 'Err',      'regex':  r' /Error/           contained containedin=deniteSource__LocationListPosition'},
     # {'name': 'Warning',  'regex':  r' /Warning/         contained containedin=deniteSource__LocationListPosition'},
 ]
