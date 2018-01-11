@@ -8,6 +8,7 @@
 (C) 2017-12-01 Proper syntax highlighting for @rhs in. @viml id:1
 (C) 2017-12-02 Add @help action? id:4
 (C) 2017-12-13 Add Mappings/default_mappings to search default mappings. id:6
+(C) 2018-01-11 Add window-local highlights for @syntax source. id:13
 
 x 2017-12-04 (B) 2017-12-03 Split by every other line for @verbose
 x 2017-12-04 (B) 2017-12-02 Remove `<>` brackets from @rhs of mappings? notes:unnecessary

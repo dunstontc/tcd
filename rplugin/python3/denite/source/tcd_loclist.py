@@ -101,7 +101,7 @@ SYNTAX_PATTERNS = [
     {'name': 'Num',      'regex':  r' /\d/              contained'},
     {'name': 'String',   'regex':  r' /\s".*"/          contained'},
     {'name': 'String',   'regex':  r" /\s'.*'/          contained"},
-    {'name': 'Err',      'regex':  r' /\v\s[DEFW]\d+/   contained'},
+    {'name': 'Err',      'regex':  r' /\v(\s|\()@<=[DEFUW]\d+/  contained'},
     # {'name': 'Err',     'regex':  r' /\v([A-Z][a-z]+)+Error.*/ contained'},
     # {'name': 'Err',      'regex':  r' /Error/           contained containedin=deniteSource__LocationListPosition'},
     # {'name': 'Warning',  'regex':  r' /Warning/         contained containedin=deniteSource__LocationListPosition'},
