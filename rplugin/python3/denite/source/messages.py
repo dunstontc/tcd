@@ -8,34 +8,6 @@
 
 from .base import Base
 
-SYNTAX_GROUPS = [
-    {'name': 'deniteSource__Messages',         'link': 'Normal'   },
-    {'name': 'deniteSource__Messages_Noise',   'link': 'Comment'  },
-    {'name': 'deniteSource__Messages_Origin',  'link': 'Comment'  },
-    {'name': 'deniteSource__Messages_String',  'link': 'String'   },
-    {'name': 'deniteSource__Messages_Path',    'link': 'Directory'},
-    {'name': 'deniteSource__Messages_Command', 'link': 'PreProc'  },
-    {'name': 'deniteSource__Messages_Err',     'link': 'Error'    },
-    {'name': 'deniteSource__Messages_Num',     'link': 'Number'   },
-]
-
-SYNTAX_PATTERNS = [
-    {'name': 'Noise',   'regex':  r' /\( -- \)/                 contained'},
-    {'name': 'Noise',   'regex':  r' /\s\{2}\(File\)/           contained'},
-    {'name': 'Origin',  'regex':  r' /^\s(.*)\s/                contained'},
-    {'name': 'Origin',  'regex':  r' /^\s\+\d\+\|\s\[\S\+\]\s/  contained'},
-    {'name': 'String',  'regex':  r" /\%(\[\)\@<='.*'\%(]\)\@=/ contained"},
-    {'name': 'String',  'regex':  r' /\s".*"/                   contained'},
-    {'name': 'String',  'regex':  r" /\s'.*'/                   contained"},
-    {'name': 'Path',    'regex':  r' /\s"\/.*"/                 contained'},
-    # {'name': 'Path',    'regex':  r' /\d\+\(L\|C\)/             contained contains=deniteSource__Messages_Num'},
-    {'name': 'Command', 'regex':  r' /\s:\w*\s\ze/              contained'},
-    {'name': 'Command', 'regex':  r' /\s:\w*$/                  contained'},
-    {'name': 'Err',     'regex':  r' /\s[DEFW]\d\+/             contained'},
-    {'name': 'Err',     'regex':  r' /\v([A-Z][a-z]+)+Error.*/  contained'},
-    {'name': 'Num',     'regex':  r' /\d/                       contained'},
-]
-
 
 class Source(Base):
     """Make it easier to see our messages."""
@@ -65,16 +37,47 @@ class Source(Base):
                 # candidates.append({'word': str(context['msg_count'])})
         return candidates
 
-    def define_syntax(self):
-        """Define Vim regular expressions for syntax highlighting."""
-        items = [x['name'] for x in SYNTAX_GROUPS]
-        self.vim.command(r'syntax match deniteSource__Messages /^.*$/ '
-                         f"containedin={self.syntax_name} contains={','.join(items)}")
-        for pattern in SYNTAX_PATTERNS:
-            self.vim.command(f"syntax match {self.syntax_name}_{pattern['name']} {pattern['regex']}")
-
     def highlight(self):
         """Link highlight groups to existing attributes."""
         for match in SYNTAX_GROUPS:
-            self.vim.command(f'highlight default link {match["name"]} {match["link"]}')
+            self.vim.command(f'hi default link {match["name"]} {match["link"]}')
 
+    def define_syntax(self):
+        """Define Vim regular expressions for syntax highlighting."""
+        items = [x['name'] for x in SYNTAX_GROUPS]
+        self.vim.command(r'syn match deniteSource__Messages /^.*$/ '
+                         f"containedin={self.syntax_name} contains={','.join(items)}")
+        for pattern in SYNTAX_PATTERNS:
+            self.vim.command(f"syn match {self.syntax_name}_{pattern['name']} {pattern['regex']}")
+            self.vim.command(r"syn region deniteSource__Messages_String start=+'+ end=+'+")
+            self.vim.command(r'syn region deniteSource__Messages_String start=+"+ end=+"+')
+            self.vim.command(r'syn region deniteSource__Messages_String start=+`+ end=+`+')
+
+
+SYNTAX_GROUPS = [
+    {'name': 'deniteSource__Messages',         'link': 'Normal'   },
+    {'name': 'deniteSource__Messages_Noise',   'link': 'Comment'  },
+    {'name': 'deniteSource__Messages_Origin',  'link': 'Comment'  },
+    {'name': 'deniteSource__Messages_String',  'link': 'String'   },
+    {'name': 'deniteSource__Messages_Path',    'link': 'Directory'},
+    {'name': 'deniteSource__Messages_Command', 'link': 'Type'  },
+    {'name': 'deniteSource__Messages_Err',     'link': 'Error'    },
+    {'name': 'deniteSource__Messages_Num',     'link': 'Number'   },
+]
+
+SYNTAX_PATTERNS = [
+    {'name': 'Noise',   'regex':  r' /\( -- \)/                 contained'},
+    {'name': 'Noise',   'regex':  r' /\s\s\(File\)/             contained'},
+    {'name': 'Noise',   'regex':  r' /\zs│\ze/                  contained'},
+    # {'name': 'Origin',  'regex':  r' /^\s\+\d\+│\s\[\S\+\]\s/  contained contains=deniteSource__Messages_Noise,deniteSource__Messages_Num'},
+    {'name': 'Origin',  'regex':  r' /^\s\+\d\+│\s\[\S\+\]\s/  contained contains=deniteSource__Messages_Noise'},
+    {'name': 'Path',    'regex':  r' /\s"\/.*"/                 contained'},
+    {'name': 'Path',    'regex':  r' /\d\+\(L\|C\)/             contained contains=deniteSource__Messages_Num'},
+    {'name': 'Command', 'regex':  r' /\s:\w*\s\ze/              contained'},
+    {'name': 'Command', 'regex':  r' /\[W\]/                    contained'},
+    {'name': 'Err',     'regex':  r' /\s[DEFW]\d\+/             contained'},
+    {'name': 'Err',     'regex':  r' /WARNING:/                 contained'},
+    {'name': 'Err',     'regex':  r' /\v([A-Z][a-z]+)+Error.*/  contained contains=deniteSource__Messages_String'},
+    {'name': 'Num',     'regex':  r' /\d/                       contained'},
+    {'name': 'Num',     'regex':  r' /\d\+[CL]/                 contained'},
+]

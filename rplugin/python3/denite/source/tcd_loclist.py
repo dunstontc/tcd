@@ -35,7 +35,8 @@ class Source(Base):
         if len(context['__bufname']) == 0:
             word = val['text']
         else:
-            word = f"{context['__filename']}  {pos:<6} | {val['text']}"
+            # word = f"{context['__filename']}  {pos:<6} | {val['text']}"
+            word = f"{context['__filename']}  {pos:<6} │ {val['text']}"
 
         return {
             'word': word,
@@ -94,13 +95,14 @@ SYNTAX_GROUPS = [
 SYNTAX_PATTERNS = [
     {'name': 'Header',   'regex':  r' /\v^.*\|\d.{-}\|/ contained containedin= deniteSource__LocationList'},
     {'name': 'Noise',    'regex':  r' /\( -- \)/        contained'},
-    {'name': 'Noise',    'regex':  r' /\(|\)/           contained'},
-    {'name': 'Noise',    'regex':  r' /\(:\)/           contained containedin=deniteSource__LocationListPosition'},
-    {'name': 'Position', 'regex':  r' /\s\d\+:\d\+\s/   contained '},
-    {'name': 'File',     'regex':  r' /^\s\+\S\+\s/     contained '},
+    {'name': 'Noise',    'regex':  r' /\(│\)/           contained'},
+    {'name': 'Noise',    'regex':  r' /\(\d\)\@<=\(:\)/ contained containedin=deniteSource__LocationListPosition'},
+    {'name': 'Position', 'regex':  r' /\s\d\+:\d\+\s/   contained'},
+    {'name': 'File',     'regex':  r' /^\s\+\S\+\s/     contained'},
     {'name': 'Num',      'regex':  r' /\d/              contained'},
     {'name': 'String',   'regex':  r' /\s".*"/          contained'},
     {'name': 'String',   'regex':  r" /\s'.*'/          contained"},
+    {'name': 'String',   'regex':  r" /\s`.*`/          contained"},
     {'name': 'Err',      'regex':  r' /\v(\s|\()@<=[DEFUW]\d+/  contained'},
     # {'name': 'Err',     'regex':  r' /\v([A-Z][a-z]+)+Error.*/ contained'},
     # {'name': 'Err',      'regex':  r' /Error/           contained containedin=deniteSource__LocationListPosition'},
