@@ -35,7 +35,6 @@ class Source(Base):
         if len(context['__bufname']) == 0:
             word = val['text']
         else:
-            # word = f"{context['__filename']}  {pos:<6} | {val['text']}"
             word = f"{context['__filename']}  {pos:<6} │ {val['text']}"
 
         return {
@@ -60,26 +59,26 @@ class Source(Base):
         for match in SYNTAX_GROUPS:
             self.vim.command(f'highlight default link {match["name"]} {match["link"]}')
 
-    def define_syntax(self):
-        """Define Vim regular expressions for syntax highlighting."""
-        self.vim.command(r'syntax match deniteSource__LocationList /^.*$/ containedin=' + self.syntax_name + ' contains='
-                         r'deniteSource__LocationListPosition,'
-                         r'deniteSource__LocationListString,'
-                         r'deniteSource__LocationListNoise,'
-                         r'deniteSource__LocationListFile,'
-                         r'deniteSource__LocationListNum,'
-                         r'deniteSource__LocationListErr,'
-                         r'deniteSource__LocationListWarning')
-        for pattern in SYNTAX_PATTERNS:
-            self.vim.command(f"syntax match {self.syntax_name}{pattern['name']} {pattern['regex']}")
-
     # def define_syntax(self):
     #     """Define Vim regular expressions for syntax highlighting."""
-    #     items = [x['name'] for x in SYNTAX_GROUPS]
-    #     self.vim.command(r'syntax match deniteSource__LocationList /^.*$/ '
-    #                      f"containedin={self.syntax_name} contains={','.join(items)}")
+    #     self.vim.command(r'syntax match deniteSource__LocationList /^.*$/ containedin=' + self.syntax_name + ' contains='
+    #                      r'deniteSource__LocationListPosition,'
+    #                      r'deniteSource__LocationListString,'
+    #                      r'deniteSource__LocationListNoise,'
+    #                      r'deniteSource__LocationListFile,'
+    #                      r'deniteSource__LocationListNum,'
+    #                      r'deniteSource__LocationListErr,'
+    #                      r'deniteSource__LocationListWarning')
     #     for pattern in SYNTAX_PATTERNS:
-    #         self.vim.command(f"syntax match {self.syntax_name}_{pattern['name']} {pattern['regex']}")
+    #         self.vim.command(f"syntax match {self.syntax_name}{pattern['name']} {pattern['regex']}")
+
+    def define_syntax(self):
+        """Define Vim regular expressions for syntax highlighting."""
+        items = [x['name'] for x in SYNTAX_GROUPS]
+        self.vim.command(r'syntax match deniteSource__LocationList /^.*$/ '
+                         f"containedin={self.syntax_name} contains={','.join(items)}")
+        for pattern in SYNTAX_PATTERNS:
+            self.vim.command(f"syntax match {self.syntax_name}_{pattern['name']} {pattern['regex']}")
 
 SYNTAX_GROUPS = [
     {'name': 'deniteSource__LocationListNoise',    'link':  'Comment'},
