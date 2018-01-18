@@ -59,26 +59,26 @@ class Source(Base):
         for match in SYNTAX_GROUPS:
             self.vim.command(f'highlight default link {match["name"]} {match["link"]}')
 
-    # def define_syntax(self):
-    #     """Define Vim regular expressions for syntax highlighting."""
-    #     self.vim.command(r'syntax match deniteSource__LocationList /^.*$/ containedin=' + self.syntax_name + ' contains='
-    #                      r'deniteSource__LocationListPosition,'
-    #                      r'deniteSource__LocationListString,'
-    #                      r'deniteSource__LocationListNoise,'
-    #                      r'deniteSource__LocationListFile,'
-    #                      r'deniteSource__LocationListNum,'
-    #                      r'deniteSource__LocationListErr,'
-    #                      r'deniteSource__LocationListWarning')
-    #     for pattern in SYNTAX_PATTERNS:
-    #         self.vim.command(f"syntax match {self.syntax_name}{pattern['name']} {pattern['regex']}")
-
     def define_syntax(self):
         """Define Vim regular expressions for syntax highlighting."""
-        items = [x['name'] for x in SYNTAX_GROUPS]
-        self.vim.command(r'syntax match deniteSource__LocationList /^.*$/ '
-                         f"containedin={self.syntax_name} contains={','.join(items)}")
+        self.vim.command(r'syntax match deniteSource__LocationList /^.*$/ containedin=' + self.syntax_name + ' contains='
+                         r'deniteSource__LocationListPosition,'
+                         r'deniteSource__LocationListString,'
+                         r'deniteSource__LocationListNoise,'
+                         r'deniteSource__LocationListFile,'
+                         r'deniteSource__LocationListNum,'
+                         r'deniteSource__LocationListErr,'
+                         r'deniteSource__LocationListWarning')
         for pattern in SYNTAX_PATTERNS:
-            self.vim.command(f"syntax match {self.syntax_name}_{pattern['name']} {pattern['regex']}")
+            self.vim.command(f"syntax match {self.syntax_name}{pattern['name']} {pattern['regex']}")
+
+    # def define_syntax(self):
+    #     """Define Vim regular expressions for syntax highlighting."""
+    #     items = [x['name'] for x in SYNTAX_GROUPS]
+    #     self.vim.command(r'syntax match deniteSource__LocationList /^.*$/ '
+    #                      f"containedin={self.syntax_name} contains={','.join(items)}")
+    #     for pattern in SYNTAX_PATTERNS:
+    #         self.vim.command(f"syntax match {self.syntax_name}_{pattern['name']} {pattern['regex']}")
 
 SYNTAX_GROUPS = [
     {'name': 'deniteSource__LocationListNoise',    'link':  'Comment'},
@@ -103,8 +103,20 @@ SYNTAX_PATTERNS = [
     {'name': 'String',   'regex':  r" /\s'.*'/          contained"},
     {'name': 'String',   'regex':  r" /\s`.*`/          contained"},
     {'name': 'Err',      'regex':  r' /\v(\s|\()@<=[DEFUW]\d+/  contained'},
+    {'name': 'Err',      'regex':  r' /\v(\s|\()@<=CS\d+/  contained'},
     # {'name': 'Err',     'regex':  r' /\v([A-Z][a-z]+)+Error.*/ contained'},
+    {'name': 'Warning',      'regex':  r' /\((\)\@<=\w\+\()$\)\@=/  contained'},
     # {'name': 'Err',      'regex':  r' /Error/           contained containedin=deniteSource__LocationListPosition'},
     # {'name': 'Warning',  'regex':  r' /Warning/         contained containedin=deniteSource__LocationListPosition'},
 ]
 
+#  tcd_loclist.py  11:1   │ E302 expected 2 blank lines, found 1 (errcheck)
+#  tcd_loclist.py  11:1   │ D101 Missing docstring in public class (errcheck)
+#  tcd_loclist.py  13:1   │ D107 Missing docstring in __init__ (errcheck)
+#  tcd_loclist.py  21:1   │ D102 Missing docstring in public method (errcheck) (errcheck)
+#  tcd_loclist.py  27:1   │ D102 Missing docstring in public method
+#  tcd_loclist.py  28:9   │ F841 local variable 'type_str' is assigned to but never used
+#  tcd_loclist.py  46:13  │ E123 closing bracket does not match indentation of opening bracket's line
+#  tcd_loclist.py  48:1   │ D102 Missing docstring in public method
+#  tcd_loclist.py  64:121 │ E501 line too long (121 > 120 characters)
+#  tcd_loclist.py  83:1   │ E305 expected 2 blank lines after class or function definition, found 1
