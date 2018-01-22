@@ -1,0 +1,528 @@
+{
+  "apiItems": [
+    {
+      "displayName": "Microsoft.CSharp",
+      "description": "The Microsoft.CSharp namespace contains classes that support compilation and code generation using the C# language."
+    },
+    {
+      "displayName": "Microsoft.CSharp.RuntimeBinder",
+      "description": "The Microsoft.CSharp.RuntimeBinder namespace provides classes and interfaces that support interoperation between Dynamic Language Runtime and C#."
+    },
+    {
+      "displayName": "Microsoft.SqlServer.Server",
+      "description": "The Microsoft.SqlServer.Server namespace contains classes, interfaces, and enumerations that are specific to the integration of the Microsoft .NET Framework common language runtime (CLR) into Microsoft SQL Server, and the SQL Server database engine process execution environment."
+    },
+    {
+      "displayName": "Microsoft.VisualBasic",
+      "description": "The Microsoft.VisualBasic namespace contains types that support the Visual Basic Runtime in Visual Basic."
+    },
+    {
+      "displayName": "Microsoft.VisualBasic.CompilerServices",
+      "description": "The Microsoft.VisualBasic.CompilerServices namespace contains internal-use only types that support the Visual Basic compiler."
+    },
+    {
+      "displayName": "Microsoft.Win32",
+      "description": "The Microsoft.Win32 namespace provides two types of classes: those that handle events raised by the operating system and those that manipulate the system registry."
+    },
+    {
+      "displayName": "Microsoft.Win32.SafeHandles",
+      "description": "The Microsoft.Win32.SafeHandles namespace contains classes that are abstract derivations of safe handle classes that provide common functionality supporting file and operating system handles."
+    },
+    {
+      "displayName": "System",
+      "description": "The System namespace contains fundamental classes and base classes that define commonly-used value and reference data types, events and event handlers, interfaces, attributes, and processing exceptions."
+    },
+    {
+      "displayName": "System.Buffers",
+      "description": "The System.Buffers namespace contains the ArrayPool{T} class, which represents a shared resource pool of resusable instances of type T[]."
+    },
+    {
+      "displayName": "System.CodeDom",
+      "description": "The System.CodeDom namespace contains classes that can be used to represent the elements and structure of a source code document. The classes in this namespace can be used to model the structure of a source code document that can be output as source code in a supported language using the functionality provided by the System.CodeDom.Compiler namespace."
+    },
+    {
+      "displayName": "System.CodeDom.Compiler",
+      "description": "The System.CodeDom.Compiler namespace contains types for managing the generation and compilation of source code in supported programming languages. Code generators can each produce source code in a particular programming language based on the structure of Code Document Object Model (CodeDOM) source code models consisting of elements provided by the System.CodeDom namespace."
+    },
+    {
+      "displayName": "System.Collections",
+      "description": "The System.Collections namespace contains interfaces and classes that define various collections of objects, such as lists, queues, bit arrays, hash tables and dictionaries."
+    },
+    {
+      "displayName": "System.Collections.Concurrent",
+      "description": "The `System.Collections.Concurrent` namespace provides several thread-safe collection classes that should be used in place of the corresponding types in the System.Collections and System.Collections.Generic namespaces whenever multiple threads are accessing the collection concurrently.  \n  \n However, members accessed through one of the interfaces the current collections implement, including extension methods, are not guaranteed to be thread safe and may need to be synchronized by the caller."
+    },
+    {
+      "displayName": "System.Collections.Generic",
+      "description": "The System.Collections.Generic namespace contains interfaces and classes that define generic collections, which allow users to create strongly typed collections that provide better type safety and performance than non-generic strongly typed collections."
+    },
+    {
+      "displayName": "System.Collections.Immutable",
+      "description": "The System.Collections.Immutable namespace contains interfaces and classes that define immutable collections. These classes are supported starting with [!INCLUDE[net_v45](~/includes/net-v45-md.md)]. Use them to build apps that target the desktop, [!INCLUDE[win8_appstore_long](~/includes/win8-appstore-long-md.md)], [!INCLUDE[net_portable](~/includes/net-portable-md.md)] and Windows Phone 8."
+    },
+    {
+      "displayName": "System.Collections.ObjectModel",
+      "description": "The System.Collections.ObjectModel namespace contains classes that can be used as collections in the object model of a reusable library. Use these classes when properties or methods return collections."
+    },
+    {
+      "displayName": "System.Collections.Specialized",
+      "description": "The System.Collections.Specialized namespace contains specialized and strongly-typed collections; for example, a linked list dictionary, a bit vector, and collections that contain only strings."
+    },
+    {
+      "displayName": "System.ComponentModel",
+      "description": "The System.ComponentModel namespace provides classes that are used to implement the run-time and design-time behavior of components and controls. This namespace includes the base classes and interfaces for implementing attributes and type converters, binding to data sources, and licensing components."
+    },
+    {
+      "displayName": "System.ComponentModel.DataAnnotations",
+      "description": "The System.ComponentModel.DataAnnotations namespace provides attribute classes that are used to define metadata for ASP.NET MVC and ASP.NET data controls."
+    },
+    {
+      "displayName": "System.ComponentModel.DataAnnotations.Schema",
+      "description": "The System.ComponentModel.DataAnnotations.Schema namespace provides support for attribute classes that are used to define metadata for ASP.NET MVC and ASP.NET data controls."
+    },
+    {
+      "displayName": "System.ComponentModel.Design",
+      "description": "The System.ComponentModel.Design namespace contains classes that developers can use to build custom design-time behavior for components and user interfaces for configuring components at design time. The design time environment provides systems that enable developers to arrange components and configure their properties. Some components may require specific design-time only behavior to function properly in a design time environment. It may also be valuable to provide custom user interfaces which assist developers in configuring components or the values of complex data types. The classes and interfaces defined within this namespace can be used to build design-time behavior for components, access design-time services, and implement customized design-time configuration interfaces."
+    },
+    {
+      "displayName": "System.ComponentModel.Design.Serialization",
+      "description": "The System.ComponentModel.Design.Serialization namespace provides types that support customization and control of serialization at design time."
+    },
+    {
+      "displayName": "System.Composition",
+      "description": "The System.Composition namespace contains classes for creating and specifying export attributes, retrieving exports from a composition, configuring import attributes, and for specifying how parts interact during composition."
+    },
+    {
+      "displayName": "System.Composition.Convention",
+      "description": "The System.Composition.Convention namespace contains classes that represent convention builders for constructing rules used to configure CLR objects as MEF parts."
+    },
+    {
+      "displayName": "System.Composition.Hosting",
+      "description": "The System.Composition.Hosting namespace contains classes for building and configuring a composition container and for reporting exceptions from a failed composition."
+    },
+    {
+      "displayName": "System.Composition.Hosting.Core",
+      "description": "The System.Composition.Hosting.Core namespace contains classes that represent core functionality of the composition engine, including composition operations, contracts, part dependencies, export descriptions, and the lifetime context of a shared part that governs how it can be disposed."
+    },
+    {
+      "displayName": "System.Configuration",
+      "description": "The System.Configuration namespace contains the types that provide the programming model for handling configuration data."
+    },
+    {
+      "displayName": "System.Configuration.Assemblies",
+      "description": "The System.Configuration.Assemblies namespace contains classes that are used to configure an assembly."
+    },
+    {
+      "displayName": "System.Configuration.Internal",
+      "description": "The System.Configuration.Internal namespace contains configuration types that are intended for internal use only."
+    },
+    {
+      "displayName": "System.Configuration.Provider",
+      "description": "The System.Configuration.Provider namespace contains the base classes shared by both server and client applications to support a pluggable model to easily add or remove functionality."
+    },
+    {
+      "displayName": "System.Data",
+      "description": "The System.Data namespace provides access to classes that represent the ADO.NET architecture. ADO.NET lets you build components that efficiently manage data from multiple data sources."
+    },
+    {
+      "displayName": "System.Data.Common",
+      "description": "The System.Data.Common namespace contains classes shared by the .NET Framework data providers."
+    },
+    {
+      "displayName": "System.Data.Odbc",
+      "description": "The System.Data.Odbc namespace is the .NET Framework Data Provider for ODBC."
+    },
+    {
+      "displayName": "System.Data.OleDb",
+      "description": "The System.Data.OleDb namespace is the.NET Framework Data Provider for OLE DB."
+    },
+    {
+      "displayName": "System.Data.OracleClient",
+      "description": "The System.Data.OracleClient namespace is the .NET Framework Data Provider for Oracle."
+    },
+    {
+      "displayName": "System.Data.SqlClient",
+      "description": "The System.Data.SqlClient namespace is the .NET Data Provider for SQL Server."
+    },
+    {
+      "displayName": "System.Data.SqlTypes",
+      "description": "The System.Data.SqlTypes namespace provides classes for native data types in SQL Server. These classes provide a safer, faster alternative to the data types provided by the .NET Framework common language runtime (CLR). Using the classes in this namespace helps prevent type conversion errors caused by loss of precision. Because other data types are converted to and from **SqlTypes** behind the scenes, explicitly creating and using objects within this namespace also yields faster code."
+    },
+    {
+      "displayName": "System.Diagnostics",
+      "description": "The System.Diagnostics namespace provides classes that allow you to interact with system processes, event logs, and performance counters."
+    },
+    {
+      "displayName": "System.Diagnostics.CodeAnalysis",
+      "description": "The System.Diagnostics.CodeAnalysis namespace contains classes for interaction with code analysis tools. These tools are used to analyze code for conformance to coding conventions such as naming or security rules."
+    },
+    {
+      "displayName": "System.Diagnostics.Contracts",
+      "description": "The System.Diagnostics.Contracts namespace contains static classes for representing program contracts such as preconditions, postconditions, and invariants."
+    },
+    {
+      "displayName": "System.Diagnostics.SymbolStore",
+      "description": "The System.Diagnostics.SymbolStore namespace provides classes that allow you to read and write debug symbol information, such as source line to Microsoft intermediate language (MSIL) maps. Compilers targeting the.NET Framework can store the debug symbol information into programmer's database (PDB) files. Debuggers and code profiler tools can read the debug symbol information at run time."
+    },
+    {
+      "displayName": "System.Diagnostics.Tracing",
+      "description": "The System.Diagnostics.Tracing namespace provides types and members that enable you to create strongly typed events to be captured by event tracing for Windows (ETW)."
+    },
+    {
+      "displayName": "System.DirectoryServices",
+      "description": "The System.DirectoryServices namespace provides easy access to Active Directory Domain Services from managed code. The namespace contains two component classes, System.DirectoryServices.DirectoryEntry and System.DirectoryServices.DirectorySearcher, which use the Active Directory Services Interfaces (ADSI) technology. ADSI is the set of interfaces that Microsoft provides as a flexible tool for working with a variety of network providers. ADSI gives the administrator the ability to locate and manage resources on a network with relative ease, regardless of the size of the network."
+    },
+    {
+      "displayName": "System.DirectoryServices.AccountManagement",
+      "description": "The System.DirectoryServices.AccountManagement namespace provides uniform access and manipulation of user, computer, and group security principals across the multiple principal stores: Active Directory Domain Services (AD DS), Active Directory Lightweight Directory Services (AD LDS), and Machine SAM (MSAM). System.DirectoryServices.AccountManagement manages directory objects independent of the System.DirectoryServices namespace."
+    },
+    {
+      "displayName": "System.DirectoryServices.ActiveDirectory",
+      "description": "The System.DirectoryServices.ActiveDirectory namespace provides a high level abstraction object model that builds around Microsoft Active Directory services tasks. The Active Directory service concepts such as forest, domain, site, subnet, partition, and schema are part of the object model."
+    },
+    {
+      "displayName": "System.DirectoryServices.Protocols",
+      "description": "The System.DirectoryServices.Protocols namespace provides the methods defined in the Lightweight Directory Access Protocol (LDAP) version 3 (V3) and Directory Services Markup Language (DSML) version 2.0 (V2) standards."
+    },
+    {
+      "displayName": "System.Drawing",
+      "description": "The System.Drawing namespace provides access to GDI+ basic graphics functionality. More advanced functionality is provided in the System.Drawing.Drawing2D, System.Drawing.Imaging, and System.Drawing.Text namespaces."
+    },
+    {
+      "displayName": "System.Drawing.Printing",
+      "description": "The System.Drawing.Printing namespace provides print-related services for Windows Forms applications."
+    },
+    {
+      "displayName": "System.Dynamic",
+      "description": "The System.Dynamic namespace provides classes and interfaces that support Dynamic Language Runtime."
+    },
+    {
+      "displayName": "System.Globalization",
+      "description": "The System.Globalization namespace contains classes that define culture-related information, including language, country/region, calendars in use, format patterns for dates, currency, and numbers, and sort order for strings. These classes are useful for writing globalized (internationalized) applications. Classes such as System.Globalization.StringInfo and System.Globalization.TextInfo provide advanced globalization functionalities, including surrogate support and text element processing."
+    },
+    {
+      "displayName": "System.IO",
+      "description": "The System.IO namespace contains types that allow reading and writing to files and data streams, and types that provide basic file and directory support."
+    },
+    {
+      "displayName": "System.IO.Compression",
+      "description": "The System.IO.Compression namespace contains classes that provide basic compression and decompression services for streams."
+    },
+    {
+      "displayName": "System.IO.IsolatedStorage",
+      "description": "The System.IO.IsolatedStorage namespace contains types that allow the creation and use of isolated stores. With these stores, you can read and write data that less trusted code cannot access and prevent the exposure of sensitive information that can be saved elsewhere on the file system. Data is stored in compartments that are isolated by the current user and by the assembly in which the code exists. Additionally, data can be isolated by domain. Roaming profiles can be used in conjunction with isolated storage so isolated stores will travel with the user's profile. The System.IO.IsolatedStorage.IsolatedStorageScope enumeration indicates different types of isolation. For more information about when to use isolated storage, see [Isolated Storage](~/docs/standard/io/isolated-storage.md)."
+    },
+    {
+      "displayName": "System.IO.MemoryMappedFiles",
+      "description": "The System.IO.MemoryMappedFiles namespace provides classes for using a memory-mapped file, which maps the contents of a file to an application’s logical address space."
+    },
+    {
+      "displayName": "System.IO.Packaging",
+      "description": "Provides classes that support storage of multiple data objects in a single container."
+    },
+    {
+      "displayName": "System.IO.Pipes",
+      "description": "The System.IO.Pipes namespace contains types that provide a means for interprocess communication through anonymous and/or named pipes."
+    },
+    {
+      "displayName": "System.IO.Ports",
+      "description": "The System.IO.Ports namespace contains classes for controlling serial ports. The most important class, System.IO.Ports.SerialPort, provides a framework for synchronous and event-driven I/O, access to pin and break states, and access to serial driver properties. It can be used to wrap System.IO.Stream objects, allowing the serial port to be accessed by classes that use streams."
+    },
+    {
+      "displayName": "System.IdentityModel.Selectors",
+      "description": "The System.IdentityModel.Selectors namespace contains classes that implement authentication in the Windows Communication Foundation (WCF) claims-based identity model.  \n  \n Beginning with .NET Framework 4.5 and the integration of Windows Identity Foundation (WIF) into the .NET Framework, the WCF claims-based identity model has been superseded by WIF. WIF provides a claims-based identity object model that can be used to provide authentication and authorization across several Microsoft product stacks, including the CLR, WCF, and ASP.NET. The WIF classes that represent security tokens and that are used to process security tokens are contained in the System.IdentityModel.Tokens namespace; for example, System.IdentityModel.Tokens.SecurityToken and System.IdentityModel.Tokens.SecurityTokenHandler. Beginning with .NET 4.5, the classes in the System.IdentityModel.Tokens namespace should be used instead of those in the System.IdentityModel.Selectors namespace."
+    },
+    {
+      "displayName": "System.Json",
+      "description": ""
+    },
+    {
+      "displayName": "System.Linq",
+      "description": "The System.Linq namespace provides classes and interfaces that support queries that use Language-Integrated Query (LINQ)."
+    },
+    {
+      "displayName": "System.Linq.Expressions",
+      "description": "The System.Linq.Expressions namespace contains classes, interfaces and enumerations that enable language-level code expressions to be represented as objects in the form of expression trees."
+    },
+    {
+      "displayName": "System.Net",
+      "description": "The System.Net namespace provides a simple programming interface for many of the protocols used on networks today. The System.Net.WebRequest and System.Net.WebResponse classes form the basis of what are called pluggable protocols, an implementation of network services that enables you to develop applications that use Internet resources without worrying about the specific details of the individual protocols.  \n  \n Classes in the System.Net namespace can be used to develop Windows Store apps or desktop apps. When used in a Windows Store app, classes in the System.Net namespace are affected by network isolation feature, part of the application security model used by the Windows Developer Preview. The appropriate network capabilities must be enabled in the app manifest for a Windows Store app for the system to allow network access by a Windows Store app. For more information, see the [Network Isolation for Windows Store Apps](~/docs/framework/network-programming/network-isolation-for-windows-store-apps.md)."
+    },
+    {
+      "displayName": "System.Net.Cache",
+      "description": "The System.Net.Cache namespace defines the types and enumerations used to define cache policies for resources obtained using the System.Net.WebRequest and System.Net.HttpWebRequest classes."
+    },
+    {
+      "displayName": "System.Net.Http",
+      "description": "The System.Net.Http namespace provides a programming interface for modern HTTP applications."
+    },
+    {
+      "displayName": "System.Net.Http.Headers",
+      "description": "Provides support for collections of HTTP headers used by the System.Net.Http namespace"
+    },
+    {
+      "displayName": "System.Net.Mail",
+      "description": "The System.Net.Mail namespace contains classes used to send electronic mail to a Simple Mail Transfer Protocol (SMTP) server for delivery."
+    },
+    {
+      "displayName": "System.Net.Mime",
+      "description": "The System.Net.Mime namespace holds types that are used to represent Multipurpose Internet Mail Exchange (MIME) headers. These types are used with the types in the System.Net.Mail namespace to specify Content-Type, Content-Disposition and Content-transfer-Encoding headers when using the System.Net.Mail.SmtpClient class to send e-mail."
+    },
+    {
+      "displayName": "System.Net.NetworkInformation",
+      "description": "The System.Net.NetworkInformation namespace provides access to network traffic data, network address information, and notification of address changes for the local computer. The namespace also contains classes that implement the Ping utility. You can use System.Net.NetworkInformation.Ping and related classes to check whether a computer is reachable across the network."
+    },
+    {
+      "displayName": "System.Net.PeerToPeer",
+      "description": "The System.Net.PeerToPeer namespace provides access to peer networking functionality."
+    },
+    {
+      "displayName": "System.Net.PeerToPeer.Collaboration",
+      "description": "The System.Net.PeerToPeer.Collaboration namespace enhances System.Net.PeerToPeer networking functionality and provides capabilities for serverless managed collaboration sessions."
+    },
+    {
+      "displayName": "System.Net.Security",
+      "description": "The System.Net.Security namespace provides network streams for secure communications between hosts."
+    },
+    {
+      "displayName": "System.Net.Sockets",
+      "description": "The System.Net.Sockets namespace provides a managed implementation of the Windows Sockets (Winsock) interface for developers who need to tightly control access to the network."
+    },
+    {
+      "displayName": "System.Net.WebSockets",
+      "description": "The System.Net.WebSockets namespace provides a managed implementation of the WebSocket interface for developers."
+    },
+    {
+      "displayName": "System.Numerics",
+      "description": "The System.Numerics namespace contains numeric types that complement the numeric primitives, such as System.Byte, System.Double, and System.Int32, that are defined by .NET."
+    },
+    {
+      "displayName": "System.Reflection",
+      "description": "The System.Reflection namespace contains types that retrieve information about assemblies, modules, members, parameters, and other entities in managed code by examining their metadata. These types also can be used to manipulate instances of loaded types, for example to hook up events or to invoke methods. To dynamically create types, use the System.Reflection.Emit namespace."
+    },
+    {
+      "displayName": "System.Reflection.Context",
+      "description": "The System.Reflection.Context namespace contains classes that enable customized reflection contexts."
+    },
+    {
+      "displayName": "System.Reflection.Emit",
+      "description": "The System.Reflection.Emit namespace contains classes that allow a compiler or tool to emit metadata and Microsoft intermediate language (MSIL) and optionally generate a PE file on disk. The primary clients of these classes are script engines and compilers."
+    },
+    {
+      "displayName": "System.Reflection.Metadata",
+      "description": "The System.Reflection.Metadata namespace contains types that represent metadata information about assemblies, modules, members, parameters, and other entities in managed code."
+    },
+    {
+      "displayName": "System.Reflection.Metadata.Ecma335",
+      "description": ""
+    },
+    {
+      "displayName": "System.Reflection.PortableExecutable",
+      "description": ""
+    },
+    {
+      "displayName": "System.Resources",
+      "description": "The System.Resources namespace provides classes and interfaces that allow developers to create, store, and manage various culture-specific resources used in an application. One of the most important classes of the System.Resources namespace is the System.Resources.ResourceManager class."
+    },
+    {
+      "displayName": "System.Runtime",
+      "description": "The System.Runtime namespace contains advanced types that support diverse namespaces such as the `System`, `Runtime`, and the `Security` namespaces."
+    },
+    {
+      "displayName": "System.Runtime.CompilerServices",
+      "description": "The System.Runtime.CompilerServices namespace provides functionality for compiler writers who use managed code to specify attributes in metadata that affect the run-time behavior of the common language runtime."
+    },
+    {
+      "displayName": "System.Runtime.ConstrainedExecution",
+      "description": "The System.Runtime.ConstrainedExecution namespace defines a set of types that enumerate and define a contract for reliability between the author of some code, and the developers who take a dependency on that code. The types in the System.Runtime.ConstrainedExecution namespace are intended for use in constrained execution regions (CERs)."
+    },
+    {
+      "displayName": "System.Runtime.ExceptionServices",
+      "description": "The System.Runtime.ExceptionServices namespace provides classes for advanced exception handling."
+    },
+    {
+      "displayName": "System.Runtime.InteropServices",
+      "description": "The System.Runtime.InteropServices namespace provides a wide variety of members that support COM interop and platform invoke services. If you are unfamiliar with these services, see [Interoperating with Unmanaged Code](~/docs/framework/interop/index.md)."
+    },
+    {
+      "displayName": "System.Runtime.InteropServices.ComTypes",
+      "description": "The System.Runtime.InteropServices.ComTypes namespace contains managed types that correspond to types used by COM interop."
+    },
+    {
+      "displayName": "System.Runtime.InteropServices.WindowsRuntime",
+      "description": "The System.Runtime.InteropServices.WindowsRuntime namespace contains classes that support interoperation between managed code and the Windows Runtime, and that enable the creation of Windows Runtime types with managed code."
+    },
+    {
+      "displayName": "System.Runtime.Loader",
+      "description": ""
+    },
+    {
+      "displayName": "System.Runtime.Serialization",
+      "description": "The System.Runtime.Serialization namespace contains classes that can be used for serializing and deserializing objects. Serialization is the process of converting an object or a graph of objects into a linear sequence of bytes for either storage or transmission to another location. Deserialization is the process of taking in stored information and recreating objects from it."
+    },
+    {
+      "displayName": "System.Runtime.Serialization.Formatters",
+      "description": "The System.Runtime.Serialization.Formatters namespace provides common enumerations, interfaces, and classes that are used by serialization formatters."
+    },
+    {
+      "displayName": "System.Runtime.Serialization.Formatters.Binary",
+      "description": "The System.Runtime.Serialization.Formatters.Binary namespace contains the System.Runtime.Serialization.Formatters.Binary.BinaryFormatter class, which can be used to serialize and deserialize objects in binary format."
+    },
+    {
+      "displayName": "System.Runtime.Serialization.Json",
+      "description": "Provides classes related to Json serialization."
+    },
+    {
+      "displayName": "System.Runtime.Versioning",
+      "description": "The System.Runtime.Versioning namespace contains advanced types that support versioning in side by side implementations of the .NET Framework."
+    },
+    {
+      "displayName": "System.Security",
+      "description": "The System.Security namespace provides the underlying structure of the common language runtime security system, including base classes for permissions."
+    },
+    {
+      "displayName": "System.Security.AccessControl",
+      "description": "The System.Security.AccessControl namespace provides programming elements that control access to and audit security-related actions on securable objects."
+    },
+    {
+      "displayName": "System.Security.Authentication",
+      "description": "The Authentication namespace provides a set of enumerations that describe the security of a connection. These enumerations include System.Security.Authentication.CipherAlgorithmType, System.Security.Authentication.ExchangeAlgorithmType, System.Security.Authentication.HashAlgorithmType, and System.Security.Authentication.SslProtocols."
+    },
+    {
+      "displayName": "System.Security.Authentication.ExtendedProtection",
+      "description": "The System.Security.Authentication.ExtendedProtection namespace provides support for authentication using extended protection for applications."
+    },
+    {
+      "displayName": "System.Security.Claims",
+      "description": "Contains classes that implement claims-based identity in the .NET Framework, including classes that represent claims, claims-based identities, and claims-based principals."
+    },
+    {
+      "displayName": "System.Security.Cryptography",
+      "description": "The System.Security.Cryptography namespace provides cryptographic services, including secure encoding and decoding of data, as well as many other operations, such as hashing, random number generation, and message authentication. For more information, see [Cryptographic Services](~/docs/standard/security/cryptographic-services.md)."
+    },
+    {
+      "displayName": "System.Security.Cryptography.Pkcs",
+      "description": "The System.Security.Cryptography.Pkcs namespace provides programming elements for Public Key Cryptography Standards (PKCS), including methods for signing data, exchanging keys, requesting certificates, public key encryption and decryption, and other security functions."
+    },
+    {
+      "displayName": "System.Security.Cryptography.X509Certificates",
+      "description": "The System.Security.Cryptography.X509Certificates namespace contains the common language runtime implementation of the Authenticode X.509 v.3 certificate. This certificate is signed with a private key that uniquely and positively identifies the holder of the certificate."
+    },
+    {
+      "displayName": "System.Security.Cryptography.Xml",
+      "description": "The System.Security.Cryptography.Xml namespace contains classes to support the creation and validation of XML digital signatures. The classes in this namespace implement the World Wide Web Consortium Recommendation, \"XML-Signature Syntax and Processing\", described at http://www.w3.org/TR/xmldsig-core/."
+    },
+    {
+      "displayName": "System.Security.Permissions",
+      "description": "The System.Security.Permissions namespace defines classes that control access to operations and resources based on policy."
+    },
+    {
+      "displayName": "System.Security.Policy",
+      "description": "The System.Security.Policy namespace contains code groups, membership conditions, and evidence. These three types of classes are used to create the rules applied by the common language runtime security policy system. Evidence classes are the input to security policy and membership conditions are the switches; together these create policy statements and determine the granted permission set. Policy levels and code groups are the structure of the policy hierarchy. Code groups are the encapsulation of a rule and are arranged hierarchically in a policy level."
+    },
+    {
+      "displayName": "System.Security.Principal",
+      "description": "The System.Security.Principal namespace defines a principal object that represents the security context under which code is running. For more information, see [Role-Based Security](~/docs/standard/security/role-based-security.md)."
+    },
+    {
+      "displayName": "System.ServiceModel",
+      "description": "Provides classes related to the service model."
+    },
+    {
+      "displayName": "System.ServiceModel.Channels",
+      "description": "Provides classes related to service model channels."
+    },
+    {
+      "displayName": "System.ServiceModel.Description",
+      "description": "Provides classes related to the service model description."
+    },
+    {
+      "displayName": "System.ServiceModel.Dispatcher",
+      "description": "Provides classes related to dispatching the service model."
+    },
+    {
+      "displayName": "System.ServiceModel.Security",
+      "description": "The System.ServiceModel.Security namespace deals with general security-related topics, for example, System.ServiceModel.Security.SecurityAlgorithmSuite."
+    },
+    {
+      "displayName": "System.ServiceModel.Security.Tokens",
+      "description": "Deals with security tokens and certificates."
+    },
+    {
+      "displayName": "System.ServiceProcess",
+      "description": "The System.ServiceProcess namespace provides classes that allow you to implement, install, and control Windows service applications. Services are long-running executables that run without a user interface. Implementing a service involves inheriting from the System.ServiceProcess.ServiceBase class and defining specific behavior to process when start, stop, pause, and continue commands are passed in, as well as custom behavior and actions to take when the system shuts down."
+    },
+    {
+      "displayName": "System.Text",
+      "description": "The System.Text namespace contains classes that represent ASCII and Unicode character encodings; abstract base classes for converting blocks of characters to and from blocks of bytes; and a helper class that manipulates and formats System.String objects without creating intermediate instances of System.String."
+    },
+    {
+      "displayName": "System.Text.Encodings.Web",
+      "description": ""
+    },
+    {
+      "displayName": "System.Text.RegularExpressions",
+      "description": "The System.Text.RegularExpressions namespace contains classes that provide access to the .NET Framework regular expression engine. The namespace provides regular expression functionality that may be used from any platform or language that runs within the Microsoft .NET Framework. In addition to the types contained in this namespace, the System.Configuration.RegexStringValidator class enables you to determine whether a particular string conforms to a regular expression pattern."
+    },
+    {
+      "displayName": "System.Text.Unicode",
+      "description": "The System.Text.Unicode namespace contains types that let you retrieve and work with named Unicode ranges."
+    },
+    {
+      "displayName": "System.Threading",
+      "description": "The System.Threading namespace provides classes and interfaces that enable multithreaded programming. In addition to classes for synchronizing thread activities and access to data (System.Threading.Mutex, System.Threading.Monitor, System.Threading.Interlocked, System.Threading.AutoResetEvent, and so on), this namespace includes a System.Threading.ThreadPool class that allows you to use a pool of system-supplied threads, and a System.Threading.Timer class that executes callback methods on thread pool threads."
+    },
+    {
+      "displayName": "System.Threading.Tasks",
+      "description": "The `System.Threading.Tasks` namespace provides types that simplify the work of writing concurrent and asynchronous code. The main types are System.Threading.Tasks.Task which represents an asynchronous operation that can be waited on and cancelled, and System.Threading.Tasks.Task`1, which is a task that can return a value. The System.Threading.Tasks.TaskFactory class provides static methods for creating and starting tasks, and the System.Threading.Tasks.TaskScheduler class provides the default thread scheduling infrastructure."
+    },
+    {
+      "displayName": "System.Threading.Tasks.Dataflow",
+      "description": "The System.Threading.Tasks.Dataflow namespace provides an actor-based programming model that supports in-process message passing for coarse-grained dataflow and pipelining tasks.  \n  \n For more information, see [Dataflow](~/docs/standard/parallel-programming/dataflow-task-parallel-library.md)."
+    },
+    {
+      "displayName": "System.Timers",
+      "description": "The System.Timers namespace provides the System.Timers.Timer component, which allows you to raise an event on a specified interval."
+    },
+    {
+      "displayName": "System.Transactions",
+      "description": "The System.Transactions namespace contains classes that allow you to write your own transactional application and resource manager. Specifically, you can create and participate in a transaction (local or distributed) with one or multiple participants."
+    },
+    {
+      "displayName": "System.Web",
+      "description": "The System.Web namespace supplies classes and interfaces that enable browser-server communication. This namespace includes the System.Web.HttpRequest class, which provides extensive information about the current HTTP request; the System.Web.HttpResponse class, which manages HTTP output to the client; and the System.Web.HttpServerUtility class, which provides access to server-side utilities and processes. System.Web also includes classes for cookie manipulation, file transfer, exception information, and output cache control."
+    },
+    {
+      "displayName": "System.Windows.Input",
+      "description": "Provides types to support the Windows Presentation Foundation (WPF) input system. This includes device abstraction classes for mouse, keyboard, and stylus devices, a common input manager class, support for commanding and custom commands, and various utility classes."
+    },
+    {
+      "displayName": "System.Xml",
+      "description": "The System.Xml namespace provides standards-based support for processing XML."
+    },
+    {
+      "displayName": "System.Xml.Linq",
+      "description": "Contains the classes for LINQ to XML. LINQ to XML is an in-memory XML programming interface that enables you to modify XML documents efficiently and easily."
+    },
+    {
+      "displayName": "System.Xml.Resolvers",
+      "description": "The System.Xml.Resolvers namespace provides support for prepopulating the cache with DTDs or XML streams."
+    },
+    {
+      "displayName": "System.Xml.Schema",
+      "description": "The System.Xml.Schema namespace contains the XML classes that provide standards-based support for XML schema definition language (XSD) schemas."
+    },
+    {
+      "displayName": "System.Xml.Serialization",
+      "description": "The System.Xml.Serialization namespace contains classes that are used to serialize objects into XML format documents or streams."
+    },
+    {
+      "displayName": "System.Xml.XPath",
+      "description": "The System.Xml.XPath namespace contains the classes that define a cursor model for navigating and editing XML information items as instances of the XQuery 1.0 and XPath 2.0 Data Model."
+    },
+    {
+      "displayName": "System.Xml.Xsl",
+      "description": "The System.Xml.Xsl namespace provides support for Extensible Stylesheet Transformation (XSLT) transforms. It supports the W3C XSL Transformations (XSLT) Version 1.0 Recommendation (www.w3.org/TR/xslt)."
+    }
+  ]
+}
