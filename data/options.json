@@ -1,10 +1,5 @@
 [
   {
-    "option": "Option:",
-    "shortname": "Shortname:",
-    "description": "Description:"
-  },
-  {
     "option": "aleph",
     "shortname": "al",
     "description": "ASCII code of the letter Aleph (Hebrew)"
