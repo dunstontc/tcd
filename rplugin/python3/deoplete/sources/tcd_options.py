@@ -25,7 +25,7 @@ class Source(Base):
     def gather_candidates(self, context):
         candidates = []
 
-        with open('/Users/clay/Projects/Vim/me/tcd/data/options.json', 'r') as fp:
+        with open('/Users/clay/Projects/Vim/tcd/data/options.json', 'r') as fp:
             try:
                 config = load(fp)
             except JSONDecodeError:
